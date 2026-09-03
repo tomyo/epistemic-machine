@@ -4,8 +4,14 @@ This repository is the **workshop** for the Epistemic Machine: the design surfac
 
 ## Roles
 
-- **Workshop (this repo, git-tracked):** design surface — the exchange bus, skills, experiments, specs, seeds/blueprints. Read: `.pi/skills/exchange-skill/SKILL.md` (bus protocol) and `.pi/extensions/exchange/index.ts` (bus transport).
-- **Machine (`.em/`, gitignored):** a live machine instance keeps its own state here, including its own internal `.git`. The workshop never versions it. Do not write to `.em/` as if it were part of the repo's source.
+- **Workshop (this repo, git-tracked):** design surface — the exchange bus, skills, experiments, specs, seeds/blueprints. Read: `.pi/skills/exchange-skill/SKILL.md` (bus protocol) and `.pi/extensions/exchange/index.ts` (bus transport). The workshop itself is not a machine.
+- **Machine (`experiments/<mission>/.em/`, gitignored):** a live machine instance keeps its own state here, including its own internal `.git`, scoped to the experiment that owns it. The workshop never versions it. Do not write to `.em/` as if it were part of the repo's source. Many machines ⇒ many `experiments/<mission>/.em/` (or later `machines/<name>/.em/`), root has no `.em/`.
+
+## Layout
+
+- `docs/missions/` — stable mission specs (CL-agreed A→G, gates, hypothesis, bus types) — one file per mission.
+- `experiments/<mission>/` — ephemeral trial for one mission; owns its machine as `experiments/<mission>/.em/` (gitignored, own `.git`). Disposable: delete folder = delete its machine.
+- `substrates/` `seeds/` `core/` — **reserved, not created** until an experiment's failure earns them (commit message must say what failure earned the promotion).
 
 ## Exchange Bus (peers)
 

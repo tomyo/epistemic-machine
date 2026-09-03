@@ -9,10 +9,13 @@ An Epistemic Machine is a persistent entity designed to maintain continuity acro
 ## Layout
 
 - `.pi/extensions/exchange/` — canonical exchange-bus extension (watches inboxes, notifies + journals; shared with peers via global symlink)
-- `.pi/skills/exchange-skill/` — canonical bus protocol skill (filenames, packet anatomy, send/receive, journal)
-- `.em/` — **machine runtime state**, gitignored; a live machine instance keeps its own records here (incl. its own `.git`). The workshop does not version it.
+- `.pi/skills/exchange-skill/` — canonical bus protocol skill (filenames, packet anatomy, send/receive, journal, visibility boundary)
+- `docs/missions/` — stable mission specs (CL-agreed A→G, gates, hypothesis per mission)
+- `experiments/<mission>/` — ephemeral trial; each owns its scoped machine at `experiments/<mission>/.em/` (own `.git`, gitignored, disposable)
+- `substrates/` `seeds/` `core/` — reserved, not created until an experiment's failure earns them
 - `inbox/` — peer mailboxes (peers write packets here)
 - `outbox/` — symlinks to peer inboxes (writing a file here = delivering it)
+- Workshop has no `.em/` at root — many machines ⇒ many `experiments/<mission>/.em/`
 
 ## Core Questions
 

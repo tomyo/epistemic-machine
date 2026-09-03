@@ -1,5 +1,6 @@
-# Machine runtime — never versioned in the workshop
+# Machine runtime — never versioned in the workshop (scoped per-experiment)
 .em/
+**/.em/
 
 # Bus runtime plumbing (mailboxes are ephemeral, re-created by setup)
 inbox/
