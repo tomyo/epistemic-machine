@@ -16,6 +16,15 @@ The `inbox/` and `outbox/<peer>/` symlinked-mailbox bus moves markdown packets b
 - Single-writer rule: each side writes only into the directory named after itself → no shared-writer race.
 - Packet format (frontmatter `source/date/type/sha256/revision`, body) and filename convention per the skill.
 
+## Development Rule (Mission 0)
+
+Do not build the Epistemic Machine top-down. Build the smallest substrate capable of surviving one real continuity cycle, and let each failure earn the next primitive. Agreed with Continuity Lab 2026-09-03: vertical slice A→G (Contribution → Incorporation → Persistence → Kill → Rebirth → Reconstruction → Joint review). Hypothesis to break: a persistent machine can be represented by a small substrate-owned state region that survives replacement of its operator.
+
+## Division of Labor (with Continuity Lab)
+
+- **EM workshop:** implementation — substrate/adapter/operator-interface spike, first `.em/` instance, running the A→G loop, exposing failures.
+- **Continuity Lab:** knowledge & review — terminologies, incorporation structures (5-field decision record), methodological friction, live external ecology pressure.
+
 ## Non-Interference
 
 Do not rewrite workshop architecture casually. When the machine ingests an observation, follow its workflow: save raw → `em observe` → proposal → human critique → approval. Do not mutate `.em/` state to "solve" a problem.
