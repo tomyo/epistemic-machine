@@ -1,7 +1,7 @@
 # Mission 0 — First Continuity Loop
 
-**Status:** CL-agreed 2026-09-03 · A→D done (C persisted at `bd01c74`) · D→G pending
-**Packets:** vertical-slice `3df94d` → mission-0-ack (approved) → payload-selected (C017) → belief-proposal `c17cc5` → decision `f64745` (ACCEPTED)
+**Status:** ✓ CLOSED 2026-09-03 — all gates passed · A→G complete
+**Packets:** vertical-slice `3df94d` → mission-0-ack (approved) → payload-selected (C017) → belief-proposal `c17cc5` → decision `f64745` (ACCEPTED) → report `2026-09-03T17-45-reconstruction` → ack `2026-09-03T18-00-mission-0-complete-ack` (Gates 1+2+3 ✓)
 
 ---
 
@@ -28,7 +28,7 @@ Bus mailboxes `inbox/<peer>/` + `outbox/<peer>/` are the **only** shared surface
 |------|-------|--------|----------|
 | **A. Contribution** | EM operator | Observe + propose belief over bus | `belief-proposal` packet |
 | **B. Incorporation** | CL | 5-field decision: `observation / proposed_interpretation / acceptance / reason / uncertainty` + scope boundary | `decision-record` packet |
-| **C. Persistence** | EM operator | Persist accepted consequence to machine state | `experiments/mission-0/.em/mission-0/ACCEPTED-CONSEQUENCE.json` @ `bd01c74` (machine's own git) |
+| **C. Persistence** | EM operator | Persist accepted consequence to machine state | `experiments/mission-0-first-continuity-loop/.em/mission-0/ACCEPTED-CONSEQUENCE.json` @ `bd01c74` (machine's own git) |
 | **D. Kill** | — | Operator that ran A→C disappears | session terminated, no memory carries over |
 | **E. Rebirth** | fresh EM operator | Spawned on same machine state, no history | reads only its `.em/` + bus packets |
 | **F. Reconstruction** | fresh operator | Determine what consequence exists and why | proves Gate 2 |
@@ -42,11 +42,11 @@ Grounded payload (CL `payload-selected`): **C017** — unrecoverable review arti
 
 ## Gates (runnable)
 
-1. **Substrate survives kill** — after D→E, `experiments/mission-0-first-continuity-loop/.em/mission-0/ACCEPTED-CONSEQUENCE.json` exists at commit `bd01c74`, fields `proposed_interpretation + acceptance + provenance + scope_boundary` intact. Run: `verify-rebirth.ts` checks file + `git -C .em log`.
+1. **Substrate survives kill** — ✓ passed — after D→E, `experiments/mission-0-first-continuity-loop/.em/mission-0/ACCEPTED-CONSEQUENCE.json` exists at commit `bd01c74`, fields intact. Run: `node verify-rebirth.js` checks file + `git -C .em log`.
 
-2. **Fresh operator reconstructs** — delegate spawned with **no history** reads only its `.em/` + `inbox/`/`outbox/` packets (never `/var/home/tomyo/projects/continuity-lab/`), reports: CONSEQUENCE (quoted interpretation + ACCEPTED), PROVENANCE (packet filenames + `sha256 c17cc5`/`f64745` + machine commit `bd01c74`), WHY (`reason` + `uncertainty: Low`), BOUNDARY (no C017/C019 authority change, prospective only). Fails if bus-only would suffice — `.em/` must be required to prove organism-owned persistence (delegate already demonstrated this: bus reconstructs *what/why*, `.em/` proves *owned*).
+2. **Fresh operator reconstructs** — ✓ passed — delegate + `verify-rebirth.js` (no history) reads only `.em/` + `inbox/`/`outbox/` (never peer tree), reports CONSEQUENCE + PROVENANCE `c17cc5`/`f64745`/`bd01c74` + WHY `Low` + BOUNDARY. Bus alone reconstructs what/why; only `.em` proves organism-owned.
 
-3. **Joint review agrees** — CL acks our G report (`outbox/continuity-lab/<report>.md`) vs their archaeology. Closes loop.
+3. **Joint review agrees** — ✓ passed 2026-09-03T18-00 — CL `mission-0-complete-ack` confirmed consequence parity, provenance audit, boundary integrity (G report `2026-09-03T17-45-reconstruction-report.md` → ack). Closes loop.
 
 ## Bus types used
 
@@ -57,6 +57,7 @@ Grounded payload (CL `payload-selected`): **C017** — unrecoverable review arti
 - A: `outbox/continuity-lab/2026-09-03T15-48-05-belief-proposal-c017-review-provenance.md` (`sha256 c17cc5…`, file `1c250c…`)
 - B: `inbox/continuity-lab/2026-09-03T15-55-00-incorporation-decision-c017.md` (`file sha256 f64745…`, ACCEPTED with boundary)
 - C: `experiments/mission-0-first-continuity-loop/.em/mission-0/ACCEPTED-CONSEQUENCE.json` — `git -C .em log bd01c74`
+- G: `outbox/continuity-lab/2026-09-03T17-45-00-mission-0-reconstruction-report.md` (verify-rebirth → 0) → `inbox/continuity-lab/2026-09-03T18-00-00-mission-0-complete-ack.md` (CL: parity + provenance + boundary ✓)
 
 Scope boundary (carried in persisted JSON): *no authority change to C017/C019, no repair/reinterpretation, no new execution; prospective only for separately authorized future isolated checks.*
 
