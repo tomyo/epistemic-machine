@@ -1,12 +1,18 @@
-# Epistemic Machine
+# Epistemic Machine — Workshop
 
-An Epistemic Machine is a persistent entity designed to maintain continuity across time. Its state outlives the processes that operate it.
+This repository is the **workshop**: the design surface where the Epistemic Machine concept is developed, built, shared, and connected to peer projects (notably Continuity Lab).
 
-An operator may be a program, human, LLM, or collection of processes. It can activate a machine, inspect and modify its state, communicate with other machines, and then disappear.
+An Epistemic Machine is a persistent entity designed to maintain continuity across time. Its state outlives the processes that operate it. An operator may be a program, human, LLM, or collection of processes — it can activate a machine, inspect and modify its state, communicate with other machines, and then disappear.
 
 **The process is ephemeral. The machine is persistent.**
 
-This repository is an empty starting point for exploring these ideas.
+## Layout
+
+- `.pi/extensions/exchange/` — canonical exchange-bus extension (watches inboxes, notifies + journals; shared with peers via global symlink)
+- `.pi/skills/exchange-skill/` — canonical bus protocol skill (filenames, packet anatomy, send/receive, journal)
+- `.em/` — **machine runtime state**, gitignored; a live machine instance keeps its own records here (incl. its own `.git`). The workshop does not version it.
+- `inbox/` — peer mailboxes (peers write packets here)
+- `outbox/` — symlinks to peer inboxes (writing a file here = delivering it)
 
 ## Core Questions
 
@@ -16,19 +22,15 @@ How can machines maintain state, communicate, delegate work, and evolve without 
 
 ## Working Ideas
 
-The project explores:
-
-* persistent state
-* ephemeral operators
-* machine-to-machine communication
-* delegation and specialization
-* substrate-independent continuity
-* cooperation between machines
+- persistent state
+- ephemeral operators
+- machine-to-machine communication
+- delegation and specialization
+- substrate-independent continuity
+- cooperation between machines
 
 The filesystem may be useful as an initial substrate because it is simple and inspectable, but the model should not depend on it.
 
 ## Status
 
-Early development.
-
-There is no established architecture yet. The repository is intentionally empty so that its structure can emerge from experiments rather than assumptions.
+Early development. The repository is intentionally minimal so that its structure can emerge from experiments rather than assumptions.

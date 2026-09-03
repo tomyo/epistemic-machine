@@ -1,0 +1,27 @@
+# Machine runtime — never versioned in the workshop
+.em/
+
+# Bus runtime plumbing (mailboxes are ephemeral, re-created by setup)
+inbox/
+outbox/
+
+# Node/build artifacts
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# Secrets / local config
+.env
+.env.*
+*.local
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Bus journal (per-session host evidence)
+.sessions/
