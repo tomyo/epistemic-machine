@@ -23,6 +23,14 @@ repo-a/                          repo-b/
 
 In repo A, `outbox/B` is a symlink to `../B/inbox/A`. Each side writes **only into the directory named after itself**, inside the peer's tree. Each mailbox dir has exactly one writer → no shared-writer race, no lock. Symlinks are machine-local and one-time manual wiring (not scripts, not tracked).
 
+## Visibility boundary (what each side can see)
+
+Each peer owns its repository privately. **The only shared surface is the bus mailboxes** — `inbox/<peer>/` (what you receive) and `outbox/<peer>/` (what you send, a symlink to the peer's `inbox/<you>`). No peer has read access to the other's source tree, artifacts, `.em/`, or any other file except what the other explicitly sends as a packet.
+
+Even when both repos live on the same host for development (so a filesystem `read` is technically possible via the symlink target), **agents MUST NOT read the peer's files outside `inbox/`/`outbox/` to fill gaps**. If you need information about the peer's state, ask for it over the bus with a typed packet (`question`/`belief-proposal`/`spec`); the peer decides what to share per its own workflow. Bypassing the bus hides the continuity pressure the bus is meant to expose: *what must be communicated to bridge a discontinuity?*
+
+Local diagnostic inspection of the peer tree by a human maintainer is a separate, out-of-band activity — it is not part of the agent/bus protocol and must not be used to auto-answer for the peer.
+
 ## Filename convention
 
 ```
