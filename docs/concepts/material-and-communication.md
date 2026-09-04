@@ -1,6 +1,6 @@
 # Material and Communication — Concepts
 
-**Status:** conceptual baseline — complements `epistemic-machine.md` (what a machine *is*) with what *passes between things* · not an implementation spec
+**Status:** provisional — source-local workshop proposal — complements `epistemic-machine.md` (what a machine *is*) with what *passes between things* · not CL-adopted · not evidence for Seed/Store/canonical/views/internal ecology/NOSTR/transport · per CL boundary review `2026-09-04T16-13-30` · not an implementation spec
 
 This document defines the second conceptual family as a **working model**, not an ontological stack: **material → representation → envelope → transport → materialization**. NOSTR, Markdown, filesystem, Bell, and wrapping belong here — not in the machine ontology. Some cases cross categories — e.g. text can simultaneously be material, representation, protocol, human-readable record, and operator instruction — so treat the axis as `material may acquire representations, representations may be packaged for transport, transport may cross boundaries, received material may be materialized` rather than a strict hierarchy. **NOSTR is not what makes a thing an EM** — it is one possible mechanism by which a representation travels between machines.
 

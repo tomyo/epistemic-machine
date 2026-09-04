@@ -1,6 +1,6 @@
 # Filesystem Protocol — Implementation
 
-**Status:** experiment implementation — maps concepts to a filesystem substrate · provisional · refs `docs/concepts/epistemic-machine.md` + `material-and-communication.md`
+**Status:** provisional — source-local workshop proposal — maps concepts to a filesystem substrate · provisional · not CL-adopted · per CL boundary review `2026-09-04T16-13-30` · refs `docs/concepts/epistemic-machine.md` + `material-and-communication.md`
 
 > Given the abstractions above, this experiment implements a machine using a filesystem.
 > Everything here is **not a property of an EM** — it is a property of this substrate realization.
@@ -66,7 +66,7 @@ These are implementation choices for this substrate. They belong here, not in `e
 
 ## 5. What is not built yet
 
-`protocol/nostr-north.md` (layer-1 formal north), `substrates/<transport>/` (relay, http), `seeds/` `core/` `events/` `views/` `.membrane/` — all earned by failures per `AGENTS.md` and CL `2026-09-03T18-45` (earn `seeds/` first on filesystem; NOSTR only on off-host or provenance collapse). Don't create until needed.
+`protocol/nostr-north.md` (layer-1 formal north), `substrates/<transport>/` (relay, http), `seeds/` `core/` `events/` `views/` `.membrane/` — all earned by failures per `AGENTS.md` and CL `2026-09-03T18-45` (earn `seeds/` first on filesystem; NOSTR only on off-host or provenance collapse). Don't create until needed — per CL `2026-09-04T16-13-30` none is authorized under current stop gate; any exploratory local work must state discontinuity + insufficiency + falsification before CL review. Do not create `events/views/` NOSTR/Store/Oracle/internal-ecology from this conceptual split.
 
 ---
 

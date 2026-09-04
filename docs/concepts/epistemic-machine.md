@@ -1,6 +1,6 @@
 # Epistemic Machine — Concepts & Principles
 
-**Status:** stable conceptual baseline — workshop build phase · refs Mission 0 `b6b79eb` (Gates 1+2+3 ✓) — conceptually stable; implementations remain provisional (see `docs/concepts/material-and-communication.md`, `docs/protocols/filesystem.md`)
+**Status:** provisional — source-local workshop proposal · refs Mission 0 `b6b79eb` (Gates 1+2+3 ✓) — not CL-adopted · not evidence for Seed/Store/canonical/views/internal ecology/NOSTR/transport · per CL boundary review `2026-09-04T16-13-30` — implementations remain provisional (see `docs/concepts/material-and-communication.md`, `docs/protocols/filesystem.md`)
 
 > Vision source (adapted): foundations for persistent epistemic machines that can live in different environments and compose recursively.
 
@@ -60,7 +60,7 @@ Independently, **operator / cognition / capability** can occur at different plac
 * `epistemic-machine.md` (here) → what must be true for something to be an EM.
 * `material-and-communication.md` → what kinds of things can cross boundaries and how they are represented.
 * `protocols/filesystem.md` → how we currently try to realize this.
-* Seed experiment (next) → what breaks when we actually make one.
+* Seed experiment (next) → **not earned, not CL-approved; none before CL boundary review lifted** — `2026-09-04T16-13-30`. If EM explores it locally, mark exploratory with smallest discontinuity + apparatus insufficient + falsification condition; do not create `events/views/` or treat as evidence until provenance shown. Then: what breaks when we actually make one.
 
 ## 4. Principles
 
