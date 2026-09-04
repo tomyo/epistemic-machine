@@ -20,7 +20,7 @@ Its substrate is not part of its definition. A machine exists *on/in* something;
 
 **Persistence and continuity** — machine state outlives any operator. Proven by discontinuity (Kill→Rebirth), not asserted. Continuity is what survives replacement of the operator.
 
-**Sovereign region** — the place the machine owns as its own continuity. What is inside is the machine's; what is outside is environment. Sovereignty is the invariant, not "directory" or "database".
+**Sovereign region** — a bounded place within a substrate over which the machine has authority sufficient to maintain its continuity and distinguish its own state from its environment. That could be storage, but also a namespace, process boundary, physical space, cryptographic authority, database partition, or combination. Sovereignty is the invariant, not "directory" or "database", and the machine does not need to know what mechanism establishes the boundary.
 
 **Membrane** — the relationship between machine and environment. Answers: what can enter/leave, how it is represented, how operations are requested, how capabilities are exposed, how effects are acknowledged. Membrane is not filesystem, not NOSTR, not an API — it could be text, files, messages, signals, or combinations. See `material-and-communication.md` for the `representation → envelope → transport → materialization` axis that crosses it.
 
@@ -32,9 +32,37 @@ Its substrate is not part of its definition. A machine exists *on/in* something;
 
 **Interaction** — crossing the membrane via representations (see `material-and-communication.md`). The loop is `ecology → membrane → machine → membrane → ecology`, with an operator participating temporarily somewhere in it.
 
-**Recursive / fractal composition** — a machine can contain an internal ecology; an ecology can contain machines; a machine can itself be part of another machine's ecology. There is no privileged global layer. `habitat → membrane → machine → habitat → membrane → machine …` recurs relative to the entity considered. Same primitives, no fixed `layer 1/2/3`. A seed machine is the minimal instance of this — a habitat containing the machinery for persistence, communication, and attention that can spawn an internal ecology; `machine → internal transport → machine` and `machine → external transport → machine` expose the same abstraction (transport is a property of the connection between ecologies).
+**Recursive / fractal composition** — a machine can contain an internal ecology; an ecology can contain machines; a machine can itself be part of another machine's ecology. There is no privileged global layer. `habitat → membrane → machine → habitat → membrane → machine …` recurs relative to the entity considered. Same primitives, no fixed `layer 1/2/3`. Transport is a property of the connection between ecologies (`machine → internal transport → machine` and `machine → external transport → machine` can expose the same abstraction).
 
-## 3. Principles
+**Seed** — experimental construction for instantiating a machine in a compatible substrate, not a primitive of what a machine is. That the *first machine experiment should be capable of developing an internal ecology* is an experimental goal, not a definition. Attention, likewise, is a dimension of activity across the ecology, not constitutive of machine — a machine may need some way of attending to operate, but that does not make attention part of its ontology (see Principles 4).
+
+## 3. Conceptual map (not architecture)
+
+Four orthogonal territories — not layers:
+
+```
+MACHINE                          MATERIAL
+identity · continuity            what is communicated / retained / acted upon
+sovereign region · membrane           ↓
+       ↕                      REPRESENTATION
+    ECOLOGY                   how material is expressed
+machines · operators ·               ↓
+environment · habitat      ENVELOPE / TRANSPORT
+                          how representations cross boundaries
+                                   ↓
+                          MATERIALIZATION
+                          how received material becomes
+                          available for interaction
+```
+
+Independently, **operator / cognition / capability** can occur at different places and scales in the ecology — the fractal property. There is no `Layer 1 = machine, Layer 2 = cognition, Layer 3 = transport`.
+
+* `epistemic-machine.md` (here) → what must be true for something to be an EM.
+* `material-and-communication.md` → what kinds of things can cross boundaries and how they are represented.
+* `protocols/filesystem.md` → how we currently try to realize this.
+* Seed experiment (next) → what breaks when we actually make one.
+
+## 4. Principles
 
 1. **Continuity, not storage.** What matters is what survives discontinuity, not where bytes live.
 2. **Substrate hosts machine.** `substrate → hosts machine → membrane → relates to ecology` — not `machine owns substrate`. The machine does not need to model its substrate.

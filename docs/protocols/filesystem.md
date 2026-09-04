@@ -10,7 +10,9 @@
 
 ## 1. Substrate: filesystem
 
-The workshop maps the machine to a real filesystem for now. The operator sees **filesystem-like navigation** (files, folders, symlinks) as its operational interface. Canonical `events`/docs are stored by the membrane (the "something around the machine"), and materialized as filesystem projections the operator navigates (see §2). On a different substrate (browser OPFS/IndexedDB, remote service) the operator would still think in terms of files moving around — the membrane would materialize differently.
+The workshop instantiates a machine on a filesystem: we give the operator a **filesystem-like operational interface** to it — one possible interface among others (text, API, visual, NOSTR to remote ecology) to the same machine. The operator navigates files, folders, symlinks. This is **one operational interface through which an operator can interact with a machine**, not the machine's abstraction. The same machine could expose a textual interface to an LLM, an API to another machine, or a NOSTR interface to a remote ecology — that the operator is replaceable implies the interface is not the machine.
+
+Canonical `events`/docs are stored by the membrane (the "something around the machine"), and materialized as filesystem projections for this interface (see §2). On a different substrate (browser OPFS/IndexedDB, remote service) a similar — not identical — interface would be materialized differently.
 
 ## 2. Machine keep vs transport state vs host evidence
 
@@ -30,7 +32,7 @@ Wrapping, transport, and materialization (from `material-and-communication.md`):
 * Only mailboxes + transport envelope are shared; after unwrap, what lands in the machine's local world is the machine-level document (transport envelope gone, provenance retained canonically).
 * **Inbox is not transport** — it is the machine-local projection after the transport adapter has unwrapped (envelope removed). Bell signals it; Attention interprets.
 
-**Filesystem-like abstraction:** the operator navigates files. Concretely today this *is* a real filesystem, but conceptually it is a **materialization of canonical material** — folders/symlinks are projections/views, not the canonical store. Underneath, the canonical `events`/docs are always stored; the filesystem the operator sees can be regenerated as different materializations (`inbox/`, `archive/`, `by-project/`, `timeline/`) from the same store.
+**Filesystem-like projections:** the operator navigates files. Concretely today this *is* a real filesystem, but it is one materialization — folders/symlinks are projections/views of canonical material, not the canonical store. Underneath, the canonical `events`/docs are always stored; this filesystem view can be regenerated as different materializations (`inbox/`, `archive/`, `by-project/`, `timeline/`) from the same store. A different operator (human vs Claude Code vs machine) could be shown a different materialization of the same machine.
 
 ### Canonical vs views (north sketch — not built yet)
 

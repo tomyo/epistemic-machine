@@ -2,7 +2,7 @@
 
 **Status:** conceptual baseline — complements `epistemic-machine.md` (what a machine *is*) with what *passes between things* · not an implementation spec
 
-This document defines the second conceptual family: **material → representation → envelope → transport → materialization**. NOSTR, Markdown, filesystem, Bell, and wrapping belong here — not in the machine ontology.
+This document defines the second conceptual family as a **working model**, not an ontological stack: **material → representation → envelope → transport → materialization**. NOSTR, Markdown, filesystem, Bell, and wrapping belong here — not in the machine ontology. Some cases cross categories — e.g. text can simultaneously be material, representation, protocol, human-readable record, and operator instruction — so treat the axis as `material may acquire representations, representations may be packaged for transport, transport may cross boundaries, received material may be materialized` rather than a strict hierarchy. **NOSTR is not what makes a thing an EM** — it is one possible mechanism by which a representation travels between machines.
 
 ---
 
@@ -32,11 +32,11 @@ How material becomes available to a machine/operator in a form it can work with:
 
 Materialization is not storage — it is a projection of canonical material into a usable form.
 
-## 6. Document and wrapping (onion)
+## 6. Document and wrapping (onion) — implementation model
 
 A **document** is a portable semantic artifact (frontmatter = semantic metadata at that layer + body = payload).
 
-A **wrapper** adds a semantic layer around another document without modifying the payload:
+A **wrapper** is a useful implementation model (not an EM axiom) that adds a semantic layer around another document without modifying the payload:
 
 ```
 type: delegation        ← outer layer
@@ -49,7 +49,7 @@ to: machine-b
 
 Frontmatter is the metadata layer for the communication at that level. Because payload is itself a complete document, wrapping can recurse (`review → delegation → observation → evidence`). Receiver unwraps only to the layer it understands — inner structure stays intact.
 
-A **transport envelope** (e.g. NOSTR event) is optional and outermost — only when that transport is used. It wraps the machine-level document and disappears at the adapter boundary.
+A **transport envelope** (e.g. NOSTR event) is optional and outermost — only when that transport is used. It wraps the machine-level document and disappears at the adapter boundary. In some situations a NOSTR event may itself carry semantic material rather than merely being an envelope — the model stays flexible.
 
 ## 7. Transport unwrapping and machine boundary
 
@@ -71,23 +71,28 @@ Provenance is retained canonically; the transport envelope's identity material c
 
 ## 9. Notification (Bell) vs content
 
-**Bell** is a change signal ("something in the membrane changed — message received/sent"), **not content**. Attention is what the machine/operator does with it. Bell does not carry the document; it signals to re-examine materialization.
+**Bell** is a change signal ("something in the membrane changed — message received/sent"), **not content**. Attention is what the machine/operator does with it — attention is a dimension of activity across the ecology, not a layer. Bell does not carry the document; it signals to re-examine materialization.
 
 ## 10. Text protocol hypothesis
 
 > The semantic interface of a machine can be represented independently of the mechanism that carries or materializes it.
 
-The operator interacts through the membrane via **text that is simultaneously representation + interface + protocol + human-readable record**:
+Stronger:
+
+> **A machine's interface may itself be representable as material.**
+
+Then an operator does not need a pre-installed understanding of the machine's API. It can encounter, read, interpret, generate, inspect, transport, record, and delegate interface operations **using the same representational medium** as other material:
 
 ```
 REQUEST  Review the evidence concerning X.
 PROPOSE  Retain this observation because …
 DELEGATE Ask machine Y to investigate X.
+ACCEPT   …
 ```
 
-The operator does not need to know whether that text becomes a function call, file creation, NOSTR event, or DB transaction. Text is the lowest common representation of the operational interface; a filesystem-like interface is one realization of it.
+The operator interacts through the membrane via **text that is simultaneously representation + interface + protocol + human-readable record**. The operator does not need to know whether that text becomes a function call, file creation, NOSTR event, or DB transaction. Text is the lowest common representation of the operational interface; a filesystem-like interface is one realization of it.
 
-The membrane exposes an **operational interface to its environment**; representations available to an operator (text, files, API calls, signals) are realizations of it.
+The membrane exposes an **operational interface to its environment**; representations available to an operator (text, files, API calls, signals) are realizations of it — none is the machine's ontology.
 
 ## 11. Where Store / Oracle fit
 
