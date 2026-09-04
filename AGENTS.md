@@ -10,8 +10,9 @@ This repository is the **workshop** for the Epistemic Machine: the design surfac
 ## Layout
 
 - `docs/missions/` — stable mission specs (CL-agreed A→G, gates, hypothesis, bus types) — one file per mission.
-- `experiments/<mission>/` — ephemeral trial for one mission; owns its machine as `experiments/<mission>/.em/` (gitignored, own `.git`). Disposable: delete folder = delete its machine.
-- `substrates/` `seeds/` `core/` — **reserved, not created** until an experiment's failure earns them (commit message must say what failure earned the promotion).
+- `docs/notes/` — parked notes (communication layers, decisions) — not specs yet; capture informed defaults and norths (e.g. NOSTR unsigned as north).
+- `experiments/<mission>/` — ephemeral trial / test for one mission; owns its machine as `experiments/<mission>/.em/` (gitignored, own `.git`). Disposable: delete folder = delete its machine. Tests **use** stable foundations, not recreate them per trial.
+- `protocol/` `substrates/` `seeds/` `core/` — **stable foundations**, built pragmatically on informed defaults (lab already earned `membrane0`/`seed-v0` via investigation). Reused by experiments. Notes capture why.
 
 ## Exchange Bus (peers)
 
@@ -22,14 +23,18 @@ The `inbox/` and `outbox/<peer>/` symlinked-mailbox bus moves markdown packets b
 - Single-writer rule: each side writes only into the directory named after itself → no shared-writer race.
 - Packet format (frontmatter `source/date/type/sha256/revision`, body) and filename convention per the skill.
 
-## Development Rule (Mission 0)
+## Development Approach
 
-Do not build the Epistemic Machine top-down. Build the smallest substrate capable of surviving one real continuity cycle, and let each failure earn the next primitive. Agreed with Continuity Lab 2026-09-03: vertical slice A→G (Contribution → Incorporation → Persistence → Kill → Rebirth → Reconstruction → Joint review). Hypothesis to break: a persistent machine can be represented by a small substrate-owned state region that survives replacement of its operator.
+**Mission 0 (done):** Do not build top-down. Build the smallest substrate capable of surviving one continuity cycle, and let each failure earn the next primitive. Agreed 2026-09-03: vertical slice A→G proved `filesystem bus + .em @ bd01c74` suffices for one loop (Gates 1+2+3 ✓).
+
+**Now (workshop build phase):** Investigations are done — lab already earned core primitives via `membrane0`/`seed-v0`/`alternating-control-v0`. This repo is not to re-prove pressure per experiment. Build known-good plumbing pragmatically on informed defaults, reuse it in `experiments/` as tests that incrementally raise complexity. Take notes on the way (`docs/notes/`). Epistemic theorizing (`the Machine`) is paused — build parts and foundations we know we'll need; let a useful machine help this repo properly later. CL pressure stays epistemic (what should be owned state?).
 
 ## Division of Labor (with Continuity Lab)
 
-- **EM workshop:** implementation — substrate/adapter/operator-interface spike, first `.em/` instance, running the A→G loop, exposing failures.
-- **Continuity Lab:** knowledge & review — terminologies, incorporation structures (5-field decision record), methodological friction, live external ecology pressure.
+- **EM workshop:** plumbing foundations (`protocol`/`substrates`/`seeds`/`core`) + tests (`experiments/` that use them). No longer theorizing the Machine; building reuseable parts.
+- **Continuity Lab:** knowledge & review — terminologies, incorporation structures (5-field decision record), methodological friction, live external ecology pressure (what should become owned state?).
+
+Epistemic vs plumbing are separate — don't mix them. Experiments test plumbing; CL provides epistemic pressure.
 
 ## Non-Interference
 
