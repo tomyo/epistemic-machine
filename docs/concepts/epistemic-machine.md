@@ -1,100 +1,47 @@
 # Epistemic Machine — Concepts & Principles
 
-**Status:** stable conceptual baseline — workshop build phase · refs Mission 0 `b6b79eb` (Gates 1+2+3 ✓), `docs/notes/communication-layers-and-protocols.md` (parked north), CL `18:45` transport advice — conceptually stable; implementations (NOSTR north, future log, provenance, seeds) remain provisional
+**Status:** stable conceptual baseline — workshop build phase · refs Mission 0 `b6b79eb` (Gates 1+2+3 ✓) — conceptually stable; implementations remain provisional (see `docs/concepts/material-and-communication.md`, `docs/protocols/filesystem.md`)
 
-> Vision source (adapted): the project develops foundations for persistent epistemic machines that can live in different environments and compose recursively. This doc distills its habitat/membrane/machine/seed framing into workshop principles and explicit design choices.
+> Vision source (adapted): foundations for persistent epistemic machines that can live in different environments and compose recursively.
+
+This document defines **what a machine is**. Not how it is stored, transported, or implemented. Those are in `material-and-communication.md` (what passes between things) and `protocols/filesystem.md` (how we implement one).
 
 ---
 
 ## 1. What it is
 
-An **Epistemic Machine** is a persistent entity with its own continuity and state, operating through a membrane. The process that operates it is ephemeral — a program, human, LLM, or collection — it can activate a machine, inspect and modify its state, speak to other machines, then disappear. **The process is ephemeral. The machine is persistent.**
+An **Epistemic Machine** is a persistent, continuity-bearing entity with a sovereign region and a membrane, participating in an ecology. The process that operates it (program, human, LLM, collective) is ephemeral — it can activate a machine, inspect and modify its continuity, speak to other machines, then disappear. **The process is ephemeral. The machine is persistent.**
 
-It can live in different **habitats** via different **membranes** without changing what it is. It may contain an internal **ecology** of other machines. The same concepts apply recursively without a fixed hierarchy.
+Its substrate is not part of its definition. A machine exists *on/in* something; it does not own its substrate.
 
 ## 2. Core concepts
 
-**Habitat** — the environment available to a machine. It provides resources and mechanisms (filesystem, relay, sqlite, http, …) but its implementation is not part of the machine.
+**Machine** — continuity-bearing entity. Has substrate-independent identity (not "the process on this socket" nor "this pubkey" — an identity that can survive changes in embodiment), a sovereign region/place, a boundary/membrane, the capacity to receive and produce things, to be operated, and to relate to other machines. Identity handshake between machines establishes a communication membrane between ecologies.
 
-**Membrane** — the interface between a machine and its habitat. It exposes the mechanisms available to the machine and adapts them to the habitat. A machine depends on a **membrane contract**, not a particular habitat implementation.
+**Persistence and continuity** — machine state outlives any operator. Proven by discontinuity (Kill→Rebirth), not asserted. Continuity is what survives replacement of the operator.
 
-**Machine** — a persistent entity with its own continuity and state, operating through a membrane. Machine state outlives any operator.
+**Sovereign region** — the place the machine owns as its own continuity. What is inside is the machine's; what is outside is environment. Sovereignty is the invariant, not "directory" or "database".
 
-**Operator** — ephemeral process that acts on a machine (pi session, delegate, human, agent). `D Kill → E Rebirth` proves this: operator disappears, machine remains.
+**Membrane** — the relationship between machine and environment. Answers: what can enter/leave, how it is represented, how operations are requested, how capabilities are exposed, how effects are acknowledged. Membrane is not filesystem, not NOSTR, not an API — it could be text, files, messages, signals, or combinations. See `material-and-communication.md` for the `representation → envelope → transport → materialization` axis that crosses it.
 
-**Seed** — description of how a machine can be instantiated in a compatible habitat. The repository can maintain seeds/specimens and the implementations to instantiate them.
+**Operator** — ephemeral participant that acts on a machine (pi session, delegate, human, agent). `D Kill → E Rebirth` proves the distinction: operator disappears, machine remains.
 
-**Ecology** — externally observable organization of machines interacting within a habitat. CL currently functions as an external epistemic participant in the ecology and provides the epistemic acceptance boundary (5-field `observation / proposed_interpretation / acceptance / reason / uncertainty`).
+**Environment / habitat** — everything the machine relates to outside its sovereign region: other machines, operators, humans, transport systems, physical reality. From the machine's perspective, this is its **habitat**.
 
-Habitat and ecology describe the same situated environment from different perspectives: habitat from the machine's perspective; ecology from the outside.
+**Ecology** — from the outside, the interacting population (machines, operators, environment) becomes an **ecology**. Habitat and ecology describe the same situated environment from different perspectives: habitat from inside the machine, ecology from outside.
 
-**Recursive composition:**
+**Interaction** — crossing the membrane via representations (see `material-and-communication.md`). The loop is `ecology → membrane → machine → membrane → ecology`, with an operator participating temporarily somewhere in it.
 
-```
-habitat → membrane → machine → habitat → membrane → machine → …
-```
-
-From the perspective of inner machines, their containing machine provides their habitat and exposes another membrane. `experiments/<mission>/.em/` today; later `machines/<name>/.em/` or nested ecologies — same pattern, no fixed hierarchy.
+**Recursive / fractal composition** — a machine can contain an internal ecology; an ecology can contain machines; a machine can itself be part of another machine's ecology. There is no privileged global layer. `habitat → membrane → machine → habitat → membrane → machine …` recurs relative to the entity considered. Same primitives, no fixed `layer 1/2/3`. A seed machine is the minimal instance of this — a habitat containing the machinery for persistence, communication, and attention that can spawn an internal ecology; `machine → internal transport → machine` and `machine → external transport → machine` expose the same abstraction (transport is a property of the connection between ecologies).
 
 ## 3. Principles
 
-1. **Persistence vs process.** Machine state survives operator replacement. Proven by Kill→Rebirth, not asserted. `bd01c74` in a machine's own `.git` is the proof, not `inbox/` packets alone (bus observes *what happened*; `.em` proves *organism-owned* — CL joint review).
-2. **Workshop ≠ machine.** The workshop (`git-tracked`) is the design surface. Machines (`gitignored`, own `.git`) are runtime instances. Don't theorize the Machine; build parts.
-3. **Substrate independence.** A machine depends on a membrane contract, not a habitat implementation. Filesystem today (`inbox`/`outbox` symlinks) is simple and inspectable, but the model must not depend on it.
-4. **Bus moves bytes, not procedure.** `inbox/`/`outbox/` delivery is transport only. What each side does with a packet is its own workflow (EM: `em observe` → proposal → critique → approve; CL: 5-field decision). Single-writer rule, no shared-writer race.
-5. **Visibility boundary.** Bus mailboxes (`inbox/<peer>/` + `outbox/<peer>/`) are the **only** shared surface (`SKILL.md`). Even on same host, never read peer tree outside mailboxes — ask over bus (`question`/`belief-proposal`/`spec`).
-6. **One language, many carriers.** There should be a transport-independent event/protocol language, and carriers should be replaceable. NOSTR is the current north for this layer — a concrete, existing semantic vocabulary (`kind`/`pubkey`/`tags`/`content`, unsigned for now) — not yet an implementation commitment. Pluggable carriers: files / http / relay. Detail in `docs/notes/communication-layers-and-protocols.md`.
-7. **Provenance is eventually essential.** Unsigned now (no certs); `sig` added when provenance collapses without it (CL failure condition b: unsigned inbox mutation undetectable). Don't add crypto before failure.
-8. **Build plumbing pragmatically; let epistemics stay epistemic.** Lab already earned `membrane0`/`seed-v0` via investigation — workshop reuses informed defaults, experiments use them as tests that raise complexity. Don't re-prove pressure per experiment; take notes on the way.
-
-## 4. Layers (short — detail in notes)
-
-Layers are relative and boundaries are determined by interfaces, not by fixed EM layers. From `docs/notes/communication-layers-and-protocols.md`:
-
-- **Layer 1 — Transport protocol:** the semantic form of messages/events, independent of how they are transported. NOSTR is the current north for this layer, not yet an implementation commitment. Candidate vocabulary: `{ id, pubkey (= machine), kind, tags, content, sig? }`, `kind` maps bus `type` (`belief-proposal`/`decision-record`/`question`/`report`/`spec`). Declared now, implemented when earned.
-- **Layer 2 — Transport:** how bytes move. Today `inbox/`/`outbox/` symlinks. Many substrates, same event semantics.
-- **Layer 3 — Internal protocols:** protocols used inside a machine or ecology. Their form is determined by the responsibilities of that machine or ecology.
-
-Don't confuse layers 1 and 2 — NOSTR is the protocol, relay is one transport. Concrete paths (`ACCEPTED-CONSEQUENCE.json`, `.em/log/<id>.json`, `events/`/`views/`, `.sessions/journal`, `.membrane/<exposed>/`) belong in §5/§6, not in the layer definitions.
-
-## 5. Design choices we've made — and why
-
-| Choice | Why |
-|--------|-----|
-| **No `.em` at root** (`df9a9b3`); many `experiments/<mission>/.em/` (own `.git`, gitignored, scoped) | Workshop is not a machine; many machines ⇒ many scoped instances, disposable per experiment |
-| **`inbox`/`outbox` as transport state, not machine keep (write=deliver)** | The delivery endpoint is transport state, not machine-owned epistemic state. A packet survives Kill, but that does not make it part of the machine's continuity — only a curated copy in `.em` does. Simplest transport that survives Kill — proved for 1 loop (`verify-rebirth → 0`). |
-| **`.sessions/journal` = host evidence, not machine keep** | Per `exchange/index.ts` — one JSON line per *received* packet per host; `inbox`-only, no machine ownership |
-| **`.em/mission-0/ACCEPTED-CONSEQUENCE.json @ bd01c74`** | Sole machine-owned kept consequence so far; future many decisions would need `.em/log/<id>.json` — machine decides what to curate |
-| **Filesystem first, stdlib JS + docstrings, no deps** | Inspectable, no `nostr-tools`/relay needed until off-host or provenance fails (CL `18:45`) |
-| **`protocol/` `substrates/` `seeds/` `core/` = stable foundations, reused** | Lab pressure already known; experiments import them as tests instead of recreating per trial |
-| **`docs/notes/` for parked norths** | Don't hide north in issues; make it reviewable without building |
-
-## 6. Design choices we've parked — and when they'd be earned
-
-| Parked | When earned |
-|--------|-------------|
-| **NOSTR unsigned `<id>.json` as north; `sig` later** | (b) unsigned inbox mutated + unverifiable provenance — needs crypto |
-| **`events/` append-only + `views/` materialized filters (bus becomes a view)** | `inbox`/`outbox` insufficient: off-host or multi-machine filtering fails without centralized log |
-| **`.membrane/<exposed>/` (folder-as-membrane, symlink to enter)** | Guest machine needs `invoke(action,args)` without knowing habitat layout (`membrane0` earned `invoke` for encapsulation) |
-| **`seeds/base.json` → `experiments/<name>/.em/`** | Manual `mkdir + git init + cp` for 2nd machine diverges / duplicates pain |
-| **`substrates/nostr/` relay transport** | (a) physical path destroyed (off-host, permissions prevent symlink) |
-
-Until then: `inbox/` `outbox/` `.sessions/` `.em/mission-0/…` stay. `substrates/` `seeds/` `core/` `events/` `views/` remain empty/not created in the sense of "not populated with implementations" — folders may exist but hold no earned primitive.
-
-## 7. What's not an EM — what the workshop is
-
-- **Workshop** (`AGENTS.md` Roles/Layout, `README.md`, `docs/missions/`, `docs/notes/`, `docs/concepts/`) — design surface, versioned, many-machine capable.
-- **Experiments** (`experiments/<mission>/`) — ephemeral trials/tests that *use* stable plumbing and raise complexity. Disposable.
-- **Machine** — runtime state (filesystem realization today: scoped directory with own `.git`, e.g. `experiments/<mission>/.em/` or later `machines/<name>/.em/`, gitignored). Contains what the organism kept. The concept does not reduce to this directory arrangement — the membrane defines the realization.
-
-Keep the conceptual definition of Machine in §2 clean; this section carries the current filesystem realization.
-
-## 8. First mission boundary (from vision)
-
-> Establish the minimum membrane and germination machinery required for a machine to live in an existing ecology. File-based communication is the first environmental implementation. Goal is not to generalize the whole architecture, but to establish the first clean boundary: **existing environment → membrane → persistent machine**. Everything beyond should emerge from subsequent experiments.
-
-Mission 0 did exactly that: `existing environment (filesystem + symlinked bus) → membrane (inbox/outbox contract + .em own git) → persistent machine (ACCEPTED @ bd01c74)`. Next foundations build on that boundary.
+1. **Continuity, not storage.** What matters is what survives discontinuity, not where bytes live.
+2. **Substrate hosts machine.** `substrate → hosts machine → membrane → relates to ecology` — not `machine owns substrate`. The machine does not need to model its substrate.
+3. **Membrane mediates, not implements.** The machine depends on a membrane contract, not a habitat implementation.
+4. **Computation can happen anywhere in the ecology.** Cognition, delegation, attention, and epistemic depth are dimensions of activity, not architectural layers between machine and membrane. An external specialist can perform deep cognition on behalf of a machine.
+5. **Build parts, don't theorize the machine top-down.** Let each failure earn the next primitive (Mission 0 rule).
 
 ---
 
-*Related:* `docs/notes/communication-layers-and-protocols.md` (layers deep dive, north), `docs/missions/mission-0.md` + `mission-0-retrospective.md` (proof), `AGENTS.md` (workshop build phase), `.pi/skills/exchange-skill/SKILL.md` (bus contract).
+*Related:* `docs/concepts/material-and-communication.md` (material axis, text protocol, NOSTR as envelope), `docs/protocols/filesystem.md` (filesystem realization: `inbox/outbox`, `.em`, `views`), `docs/missions/mission-0.md` (proof), `AGENTS.md` (workshop build phase), `.pi/skills/exchange-skill/SKILL.md` (bus transport contract).
