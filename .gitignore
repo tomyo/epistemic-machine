@@ -12,6 +12,10 @@ dist/
 build/
 *.tsbuildinfo
 
+# Python test artifacts
+__pycache__/
+*.pyc
+
 # Secrets / local config
 .env
 .env.*
