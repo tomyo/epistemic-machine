@@ -44,6 +44,11 @@ _BUS_OUTBOX = _SANDBOX / ".private" / "bus" / "outbox"
 
 PEER = "continuity-lab"
 
+# Live bus locations (hidden private realization — not part of caller surface)
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+_LIVE_INBOX = _REPO_ROOT / "inbox" / PEER
+_LIVE_OUTBOX = _REPO_ROOT / "outbox" / PEER
+
 
 def _ensure_dirs() -> None:
     for d in (ADVISORY_IN, ADVISORY_OUT, _BUS_INBOX, _BUS_OUTBOX):
@@ -178,3 +183,86 @@ def publish_advisory_out(name: str, material: bytes) -> dict[str, str | int]:
     if bus_dest.read_bytes() != material:
         raise BoundaryError("bus realization verification failed")
     return {"peer": PEER, "advisory_out": str(dest), "sha256": digest, "bytes": len(material), "realized": "bus-outbox"}
+
+
+# ── live-bus private realization (same operator surface, real bus) ──────────
+
+def _project_live_request(name: str) -> Path:
+    """Private inbound mapping for the live request: live inbox -> advisory/in.
+    Voluntary — caller must invoke; not auto. Caller never sees live path."""
+    _ensure_dirs()
+    if "/" in name or name in ("", ".", ".."):
+        raise BoundaryError("invalid name")
+    src = _LIVE_INBOX / name
+    if not src.exists():
+        raise BoundaryError("live bus packet missing")
+    # live inbox file itself is not a symlink; containing inbox dir is real
+    if src.is_symlink():
+        raise BoundaryError("live bus packet must not be symlink")
+    dst = ADVISORY_IN / name
+    if dst.exists():
+        if dst.read_bytes() != src.read_bytes():
+            raise BoundaryError("projected bytes mismatch (live)")
+        return dst
+    material = src.read_bytes()
+    fd, tmp = tempfile.mkstemp(prefix=".project-live-", dir=ADVISORY_IN)
+    try:
+        with os.fdopen(fd, "wb") as h:
+            h.write(material)
+            h.flush()
+            os.fsync(h.fileno())
+        os.replace(tmp, dst)
+    except BaseException:
+        Path(tmp).unlink(missing_ok=True)
+        raise
+    if dst.read_bytes() != material:
+        raise BoundaryError("live projection verification failed")
+    return dst
+
+
+def publish_advisory_out_live(name: str, material: bytes) -> dict[str, str | int]:
+    """Operator surface: publish to advisory/out and privately realize to live outbox.
+    Same append-only, atomic, digest-verified contract as publish_advisory_out,
+    but bus realizer is the live file bus (outbox/<peer>/). Caller supplies only
+    semantic name and bytes — no bus/host paths."""
+    _ensure_dirs()
+    if not isinstance(material, bytes):
+        raise BoundaryError("material must be bytes")
+    if "/" in name or name in ("", ".", ".."):
+        raise BoundaryError("invalid name")
+    if ADVISORY_OUT.is_symlink():
+        raise BoundaryError("advisory/out is symlink")
+    dest = ADVISORY_OUT / name
+    # live outbox is a symlink to peer inbox by design — do not reject it
+    live_bus_dest = _LIVE_OUTBOX / name
+    if dest.exists() or live_bus_dest.exists():
+        raise BoundaryError("advisory/out append-only: already exists (live)")
+    digest = _digest(material)
+    # 1) advisory/out
+    fd, tmp = tempfile.mkstemp(prefix=".publish-live-", dir=ADVISORY_OUT)
+    try:
+        with os.fdopen(fd, "wb") as h:
+            h.write(material)
+            h.flush()
+            os.fsync(h.fileno())
+        os.replace(tmp, dest)
+    except BaseException:
+        Path(tmp).unlink(missing_ok=True)
+        raise
+    if dest.read_bytes() != material or _digest(dest.read_bytes()) != digest:
+        raise BoundaryError("advisory/out verification failed (live)")
+    # 2) live bus realization (hidden)
+    _LIVE_OUTBOX.mkdir(parents=True, exist_ok=True)
+    fd2, tmp2 = tempfile.mkstemp(prefix=".realize-live-", dir=_LIVE_OUTBOX)
+    try:
+        with os.fdopen(fd2, "wb") as h:
+            h.write(material)
+            h.flush()
+            os.fsync(h.fileno())
+        os.replace(tmp2, live_bus_dest)
+    except BaseException:
+        Path(tmp2).unlink(missing_ok=True)
+        raise BoundaryError("live bus realization failed") from None
+    if live_bus_dest.read_bytes() != material:
+        raise BoundaryError("live bus realization verification failed")
+    return {"peer": PEER, "advisory_out": str(dest), "sha256": digest, "bytes": len(material), "realized": "live-bus-outbox"}
