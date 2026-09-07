@@ -30,3 +30,8 @@ Thumbs.db
 
 # Bus journal (per-session host evidence)
 .sessions/
+
+# Active Unlazy work ledgers; completed evidence belongs with its owning experiment
+/GATES.md
+/PLAN.md
+/gates/
