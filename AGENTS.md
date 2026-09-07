@@ -13,7 +13,7 @@ Read in this order for current work:
 
 1. `docs/roadmaps/machine-ecology-coordination-roadmap.md` — candidate EM engineering orientation at its canonical location; pending human adoption and never build authorization.
 2. The relevant file under `docs/missions/` — closed evidence or a dormant candidate brief.
-3. Relevant `docs/notes/` and experiment-local reviews — bounded evidence and provisional decisions.
+3. `docs/notes/README.md`, then relevant `docs/notes/` and experiment-local reviews — the catalogue, bounded evidence, provisional decisions, and architectural lineage.
 
 Layout:
 
@@ -39,6 +39,10 @@ The `inbox/` and `outbox/<peer>/` symlinked-mailbox bus moves markdown packets b
 **Current stage:** Documentation Stage 1 establishes a shared orientation boundary only. Machine Ecology Coordination Roadmap version 0 is a candidate pending human review/adoption. Experiment A and Experiment B are dormant briefs. No experiment, architecture implementation, lineage/event machinery, or `.em/` mutation is active.
 
 Every implementation or experiment requires an explicit human authorization naming its bounded brief. Roadmap adoption, receipt of a peer advisory, or completion of a prior experiment is not sufficient authorization. Build the smallest authorized specimen, preserve its failure/evidence boundary, and promote reusable machinery only after recurrence or demonstrated insufficiency warrants it.
+
+## Design Conversation Documentation
+
+When a human provides a design conversation for review, first compare it with the roadmap, relevant mission evidence, implementation, and `docs/notes/README.md`. Classify meaningful findings as already captured, refinement, new thread, deferred/rejected for scope, falsified, mission/roadmap impact, or discard. A review catalogs ideas; it does not adopt a direction, revise a roadmap, authorize a build, or create a CL conclusion. Update the catalogue or a lineage note only with explicit human approval, preserving the idea's epistemic support, project disposition, lesson/rationale, and revisit condition.
 
 ## Division of Labor (with Continuity Lab)
 

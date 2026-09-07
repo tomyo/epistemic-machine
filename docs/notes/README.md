@@ -1,0 +1,19 @@
+# Design Lineage Catalogue
+
+This directory holds provisional workshop notes, bounded contracts, decisions, and **architectural-lineage records**. This catalogue is navigation only: it maps the design threads that have been deliberately retained between exploratory conversation and any later concept, roadmap decision, or build brief.
+
+A lineage record is neither a transcript archive nor architecture by declaration. It preserves the idea, its motivating pressure, what was learned, its current disposition, and the condition that would change that disposition.
+
+## Active architectural lineage
+
+| Thread | Current question | Record |
+|---|---|---|
+| Resource, session, and working views | Can plain persistent resources and isolated work contexts preserve divergent candidate work across operator discontinuities? | [`resource-session-working-views-lineage-v0.md`](resource-session-working-views-lineage-v0.md) |
+
+## Using this catalogue
+
+For the rules governing a design-conversation review, evidence classification, and explicit human approval before repository updates, follow [`AGENTS.md`](../../AGENTS.md). This catalogue does not itself adopt an idea, activate a lineage protocol, authorize a build, revise a roadmap, or create a Continuity Lab conclusion.
+
+Individual lineage records may distinguish epistemic support from project disposition and retain lessons plus revisit conditions. A rejected mechanism is not necessarily false; it may simply be unearned for the current scope.
+
+The source of truth for current build authorization remains `AGENTS.md`, the candidate coordination direction remains [`docs/roadmaps/machine-ecology-coordination-roadmap.md`](../roadmaps/machine-ecology-coordination-roadmap.md), and experiment evidence remains in `docs/missions/` and `experiments/`.

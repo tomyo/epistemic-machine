@@ -10,7 +10,8 @@ An Epistemic Machine is a persistent entity designed to maintain continuity acro
 
 - `docs/roadmaps/machine-ecology-coordination-roadmap.md` — candidate EM engineering orientation at its canonical location; pending human adoption and not build authorization
 - `docs/missions/` — closed mission evidence and dormant mission briefs
-- `docs/notes/` — provisional notes, bounded contracts, and decisions
+- `docs/notes/README.md` — catalogue of provisional notes and architectural-lineage records
+- `docs/notes/` — provisional notes, bounded contracts, decisions, and curated architectural lineage
 - `.pi/extensions/exchange/` — exchange-bus watcher/notification and journal extension
 - `.pi/skills/exchange-skill/` — bus transport convention (filenames, packet anatomy, send/receive, journal, visibility boundary)
 - `experiments/<mission>/` — isolated trial/test; a mission may own a scoped gitignored machine at `experiments/<mission>/.em/`
