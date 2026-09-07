@@ -9,6 +9,7 @@ A lineage record is neither a transcript archive nor architecture by declaration
 | Thread | Current question | Record |
 |---|---|---|
 | Resource, session, and working views | Can plain persistent resources and isolated work contexts preserve divergent candidate work across operator discontinuities? | [`resource-session-working-views-lineage-v0.md`](resource-session-working-views-lineage-v0.md) |
+| EM embodiment | Which current workshop mechanisms embody EM responsibilities, where are their boundaries collapsed, and what pressure could earn the next bounded change? | [`em-embodiment-map-v0.md`](em-embodiment-map-v0.md) |
 
 ## Using this catalogue
 
@@ -16,4 +17,4 @@ For the rules governing a design-conversation review, evidence classification, a
 
 Individual lineage records may distinguish epistemic support from project disposition and retain lessons plus revisit conditions. A rejected mechanism is not necessarily false; it may simply be unearned for the current scope.
 
-The source of truth for current build authorization remains `AGENTS.md`, the candidate coordination direction remains [`docs/roadmaps/machine-ecology-coordination-roadmap.md`](../roadmaps/machine-ecology-coordination-roadmap.md), and experiment evidence remains in `docs/missions/` and `experiments/`.
+The source of truth for current build authorization remains [`AGENTS.md`](../../AGENTS.md). No roadmap coordination head is currently selected; the withdrawn coordination proposal remains historical context in [`docs/roadmaps/machine-ecology-coordination-roadmap.md`](../roadmaps/machine-ecology-coordination-roadmap.md). Experiment evidence remains in `docs/missions/` and `experiments/`.
