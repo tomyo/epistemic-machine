@@ -1,5 +1,7 @@
 # Gates: Ecological Crossing First Specimen
 
+Status: completed historical task; not the current workshop action vector. See `docs/roadmaps/machine-ecology-coordination-roadmap.md`.
+
 Scope: produce a review-backed, explicitly provisional ecology-crossing boundary and its smallest runnable EM workshop specimen; preserve Lab/EM authority separation.
 
 - [x] G1: A Lab advisory records the candidate cognitive -> ecological -> substrate boundary, its non-claims, and its provenance without becoming EM implementation authority.

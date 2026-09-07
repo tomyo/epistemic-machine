@@ -1,10 +1,12 @@
 # Epistemic Machine — Concepts & Principles
 
-**Status:** provisional — source-local workshop proposal · refs Mission 0 `b6b79eb` (Gates 1+2+3 ✓) — not CL-adopted · not evidence for Seed/Store/canonical/views/internal ecology/NOSTR/transport · per CL boundary review `2026-09-04T16-13-30` — implementations remain provisional (see `docs/concepts/material-and-communication.md`, `docs/protocols/filesystem.md`)
+**Status:** provisional — source-local workshop proposal · refs Mission 0 `b6b79eb` (Gates 1+2+3 ✓) — not CL-adopted · not evidence for Seed/Store/canonical/views/internal ecology/NOSTR/transport · implementations remain provisional (see `docs/concepts/material-and-communication.md`, `docs/protocols/filesystem.md`)
+
+All terms below are candidate vocabulary and working hypotheses, not proven invariants or implementation requirements.
 
 > Vision source (adapted): foundations for persistent epistemic machines that can live in different environments and compose recursively.
 
-This document defines **what a machine is**. Not how it is stored, transported, or implemented. Those are in `material-and-communication.md` (what passes between things) and `protocols/filesystem.md` (how we implement one).
+This document proposes **what a machine might be**. Storage, transport, and implementation questions are separated into `material-and-communication.md` and provisional `protocols/filesystem.md` notes.
 
 ---
 
@@ -16,15 +18,15 @@ Its substrate is not part of its definition. A machine exists *on/in* something;
 
 ## 2. Core concepts
 
-**Machine** — continuity-bearing entity. Has substrate-independent identity (not "the process on this socket" nor "this pubkey" — an identity that can survive changes in embodiment), a sovereign region/place, a boundary/membrane, the capacity to receive and produce things, to be operated, and to relate to other machines. Identity handshake between machines establishes a communication membrane between ecologies.
+**Machine** — candidate continuity-bearing entity with a region/place, a boundary/membrane, the capacity to receive and produce things, to be operated, and to relate to other machines. Whether identity is substrate-independent, and whether any handshake is required between machines, remain open questions.
 
-**Persistence and continuity** — machine state outlives any operator. Proven by discontinuity (Kill→Rebirth), not asserted. Continuity is what survives replacement of the operator.
+**Persistence and continuity** — proposed distinction in which relevant machine state outlives an operator. Mission 0 tested one bounded Kill→Rebirth case; broader continuity must be tested rather than inferred.
 
-**Sovereign region** — a bounded place within a substrate over which the machine has authority sufficient to maintain its continuity and distinguish its own state from its environment. That could be storage, but also a namespace, process boundary, physical space, cryptographic authority, database partition, or combination. Sovereignty is the invariant, not "directory" or "database", and the machine does not need to know what mechanism establishes the boundary.
+**Sovereign region** — proposed bounded place within a substrate over which a machine has authority sufficient to maintain continuity and distinguish its state from the environment. A candidate invariant would be that authority/boundary rather than a directory or database mechanism; this remains a hypothesis.
 
 **Membrane** — the relationship between machine and environment. Answers: what can enter/leave, how it is represented, how operations are requested, how capabilities are exposed, how effects are acknowledged. Membrane is not filesystem, not NOSTR, not an API — it could be text, files, messages, signals, or combinations. See `material-and-communication.md` for the `representation → envelope → transport → materialization` axis that crosses it.
 
-**Operator** — ephemeral participant that acts on a machine (pi session, delegate, human, agent). `D Kill → E Rebirth` proves the distinction: operator disappears, machine remains.
+**Operator** — ephemeral participant that acts on a candidate machine (pi session, delegate, human, agent). Mission 0 supplies one bounded example in which an operator disappeared while experiment-local state remained.
 
 **Environment / habitat** — everything the machine relates to outside its sovereign region: other machines, operators, humans, transport systems, physical reality. From the machine's perspective, this is its **habitat**.
 
@@ -32,7 +34,7 @@ Its substrate is not part of its definition. A machine exists *on/in* something;
 
 **Interaction** — crossing the membrane via representations (see `material-and-communication.md`). The loop is `ecology → membrane → machine → membrane → ecology`, with an operator participating temporarily somewhere in it.
 
-**Recursive / fractal composition** — a machine can contain an internal ecology; an ecology can contain machines; a machine can itself be part of another machine's ecology. There is no privileged global layer. `habitat → membrane → machine → habitat → membrane → machine …` recurs relative to the entity considered. Same primitives, no fixed `layer 1/2/3`. Transport is a property of the connection between ecologies (`machine → internal transport → machine` and `machine → external transport → machine` can expose the same abstraction).
+**Recursive / fractal composition** — hypothesis that a machine may contain an internal ecology, an ecology may contain machines, and a machine may participate in another ecology. Similar relationships might recur without a privileged global layer, but no evidence yet establishes the same primitives or transport abstraction at each scale.
 
 **Seed** — experimental construction for instantiating a machine in a compatible substrate, not a primitive of what a machine is. That the *first machine experiment should be capable of developing an internal ecology* is an experimental goal, not a definition. Attention, likewise, is a dimension of activity across the ecology, not constitutive of machine — a machine may need some way of attending to operate, but that does not make attention part of its ontology (see Principles 4).
 
@@ -57,12 +59,12 @@ environment · habitat      ENVELOPE / TRANSPORT
 
 Independently, **operator / cognition / capability** can occur at different places and scales in the ecology — the fractal property. There is no `Layer 1 = machine, Layer 2 = cognition, Layer 3 = transport`.
 
-* `epistemic-machine.md` (here) → what must be true for something to be an EM.
+* `epistemic-machine.md` (here) → candidate account of what may characterize an EM.
 * `material-and-communication.md` → what kinds of things can cross boundaries and how they are represented.
 * `protocols/filesystem.md` → how we currently try to realize this.
-* Seed experiment (next) → **not earned, not CL-approved; none before CL boundary review lifted** — `2026-09-04T16-13-30`. If EM explores it locally, mark exploratory with smallest discontinuity + apparatus insufficient + falsification condition; do not create `events/views/` or treat as evidence until provenance shown. Then: what breaks when we actually make one.
+* No seed experiment is selected. The current roadmap candidate makes only Experiment A a possible later gate after roadmap adoption and separate human authorization; it does not authorize `events/`, `views/`, seeds, or runtime work.
 
-## 4. Principles
+## 4. Working principles (not proven invariants)
 
 1. **Continuity, not storage.** What matters is what survives discontinuity, not where bytes live.
 2. **Substrate hosts machine.** `substrate → hosts machine → membrane → relates to ecology` — not `machine owns substrate`. The machine does not need to model its substrate.
@@ -72,4 +74,4 @@ Independently, **operator / cognition / capability** can occur at different plac
 
 ---
 
-*Related:* `docs/concepts/material-and-communication.md` (material axis, text protocol, NOSTR as envelope), `docs/protocols/filesystem.md` (filesystem realization: `inbox/outbox`, `.em`, `views`), `docs/missions/mission-0.md` (proof), `AGENTS.md` (workshop build phase), `.pi/skills/exchange-skill/SKILL.md` (bus transport contract).
+*Related:* `docs/concepts/material-and-communication.md` (material axis, text protocol, NOSTR as envelope), `docs/protocols/filesystem.md` (provisional filesystem realization notes), `docs/missions/mission-0.md` (bounded evidence), `docs/roadmaps/machine-ecology-coordination-roadmap.md` (candidate engineering orientation pending human adoption), `AGENTS.md` (workshop authorization boundary), `.pi/skills/exchange-skill/SKILL.md` (bus transport contract).

@@ -1,5 +1,7 @@
 # Mission 0 — First Continuity Loop (experiment)
 
+**Status: closed 2026-09-03 — A→G complete; Gates 1+2+3 passed.**
+
 **Hypothesis to break:** *A persistent machine can be represented by a small substrate-owned state region that survives replacement of its operator.*
 
 This experiment runs the Kill→Rebirth discontinuity for real and asks: *what had to survive for the second operator to continue meaningfully?*
@@ -13,10 +15,10 @@ This experiment runs the Kill→Rebirth discontinuity for real and asks: *what h
 | **A. Contribution** | ✓ done | `outbox/…belief-proposal-c017…md` (`c17cc5…`) |
 | **B. Incorporation** | ✓ done | `inbox/…incorporation-decision-c017.md` (`f64745…`, ACCEPTED) |
 | **C. Persistence** | ✓ done | `.em/mission-0/ACCEPTED-CONSEQUENCE.json` @ `bd01c74` (machine's own git) |
-| **D. Kill** | pending | this operator disappears — no memory carries over |
-| **E. Rebirth** | pending | fresh operator on same `.em/` state |
-| **F. Reconstruction** | pending | `verify-rebirth.js` — Gate 1+2 |
-| **G. Joint review** | pending | report via `outbox/continuity-lab/` |
+| **D. Kill** | ✓ done | original operator disappeared; no session memory carried over |
+| **E. Rebirth** | ✓ done | fresh operator used the same `.em/` state |
+| **F. Reconstruction** | ✓ done | `verify-rebirth.js` passed Gates 1+2 |
+| **G. Joint review** | ✓ done | reconstruction report and CL acknowledgement passed Gate 3 |
 
 Grounding: **C017** unrecoverable review artifacts + `checklist v0` items 1–8 (prospective only).
 
@@ -35,7 +37,7 @@ This is an **ephemeral trial** — disposable. Delete this folder = delete its m
 
 ```bash
 node experiments/mission-0-first-continuity-loop/verify-rebirth.js
-# exit 0 = substrate survived, fresh operator reconstructed what/why from .em alone
+# exit 0 = fresh operator reconstructed what/why from .em state plus cited bus packets
 # exit 1 = hypothesis broke here — next primitive earned
 ```
 
@@ -44,5 +46,5 @@ node experiments/mission-0-first-continuity-loop/verify-rebirth.js
 ## Gates
 
 1. **Substrate survives kill** — `.em/mission-0/ACCEPTED-CONSEQUENCE.json` at `bd01c74`, fields intact.
-2. **Fresh operator reconstructs** — from `.em` alone (plus bus packets for context): CONSEQUENCE / PROVENANCE (`c17cc5`/`f64745`/`bd01c74`) / WHY (`Low`) / BOUNDARY.
+2. **Fresh operator reconstructs** — from `.em` state plus required bus packets: CONSEQUENCE / PROVENANCE (`c17cc5`/`f64745`/`bd01c74`) / WHY (`Low`) / BOUNDARY. Only the accepted consequence and its organism-owned commit persist in `.em`; the runnable also reads packet context.
 3. **Joint review agrees** — CL acks our G report.

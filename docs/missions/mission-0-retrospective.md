@@ -18,7 +18,7 @@ One real A→G loop, no top-down stack. Rule: *let each failure earn the next pr
 | B Incorporation | `inbox/…incorporation-decision-c017.md` (ACCEPTED, Low) | `f64745…` |
 | C Persistence | `experiments/mission-0-first-continuity-loop/.em/mission-0/ACCEPTED-CONSEQUENCE.json` | `bd01c74` |
 | D Kill → E Rebirth | fresh operator (delegate + `verify-rebirth.js`, no history) | `exit 0` |
-| F Reconstruction | consequence + provenance + reason + boundary from `.em` alone | Gates 1+2 ✓ |
+| F Reconstruction | accepted consequence retained in `.em`; provenance, reason/confidence, and scope/boundary supplied by cited bus packets | Gates 1+2 ✓ |
 | G Joint review | `outbox/…reconstruction-report.md` → `inbox/…mission-0-complete-ack.md` | Gate 3 ✓ |
 
 Payload: **C017** review provenance gap + prospective `checklist v0` items 1–8.
@@ -27,11 +27,11 @@ Payload: **C017** review provenance gap + prospective `checklist v0` items 1–8
 
 Only one organism-owned thing had to survive: `ACCEPTED-CONSEQUENCE.json` at `bd01c74` (machine's own `.git` inside `experiments/mission-0-first-continuity-loop/.em/`).
 
-Fresh operator could reconstruct everything (quoted `proposed_interpretation` + `ACCEPTED with boundary` + `reason/Low` + scope) from that file + bus packets. Nothing else was required. Hypothesis **holds for this loop**.
+Fresh operator could reconstruct the accepted consequence from `.em`, while the cited bus proposal/decision packets supplied the quoted `proposed_interpretation`, reason/Low, and scope/boundary. Nothing else was required. Hypothesis **holds for this loop**.
 
 ## What we learned (CL ack confirmed)
 
-- **Bus observes; `.em` proves.** `inbox/outbox` packets alone reconstruct *what/why/boundary* — but only `.em @ bd01c74` proves organism-owned persistence survived Kill→Rebirth. This was the experimental question; CL joint review called it "highly significant."
+- **Bus records; `.em` retains the organism-owned consequence.** The `.em @ bd01c74` commit supplied bounded evidence that the accepted consequence persisted across the tested Kill→Rebirth discontinuity. The cited `inbox/outbox` proposal and decision packets supplied the provenance, reason/confidence, and scope/boundary needed for reconstruction.
 - **Workshop ≠ machine.** Root has no `.em`. Many machines ⇒ many `experiments/<mission>/.em/` (later `machines/<name>/.em/`). Move `bd01c74` from root → `experiments/` made the folder story honest (`df9a9b3`).
 - **Visibility boundary holds.** No peer tree reads (`SKILL.md`) — `verify-rebirth.js` + delegate read only `.em/ + inbox/outbox`. Bypassing bus would have hidden what must be communicated.
 - **Empty is correct.** No `substrates/` `seeds/` `core/` was needed — filesystem as substrate + one `ACCEPTED-CONSEQUENCE.json` sufficed.
@@ -47,17 +47,17 @@ Vertical slice succeeded without failure, so **no stable primitive promoted**. `
 1. **Many machines** — can we instantiate a new machine from a seed blueprint? (`seeds/` not yet earned)
 2. **Many substrates** — filesystem is one substrate; transport that survives host separation is untested. This is where NOSTR temptation lives (see next).
 
-## NOSTR temptation (not built)
+## Historical NOSTR temptation (not built)
 
-We're tempted to replace `inbox/outbox` + `.sessions/journal` with NOSTR semantics: `events/` (append-only signed events, `kind` = `belief-proposal`/`decision-record`/…), `views/inbox/` `views/outbox/` (materialized filters by pubkey/kind), `.membrane/<exposed>/` (folder-as-membrane via symlink to enter another's exposed view).
+The initial retrospective considered replacing `inbox/outbox` + `.sessions/journal` with NOSTR-like `events/`, materialized `views/`, and `.membrane/` projections.
 
-It solves identity (pubkey = machine), signatures (vs `sha256` frontmatter hack), relays (off-host), and `events → views` separation (bus becomes a view). But Mission 0's filesystem bus **did not fail** — `verify-rebirth → 0`, boundary respected, no crypto needed. Building it now = top-down stack before seed failure. Reserved until failure demands it.
+That sketch appeared to offer transport keys, signatures, relays, and event/view separation, but it did not establish machine identity, a canonical event model, or a need for those mechanisms. Mission 0's filesystem bus **did not fail** — `verify-rebirth → 0`. Building the sketch then would have been a top-down stack, so no part was promoted.
 
-Discussed with CL via `question` packet `2026-09-03T18-30-question-transport-evolution.md` — awaiting their read on when transport should earnSigned events (see next section). We pause before Mission 1 until CL replies.
+A historical question packet, `2026-09-03T18-30-question-transport-evolution.md`, asked CL for transport advice. That consultation did not transfer EM sequencing authority to CL and no longer controls current work.
 
-## What next
+## Historical next-step note — superseded
 
-Wait for CL. If they say "earn `seeds/` first, keep filesystem transport," Mission 1 = First Seed (seed → new `experiments/<name>/.em/`). If they say transport pressure is next, we let Mission 1 fail on filesystem transport and then earn `events/` / `substrates/nostr/` from that failure.
+The former instruction to wait for CL to choose Mission 1 is superseded by `docs/roadmaps/machine-ecology-coordination-roadmap.md` and `AGENTS.md`. CL may provide non-authoritative evidence and advice; EM owns source-local engineering dispositions; the human adopts roadmap direction and separately authorizes bounded work. No Mission 1 is selected by this retrospective.
 
 ```
 workshop (b6b79eb)                         machine per experiment

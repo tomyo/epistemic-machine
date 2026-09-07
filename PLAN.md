@@ -1,5 +1,7 @@
 # Plan: Ecological Crossing First Specimen
 
+Status: completed historical plan; not the current workshop action vector. See `docs/roadmaps/machine-ecology-coordination-roadmap.md`.
+
 Depth: tree 3   Mode: orchestrated
 Budget note: bounded design/review plus one minimal standard-library specimen; no general ecology or runtime.
 

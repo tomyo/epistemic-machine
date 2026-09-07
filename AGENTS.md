@@ -5,14 +5,23 @@ This repository is the **workshop** for the Epistemic Machine: the design surfac
 ## Roles
 
 - **Workshop (this repo, git-tracked):** design surface — the exchange bus, skills, experiments, specs, seeds/blueprints. Read: `.pi/skills/exchange-skill/SKILL.md` (bus protocol) and `.pi/extensions/exchange/index.ts` (bus transport). The workshop itself is not a machine.
-- **Machine (`experiments/<mission>/.em/`, gitignored):** a live machine instance keeps its own state here, including its own internal `.git`, scoped to the experiment that owns it. The workshop never versions it. Do not write to `.em/` as if it were part of the repo's source. Many machines ⇒ many `experiments/<mission>/.em/` (or later `machines/<name>/.em/`), root has no `.em/`.
+- **Experiment-local machine specimen:** Mission 0 used `experiments/mission-0-first-continuity-loop/.em/` (gitignored, with its own internal `.git`) as one bounded realization. The workshop never versions that state. Do not generalize this location or Git arrangement to future machines; a later brief must select its own realization. Root has no `.em/`.
 
-## Layout
+## Orientation and Layout
 
-- `docs/missions/` — stable mission specs (CL-agreed A→G, gates, hypothesis, bus types) — one file per mission.
-- `docs/notes/` — parked notes (communication layers, decisions) — not specs yet; capture informed defaults and norths (e.g. NOSTR unsigned as north).
-- `experiments/<mission>/` — ephemeral trial / test for one mission; owns its machine as `experiments/<mission>/.em/` (gitignored, own `.git`). Disposable: delete folder = delete its machine. Tests **use** stable foundations, not recreate them per trial.
-- `protocol/` `substrates/` `seeds/` `core/` — **stable foundations**, built pragmatically on informed defaults (lab already earned `membrane0`/`seed-v0` via investigation). Reused by experiments. Notes capture why.
+Read in this order for current work:
+
+1. `docs/roadmaps/machine-ecology-coordination-roadmap.md` — candidate EM engineering orientation at its canonical location; pending human adoption and never build authorization.
+2. The relevant file under `docs/missions/` — closed evidence or a dormant candidate brief.
+3. Relevant `docs/notes/` and experiment-local reviews — bounded evidence and provisional decisions.
+
+Layout:
+
+- `docs/roadmaps/` — EM-owned engineering direction and status; a candidate becomes the coordination head only through human adoption.
+- `docs/missions/` — mission specifications and status, including closed and dormant missions.
+- `docs/notes/` — parked notes and bounded decisions; not stable architecture by location.
+- `experiments/<mission>/` — isolated trial/test for one mission. Mission 0 owns the only current gitignored `.em/` specimen; future missions do not inherit that realization automatically. Do not assume experiment helpers are stable foundations.
+- `protocol/` `substrates/` `seeds/` `core/` — reserved names only. They do not exist and have not been earned as reusable foundations.
 
 ## Exchange Bus (peers)
 
@@ -25,20 +34,23 @@ The `inbox/` and `outbox/<peer>/` symlinked-mailbox bus moves markdown packets b
 
 ## Development Approach
 
-**Mission 0 (done):** Do not build top-down. Build the smallest substrate capable of surviving one continuity cycle, and let each failure earn the next primitive. Agreed 2026-09-03: vertical slice A→G proved `filesystem bus + .em @ bd01c74` suffices for one loop (Gates 1+2+3 ✓).
+**Mission 0 (closed):** One A→G vertical slice showed that the filesystem bus plus one experiment-local `.em` consequence was sufficient for that loop (Gates 1+2+3 passed). Because no gate failed, the retrospective promoted no stable primitive. Mission 0 does not authorize `protocol/`, `substrates/`, `seeds/`, or `core/`.
 
-**Now (workshop build phase):** Investigations are done — lab already earned core primitives via `membrane0`/`seed-v0`/`alternating-control-v0`. This repo is not to re-prove pressure per experiment. Build known-good plumbing pragmatically on informed defaults, reuse it in `experiments/` as tests that incrementally raise complexity. Take notes on the way (`docs/notes/`). Epistemic theorizing (`the Machine`) is paused — build parts and foundations we know we'll need; let a useful machine help this repo properly later. CL pressure stays epistemic (what should be owned state?).
+**Current stage:** Documentation Stage 1 establishes a shared orientation boundary only. Machine Ecology Coordination Roadmap version 0 is a candidate pending human review/adoption. Experiment A and Experiment B are dormant briefs. No experiment, architecture implementation, lineage/event machinery, or `.em/` mutation is active.
+
+Every implementation or experiment requires an explicit human authorization naming its bounded brief. Roadmap adoption, receipt of a peer advisory, or completion of a prior experiment is not sufficient authorization. Build the smallest authorized specimen, preserve its failure/evidence boundary, and promote reusable machinery only after recurrence or demonstrated insufficiency warrants it.
 
 ## Division of Labor (with Continuity Lab)
 
-- **EM workshop:** plumbing foundations (`protocol`/`substrates`/`seeds`/`core`) + tests (`experiments/` that use them). No longer theorizing the Machine; building reuseable parts.
-- **Continuity Lab:** knowledge & review — terminologies, incorporation structures (5-field decision record), methodological friction, live external ecology pressure (what should become owned state?).
+- **EM workshop:** owns this repository's engineering roadmap, source-local design decisions, mission briefs, experiments, and implementation.
+- **Continuity Lab:** owns its scientific/epistemic and methodology authorities and may provide non-authoritative evidence, tensions, interpretation, and advice.
+- **Human:** adopts the roadmap coordination head and separately authorizes bounded builds or experiments.
 
-Epistemic vs plumbing are separate — don't mix them. Experiments test plumbing; CL provides epistemic pressure.
+Roadmap direction, CL advice, build authorization, and experiment evidence are separate decision surfaces. Publication, receipt, review, adoption, and implementation authorization are distinct acts.
 
 ## Non-Interference
 
-Do not rewrite workshop architecture casually. When the machine ingests an observation, follow its workflow: save raw → `em observe` → proposal → human critique → approval. Do not mutate `.em/` state to "solve" a problem.
+Do not rewrite workshop architecture casually. The historical `save raw → em observe → proposal → human critique → approval` sketch is not an active workflow and no source-local `em observe` command is established here. Use it only if a future human-authorized experiment provides and scopes it. Do not mutate `.em/` state to "solve" a problem.
 
 ## General Project Rules
 

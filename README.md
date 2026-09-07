@@ -8,15 +8,16 @@ An Epistemic Machine is a persistent entity designed to maintain continuity acro
 
 ## Layout
 
-- `.pi/extensions/exchange/` — canonical exchange-bus extension (watches inboxes, notifies + journals; shared with peers via global symlink)
-- `.pi/skills/exchange-skill/` — canonical bus protocol skill (filenames, packet anatomy, send/receive, journal, visibility boundary)
-- `docs/missions/` — stable mission specs (CL-agreed A→G, gates, hypothesis per mission)
-- `docs/notes/communication-layers-and-protocols.md` — parked north: transport-protocol (NOSTR unsigned), transport (files/http/relay), EM internal vs ecology protocols
-- `experiments/<mission>/` — ephemeral trial / test; each owns its scoped machine at `experiments/<mission>/.em/` (own `.git`, gitignored, disposable). Tests use stable foundations.
-- `protocol/` `substrates/` `seeds/` `core/` — stable foundations built pragmatically on informed defaults (lab earned `membrane0`/`seed-v0`); reused by experiments, not earned per failure
+- `docs/roadmaps/machine-ecology-coordination-roadmap.md` — candidate EM engineering orientation at its canonical location; pending human adoption and not build authorization
+- `docs/missions/` — closed mission evidence and dormant mission briefs
+- `docs/notes/` — provisional notes, bounded contracts, and decisions
+- `.pi/extensions/exchange/` — exchange-bus watcher/notification and journal extension
+- `.pi/skills/exchange-skill/` — bus transport convention (filenames, packet anatomy, send/receive, journal, visibility boundary)
+- `experiments/<mission>/` — isolated trial/test; a mission may own a scoped gitignored machine at `experiments/<mission>/.em/`
+- `protocol/` `substrates/` `seeds/` `core/` — reserved names, not current foundations and not created
 - `inbox/` — peer mailboxes (peers write packets here)
-- `outbox/` — symlinks to peer inboxes (writing a file here = delivering it)
-- Workshop has no `.em/` at root — many machines ⇒ many `experiments/<mission>/.em/`
+- `outbox/` — symlinks to peer inboxes (writing one file here delivers bytes)
+- Workshop has no `.em/` at root
 
 ## Core Questions
 
@@ -37,4 +38,4 @@ The filesystem may be useful as an initial substrate because it is simple and in
 
 ## Status
 
-Early development. The repository is intentionally minimal so that its structure can emerge from experiments rather than assumptions.
+Documentation Stage 1 is the current milestone. Machine Ecology Coordination Roadmap version 0 is an EM-owned candidate pending human review/adoption; Continuity Lab advice remains non-authoritative, and the human separately authorizes every build or experiment. Mission 0 is closed with no stable primitive promoted. Experiment A (orientation) and Experiment B (roadmap evolution) are dormant and unexecuted.

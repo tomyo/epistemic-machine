@@ -1,10 +1,10 @@
-# Filesystem Protocol — Implementation
+# Filesystem Realization — Provisional Notes
 
 **Status:** provisional — source-local workshop proposal — maps concepts to a filesystem substrate · provisional · not CL-adopted · per CL boundary review `2026-09-04T16-13-30` · refs `docs/concepts/epistemic-machine.md` + `material-and-communication.md`
 
-> Given the abstractions above, this experiment implements a machine using a filesystem.
-> Everything here is **not a property of an EM** — it is a property of this substrate realization.
-> Choices here are *decisions*, not axioms. See §4 for current decisions and open questions.
+> This document sketches how candidate abstractions might map to a filesystem substrate; it is not a current experiment or implementation specification.
+> Nothing here is automatically a property of an EM.
+> Treat the concrete mechanisms as proposals or bounded observations according to their explicit status. See §4 for decisions and open questions.
 
 ---
 
@@ -12,7 +12,7 @@
 
 The workshop instantiates a machine on a filesystem: we give the operator a **filesystem-like operational interface** to it — one possible interface among others (text, API, visual, NOSTR to remote ecology) to the same machine. The operator navigates files, folders, symlinks. This is **one operational interface through which an operator can interact with a machine**, not the machine's abstraction. The same machine could expose a textual interface to an LLM, an API to another machine, or a NOSTR interface to a remote ecology — that the operator is replaceable implies the interface is not the machine.
 
-Canonical `events`/docs are stored by the membrane (the "something around the machine"), and materialized as filesystem projections for this interface (see §2). On a different substrate (browser OPFS/IndexedDB, remote service) a similar — not identical — interface would be materialized differently.
+A parked north sketch would preserve canonical material and materialize filesystem projections for this interface (see §3). That store/projection split is not implemented or earned today. On a different substrate (browser OPFS/IndexedDB, remote service), a similar — not necessarily identical — interface might be materialized differently.
 
 ## 2. Machine keep vs transport state vs host evidence
 
@@ -29,10 +29,10 @@ Only mailboxes are shared (`SKILL.md` visibility boundary). Machines decide what
 Wrapping, transport, and materialization (from `material-and-communication.md`):
 
 * Document = file with frontmatter (`source/date/type/sha256/revision`, body). Wrappers are onion layers — frontmatter at each level.
-* Only mailboxes + transport envelope are shared; after unwrap, what lands in the machine's local world is the machine-level document (transport envelope gone, provenance retained canonically).
-* **Inbox is not transport** — it is the machine-local projection after the transport adapter has unwrapped (envelope removed). Bell signals it; Attention interprets.
+* The current top-level `inbox/<peer>/` and `outbox/<peer>/` are transport mailboxes. A future envelope adapter might unwrap transport-specific metadata while retaining provenance, but no general unwrapping/canonical-store path exists today.
+* A **semantic inbox** is a machine-local projection, not transport. The advisory specimen's `advisory/in` is one workload-local example. Do not confuse that term with the currently named top-level bus `inbox/`. Availability in either place does not imply attention or interpretation.
 
-**Filesystem-like projections:** the operator navigates files. Concretely today this *is* a real filesystem, but it is one materialization — folders/symlinks are projections/views of canonical material, not the canonical store. Underneath, the canonical `events`/docs are always stored; this filesystem view can be regenerated as different materializations (`inbox/`, `archive/`, `by-project/`, `timeline/`) from the same store. A different operator (human vs Claude Code vs machine) could be shown a different materialization of the same machine.
+**Filesystem-like projections:** the operator navigates files. Concretely today this is a real filesystem, and the advisory specimen demonstrates one workload-local projection. There is no general canonical store/view split. The parked north sketch asks whether future operators might receive different materializations (`inbox/`, `archive/`, `by-project/`, `timeline/`) from retained canonical material; that remains an engineering hypothesis.
 
 ### Canonical vs views (north sketch — not built yet)
 
@@ -46,27 +46,27 @@ canonical store (one place that keeps)
     └─→ views/archive/             status = archived query, not mv
 ```
 
-Today canonical + views are not separated — `inbox/outbox` *are* the transport and `.em/mission-0/` is the sole keep. Separation is earned when `inbox/outbox` insufficient (off-host or multi-machine filtering fails without centralized log — see §4).
+Today canonical storage and views are not separated. The top-level `inbox/outbox` are transport mailboxes, and Mission 0 used one experiment-local `.em/` keep. A general separation requires a future human-authorized brief with a workload, control, and observable insufficiency; it is not earned merely by naming a future deployment.
 
-Until then: `events/` `views/` `.membrane/` remain reserved/empty per `AGENTS.md`.
+Until then, `events/`, `views/`, and `.membrane/` are reserved names only and must not be created as foundations.
 
-## 4. Current decisions (not axioms) — and open questions
+## 4. Parked implementation questions
 
-These are implementation choices for this substrate. They belong here, not in `epistemic-machine.md`.
+These are unselected questions for a possible filesystem realization. They belong here, not in `epistemic-machine.md`.
 
-| Decision | Current choice | Open / when revisited |
-|----------|---------------|----------------------|
+| Question | Parked candidate | Revisit only when |
+|----------|------------------|------------------|
 | Automatic canonical storage on receipt | Parked — not yet decided whether transport adapter auto-appends to Store then projects to `inbox`, or operator must explicitly curate | Decide when Bell→Attention loop is exercised |
 | Writable views vs read-only + explicit op | Parked — `mv inbox/read` as state transition vs `/resolve <id>` / edit `status: read` | Try second state (`read`/`archived`) |
 | Document identity | Parked — filename `<iso>-<slug>.md` + frontmatter `id:`? ULID? content hash? | Need before second machine |
 | Bell mechanism | Parked — Bell as "membrane changed" signal, observed as new file in projection (no daemon, `watch views/inbox/`) | When need notification not polling |
-| Operator invocation language | Parked — e.g. `/invoke machine-a "msg"` vs `mv`/file ops — conceptually `invoke(action,args)` (`membrane0` earned) mapped to text/file ops | Before seed machine does internal `machine → machine` |
-| NOSTR transport identity / `pubkey` | Parked — NOSTR envelope uses `pubkey` as machine id later (`machine.md` frontmatter `id:` → pubkey), unsigned for now, `sig` when provenance collapses (CL condition b) | Off-host (condition a) or provenance failure (b) |
+| Operator invocation language | Parked — e.g. `/invoke machine-a "msg"` vs `mv`/file ops — `invoke(action,args)` was sufficient only in the Membrane-0 simulation | A bounded workload requires cognition-controlled invocation |
+| NOSTR transport identity / `pubkey` | Parked question — whether an envelope key can represent transport provenance without becoming machine identity is unresolved | A human-authorized workload demonstrates off-host or provenance pressure that the current transport cannot preserve |
 | `.membrane/<exposed>/` | Parked — folder-as-membrane a peer symlinks to "enter" | Guest needs `invoke` without knowing layout |
 
 ## 5. What is not built yet
 
-`protocol/nostr-north.md` (layer-1 formal north), `substrates/<transport>/` (relay, http), `seeds/` `core/` `events/` `views/` `.membrane/` — all earned by failures per `AGENTS.md` and CL `2026-09-03T18-45` (earn `seeds/` first on filesystem; NOSTR only on off-host or provenance collapse). Don't create until needed — per CL `2026-09-04T16-13-30` none is authorized under current stop gate; any exploratory local work must state discontinuity + insufficiency + falsification before CL review. Do not create `events/views/` NOSTR/Store/Oracle/internal-ecology from this conceptual split.
+`protocol/nostr-north.md`, `substrates/<transport>/`, `seeds/`, `core/`, `events/`, `views/`, and `.membrane/` are reserved possibilities, not present foundations. Do not create them from this conceptual split. Any future addition requires an explicit human-authorized brief with a concrete workload, control or reference case, observable pressure, and falsification condition.
 
 ---
 

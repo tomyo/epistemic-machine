@@ -30,7 +30,7 @@ How material gets from A to B: filesystem, HTTP, NOSTR relay, Unix socket, pipe,
 
 How material becomes available to a machine/operator in a form it can work with: a filesystem view, an inbox projection, a symlink, a rendered document, a query result.
 
-Materialization is not storage — it is a projection of canonical material into a usable form.
+In this proposed model, materialization is a usable projection rather than the canonical storage itself. The workshop has not yet earned or implemented a general canonical-store/materialization split.
 
 ## 6. Document and wrapping (onion) — implementation model
 
@@ -49,25 +49,25 @@ to: machine-b
 
 Frontmatter is the metadata layer for the communication at that level. Because payload is itself a complete document, wrapping can recurse (`review → delegation → observation → evidence`). Receiver unwraps only to the layer it understands — inner structure stays intact.
 
-A **transport envelope** (e.g. NOSTR event) is optional and outermost — only when that transport is used. It wraps the machine-level document and disappears at the adapter boundary. In some situations a NOSTR event may itself carry semantic material rather than merely being an envelope — the model stays flexible.
+A **transport envelope** (for example, a NOSTR event) is a candidate optional outer representation when that transport is used. A future adapter might remove it at a machine boundary while preserving required provenance. In other cases an event might itself carry semantic material rather than merely wrapping it; neither behavior is selected or implemented.
 
 ## 7. Transport unwrapping and machine boundary
 
-Full path:
+Candidate question map, not a current pipeline:
 
 ```
-semantic document → [optional wrappers] → transport adapter → [transport envelope, e.g. NOSTR event] → transport → transport adapter → wrapped document → [optional unwrap] → semantic document → INBOX → Bell → Attention → interpretation → continuity
+semantic document → [optional wrappers] → transport adapter → [transport envelope, e.g. NOSTR event] → transport → transport adapter → wrapped document → [optional unwrap] → semantic projection → availability signal → attention → interpretation → possible continuity consequence
 ```
 
-The transport adapter removes transport-specific wrapping and delivers the **machine-level document** intact. If NOSTR was used, the NOSTR event disappears at that boundary — what arrives is no longer "a NOSTR event" but an EM communication/document. The machine does not need to know whether it arrived via NOSTR, filesystem, HTTP, or local channel.
+A future transport adapter would remove transport-specific wrapping and deliver the **machine-level document** intact. For example, a NOSTR adapter might hide the NOSTR event at that boundary while retaining required provenance. The current bus has no general adapter that makes transports interchangeable; only the advisory workload demonstrated one bounded caller-facing projection over the filesystem bus.
 
-**Inbox is not transport.** It is the point at which an incoming communication has become part of a machine's local world (machine-local projection after unwrap). Canonical store may retain provenance (`received via NOSTR event X`) while the working document is envelope-free.
+A **semantic inbox is not transport**: it is the point at which incoming material has become available in a machine-local projection. The current workshop's top-level `inbox/<peer>/` is differently named: it is a transport mailbox. The advisory specimen's `advisory/in` is one workload-local semantic projection. A future canonical store may retain transport provenance while exposing an envelope-free working document, but that store/unwrap path is not built.
 
 ## 8. Events, identity, provenance
 
-An event/document may carry `id`, `pubkey (= machine)`, `kind` (maps bus `type`), `tags`, `content`, `sig?`. Identity is substrate-independent — not "the process on this socket" nor "this pubkey", but an identity that survives changes in embodiment. Handshake between machines (`ecology A ⇄ ecology B`) establishes a communication membrane between ecologies using whatever transport implements it.
+A future event/document may carry `id`, `pubkey`, `kind`, `tags`, `content`, or a signature. Candidate machine identity would need to survive embodiment changes rather than collapse into one process, socket, or pubkey. A handshake might establish a communication membrane between ecologies. None of global identity, handshake, or transport-independent envelope semantics is implemented or earned.
 
-Provenance is retained canonically; the transport envelope's identity material can be preserved as provenance without remaining as the working representation.
+A future canonical representation may retain transport provenance without retaining the transport envelope as its working form. The current bus packet itself remains the durable received record.
 
 ## 9. Notification (Bell) vs content
 
@@ -90,7 +90,7 @@ DELEGATE Ask machine Y to investigate X.
 ACCEPT   …
 ```
 
-The operator interacts through the membrane via **text that is simultaneously representation + interface + protocol + human-readable record**. The operator does not need to know whether that text becomes a function call, file creation, NOSTR event, or DB transaction. Text is the lowest common representation of the operational interface; a filesystem-like interface is one realization of it.
+One candidate operational interface uses **text as representation + interface + human-readable record**. A future adapter might hide whether that text becomes a function call, file creation, event, or database transaction. Text is a practical common representation for current experiments, and a filesystem-like interface is one tested bounded realization; neither is established as the universal operational protocol.
 
 The membrane exposes an **operational interface to its environment**; representations available to an operator (text, files, API calls, signals) are realizations of it — none is the machine's ontology.
 
@@ -100,5 +100,6 @@ The membrane exposes an **operational interface to its environment**; representa
 
 ---
 
-*Realization:* `docs/protocols/filesystem.md` — how this experiment maps the above to a filesystem (`inbox/outbox` as transport materialization, `.em` as continuity, `views` as projections).  
-*North:* NOSTR as one possible envelope/transport realization of this axis — defined here, implemented there.
+*Provisional realization notes:* `docs/protocols/filesystem.md` — current bounded filesystem observations plus parked hypotheses about transport mailboxes, experiment-local `.em` state, and projections.
+
+*Possible north:* NOSTR as one candidate envelope/transport realization, to be implemented only under a future authorized brief.
