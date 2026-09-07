@@ -12,7 +12,7 @@ One literal workload: `continuity-lab/advisory/out` → bus deposit → `epistem
 
 ## Contract — what made `advisory/in` work (live evidence)
 
-Caller surface is `list_advisory_in()` / `read_advisory_in(name)` and `publish_advisory_out(name, bytes)` via `experiments/machine-boundary-advisory-specimen/adapter.py`. Bus mechanics are private: `_project_live_request` / `publish_advisory_out_live` hide `inbox/continuity-lab/` + `outbox/continuity-lab/` + `_BUS_INBOX/_BUS_OUTBOX` + symlink wiring (`adapter.py: _SANDBOX/advisory/in` + `/out`, `PEER = continuity-lab`, `mkdtemp` sandbox `atexit rm -rf`, `mkstemp → fsync → replace → reread digest`, symlink-reject, append-only).
+Caller surface is `list_advisory_in()` / `read_advisory_in(name)` and `publish_advisory_out(name, bytes)` via `experiments/s02-machine-boundary-advisory/adapter.py`. Bus mechanics are private: `_project_live_request` / `publish_advisory_out_live` hide `inbox/continuity-lab/` + `outbox/continuity-lab/` + `_BUS_INBOX/_BUS_OUTBOX` + symlink wiring (`adapter.py: _SANDBOX/advisory/in` + `/out`, `PEER = continuity-lab`, `mkdtemp` sandbox `atexit rm -rf`, `mkstemp → fsync → replace → reread digest`, symlink-reject, append-only).
 
 | Field | What `advisory/in` actually needed | Evidence |
 |---|---|---|
@@ -60,4 +60,4 @@ No generic `PUT`/`CREATE`/`READ`/`LIST` vocabulary, no portal/discovery/handshak
 
 - Request: `inbox/continuity-lab/2026-09-06T15-41-48-machine-boundary-advisory-live-probe-request.md`
 - Results: `outbox/continuity-lab/2026-09-06T16-10-00-machine-boundary-advisory-specimen-result.md`, `2026-09-06T16-18-00-machine-boundary-advisory-live-result.md`, `2026-09-06T16-28-00-machine-boundary-advisory-live-result.md`
-- Adapter: `experiments/machine-boundary-advisory-specimen/adapter.py` (`00c6283` + `3a8a270`), verifies `test_adapter.py: machine-boundary EM peer-side adapter: PASS` + `test_live_adapter.py: machine-boundary EM live adapter: PASS`
+- Adapter: `experiments/s02-machine-boundary-advisory/adapter.py` (`00c6283` + `3a8a270`), verifies `test_adapter.py: machine-boundary EM peer-side adapter: PASS` + `test_live_adapter.py: machine-boundary EM live adapter: PASS`

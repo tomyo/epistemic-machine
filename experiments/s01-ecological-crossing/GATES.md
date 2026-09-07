@@ -20,11 +20,11 @@ Scope: produce a review-backed, explicitly provisional ecology-crossing boundary
   EVIDENCE: decision-scoped
 
 - [x] G4: A runnable specimen demonstrates the same declared local placement semantics through a cognition-shaped request and a direct substrate-native call, with validated provenance and an atomic completed materialization; it does not claim a shared actor vocabulary.
-  CHECK: python3 experiments/ecological-crossing-first-specimen/test_specimen.py
+  CHECK: python3 experiments/s01-ecological-crossing/test_specimen.py
   EXPECT: ecological crossing specimen: PASS
-  EVIDENCE: `python3 experiments/ecological-crossing-first-specimen/test_specimen.py` -> `ecological crossing specimen: PASS`; it checks same bytes/digest, route-bounded receipt parity, rejected digest mismatch/destination field, no public `root` argument, non-symlink sandbox/destination, and no temporary output.
+  EVIDENCE: `python3 experiments/s01-ecological-crossing/test_specimen.py` -> `ecological crossing specimen: PASS`; it checks same bytes/digest, route-bounded receipt parity, rejected digest mismatch/destination field, no public `root` argument, non-symlink sandbox/destination, and no temporary output.
 
 - [x] G5: The new EM specimen and decision remain reviewable without modifying an existing live `.em/` machine state or adopting a general ecology architecture.
-  CHECK: test ! -e experiments/ecological-crossing-first-specimen/.em && grep -Fq 'not a general ecology architecture' docs/notes/ecological-crossing-first-specimen-decision-v0.md && echo boundary-held
+  CHECK: test ! -e experiments/s01-ecological-crossing/.em && grep -Fq 'not a general ecology architecture' docs/notes/ecological-crossing-first-specimen-decision-v0.md && echo boundary-held
   EXPECT: boundary-held
   EVIDENCE: boundary-held

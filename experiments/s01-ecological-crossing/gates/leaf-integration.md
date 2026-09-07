@@ -7,7 +7,7 @@ Scope: integrate verified evidence and review into non-authoritative Lab advice,
   EXPECT:
   EVIDENCE: advisory at `/var/home/tomyo/projects/continuity-lab/workspaces/epistemic-lab-v0/artifacts/20260905-ecological-crossing-advisory-v0.md`; decision at `docs/notes/ecological-crossing-first-specimen-decision-v0.md`.
 - [x] G2: Implement and run the isolated specimen without live `.em/` state or external transport.
-  CHECK: python3 experiments/ecological-crossing-first-specimen/test_specimen.py
+  CHECK: python3 experiments/s01-ecological-crossing/test_specimen.py
   EXPECT: ecological crossing specimen: PASS
   EVIDENCE: ecological crossing specimen: PASS
 - [x] G3: Re-run root checks and record exact evidence in `GATES.md`.

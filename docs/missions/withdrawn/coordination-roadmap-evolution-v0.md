@@ -1,11 +1,13 @@
-# Experiment B — Roadmap Evolution
+# Coordination Roadmap Evolution v0 (Withdrawn)
 
-Status: dormant; specification only; not authorized for execution  
+Status: withdrawn before execution; no evidence produced
 Owner: Epistemic Machine workshop  
 Participant: Continuity Lab  
-Activation authority: separate explicit human authorization after Experiment A review
+Activation authority: none; this brief was never adopted or authorized
 
-Experiment B is not authorized by completion of Experiment A.
+## Withdrawal
+
+This candidate brief is retained as historical design context. Its prerequisite orientation brief was never adopted or run, no execution occurred, and it does not select a future mission or experiment. A future roadmap-evolution study requires a new human-selected brief.
 
 ## Question
 
@@ -13,9 +15,9 @@ Can one meaningful roadmap change preserve the distinctions among proposal, prop
 
 This tests a protocol local to one roadmap. It does not assume that artifact lineage, events, Git, or the protocol generalize to other material.
 
-## Preconditions
+## Historical Preconditions
 
-Before activation:
+Before activation, this withdrawn proposal would have required:
 
 - Experiment A has a completed evidence package and review;
 - the human has decided that roadmap evolution is worth testing;
@@ -86,9 +88,9 @@ Stop if:
 - the implementation requires a registry, daemon, watcher, scheduler, merge engine, generic event store, or new transport;
 - B2 begins before B1 review and separate activation.
 
-## Activation gate
+## Historical activation gate
 
-A new human approval must name the Experiment B execution specification, cite the observed control insufficiency, select the minimum treatment, and authorize B1 only. Experiment A completion, a roadmap proposal, or this document does not authorize execution.
+The withdrawn proposal required a human approval naming an execution specification, observed control insufficiency, minimum treatment, and B1 authorization. None occurred.
 
 ## Not authorized or implemented
 

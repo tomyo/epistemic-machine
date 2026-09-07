@@ -1,4 +1,4 @@
-# Mission 0 — First Continuity Loop (experiment)
+# Mission M00 / Experiment E01 — First Continuity Loop
 
 **Status: closed 2026-09-03 — A→G complete; Gates 1+2+3 passed.**
 
@@ -26,17 +26,17 @@ Grounding: **C017** unrecoverable review artifacts + `checklist v0` items 1–8 
 
 This is an **ephemeral trial** — disposable. Delete this folder = delete its machine.
 
-- `.em/` — scoped machine instance for *this* mission (own `.git`, gitignored). Holds the only organism-owned consequence (`bd01c74`). Workshop root has no `.em`.
+- `.em/` — scoped machine instance for *this* experiment (own `.git`, gitignored). Holds the only organism-owned consequence (`bd01c74`). Workshop root has no `.em`.
 - `verify-rebirth.js` — single runnable: simulates the fresh operator (no history). Checks Gate 1+2.
 - `lib/substrate.js` — thin helpers over the filesystem substrate (persist/load → `.em/`).
 - `lib/bus.js` — thin helpers over the bus mailboxes (`inbox/`/`outbox/` only).
 
-`substrates/` `seeds/` `core/` are **reserved, not created** — promoted only when a gate fails here and earns them (`docs/missions/mission-0.md`).
+`substrates/` `seeds/` `core/` are **reserved, not created** — promoted only when a gate fails here and earns them (`docs/missions/m00-first-continuity-loop.md`).
 
 ## How to run
 
 ```bash
-node experiments/mission-0-first-continuity-loop/verify-rebirth.js
+node experiments/m00-e01-first-continuity-loop/verify-rebirth.js
 # exit 0 = fresh operator reconstructed what/why from .em state plus cited bus packets
 # exit 1 = hypothesis broke here — next primitive earned
 ```

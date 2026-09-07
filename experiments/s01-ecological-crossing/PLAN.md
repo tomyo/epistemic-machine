@@ -7,9 +7,9 @@ Budget note: bounded design/review plus one minimal standard-library specimen; n
 
 ## Contract
 
-- Interfaces: the specimen owns one local placement operation and defines its request, completed envelope, and check in its own `experiments/ecological-crossing-first-specimen/` directory. It must show equivalent meaning for a cognition-shaped request and direct local call, not support remote transport. That operation is a fixture, not a discovered shared primitive vocabulary or a semantic compiler.
+- Interfaces: the specimen owns one local placement operation and defines its request, completed envelope, and check in its own `experiments/s01-ecological-crossing/` directory. It must show equivalent meaning for a cognition-shaped request and direct local call, not support remote transport. That operation is a fixture, not a discovered shared primitive vocabulary or a semantic compiler.
 - Data ownership: the main session alone writes all Lab and EM artifacts. Delegates are read-only and return findings only. The specimen may create only temporary files beneath its own test directory and must not create or modify `.em/`.
-- Naming and conventions: Lab advisory is `artifacts/20260905-ecological-crossing-advisory-v0.md`; EM review and decision are under `docs/notes/`; implementation is isolated at `experiments/ecological-crossing-first-specimen/`. All documents label the design provisional and non-general.
+- Naming and conventions: Lab advisory is `artifacts/20260905-ecological-crossing-advisory-v0.md`; EM review and decision are under `docs/notes/`; implementation is isolated at `experiments/s01-ecological-crossing/`. All documents label the design provisional and non-general.
 - Authority: Lab provides a non-authoritative advisory; EM makes its own provisional workshop decision. Neither document claims universal ecology semantics. The user authorized this bounded workflow; no external service, provider execution, network transport, or cross-repository bus delivery is in scope.
 
 ## Tree

@@ -44,7 +44,7 @@ A passing test supports only local realization parity for this fixed operation. 
 
 - `docs/concepts/material-and-communication.md`
 - `docs/protocols/filesystem.md`
-- `docs/missions/mission-0.md`
+- `docs/missions/m00-first-continuity-loop.md`
 - `docs/notes/ecological-crossing-first-specimen-review-v0.md`
 - Lab advisory `artifacts/20260905-ecological-crossing-advisory-v0.md` (advisory only)
 - Lab EIP-0063 / UTP-096 shared-vocabulary refinement (non-authoritative)

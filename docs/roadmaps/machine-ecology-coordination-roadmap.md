@@ -1,11 +1,11 @@
-# Machine Ecology Coordination Roadmap
+# Machine Ecology Coordination Roadmap v0 (Withdrawn)
 
-Status: candidate version 0 at the canonical EM roadmap location; pending human review/adoption; documentation only  
+Status: withdrawn candidate v0; never adopted; retained as historical design context only
 Owner: Epistemic Machine workshop  
 Coordination-head adopter: human project owner  
 Date: 2026-09-06
 
-This roadmap proposes the current engineering direction of the Epistemic Machine workshop. It is not Continuity Lab scientific authority, an architecture proof, an experiment result, or permission to build. Every build and experiment still requires an explicitly human-authorized brief.
+This document preserves a prior proposed engineering direction of the Epistemic Machine workshop. It is not current direction, Continuity Lab scientific authority, an architecture proof, an experiment result, or permission to build. Every build and experiment still requires an explicitly human-authorized brief.
 
 ## North star
 
@@ -19,7 +19,7 @@ Build persistent, continuity-bearing machines whose ephemeral operators work thr
 - Publication is not receipt; receipt is not adoption; adoption is not implementation authorization.
 - A completed experiment supplies bounded evidence. It does not automatically promote a primitive, stabilize a CL claim, or authorize the next experiment.
 
-No coordination head is adopted yet. This version 0 is the human-authorized Stage 1 draft and becomes the coordination head only if the human explicitly adopts it after review. Until Experiment B is separately activated, any later change remains an ordinary reviewed documentation change; no lineage protocol is active.
+No coordination head is adopted. This candidate was withdrawn before adoption; it does not select a next mission or experiment. Any later change remains an ordinary reviewed documentation change; no lineage protocol is active.
 
 ## Orthogonal abstraction cuts
 
@@ -41,8 +41,8 @@ Ask separately whether material is available and whether an operator notices, in
 
 | Evidence | Bounded support | Does not establish |
 |---|---|---|
-| Mission 0, `docs/missions/mission-0.md` and retrospective | One organism-owned consequence survived one operator replacement and was reconstructed with provenance and scope | A reusable substrate, seed, event model, general identity, or architecture |
-| Ecological crossing specimen, `experiments/ecological-crossing-first-specimen/` | Two local entry forms reached one fixed-destination adapter with equivalent validated placement semantics | Shared cross-actor vocabulary, semantic compiler, remote transport, or machine ecology |
+| Mission M00, `docs/missions/m00-first-continuity-loop.md` and retrospective | One organism-owned consequence survived one operator replacement and was reconstructed with provenance and scope | A reusable substrate, seed, event model, general identity, or architecture |
+| Ecological crossing specimen, `experiments/s01-ecological-crossing/` | Two local entry forms reached one fixed-destination adapter with equivalent validated placement semantics | Shared cross-actor vocabulary, semantic compiler, remote transport, or machine ecology |
 | Advisory boundary specimen and contract | One four-place advisory workload hid bus path mechanics behind `advisory/in` and `advisory/out`; arrival remained availability only | General places, delivery guarantees, authority, causation, lifecycle, replaceability, or universal protocol |
 | CL EIP-0067 and EIP-0068 | Artifact-lineage and build-learning questions are preserved for review | Lineage necessity, event primacy, experiment activation, or EM implementation authority |
 
@@ -52,32 +52,30 @@ Statuses on different axes must not be collapsed.
 
 | Item | Epistemic support | Engineering disposition | Current realization | Owner | Authority effect | Next discriminator |
 |---|---|---|---|---|---|---|
-| Operator-independent continuity | Bounded Mission 0 evidence | Retain as reference behavior | One experiment-local `.em/` keep | EM | None beyond recorded mission | Another real discontinuity/workload |
+| Operator-independent continuity | Bounded Mission M00 evidence | Retain as reference behavior | One experiment-local `.em/` keep | EM | None beyond recorded mission | Another real discontinuity/workload |
 | Workload-local semantic boundary | Bounded advisory evidence | Retain as exemplar | Fixed `advisory/in`/`advisory/out` adapter over file bus | EM | None | Different workload or second realization |
-| Coordination roadmap | Human-authorized drafting direction | Candidate pending adoption | This Markdown draft plus CL advisory | EM; human may adopt head | Orientation only after adoption | Human review/adoption, then Experiment A only if separately authorized |
+| Coordination roadmap | Unadopted draft | Withdrawn | This historical Markdown record plus CL advisory | EM; human may adopt a future head | None | A future human-selected direction |
 | Task-shaped cognitive projection | Plausible; partly exemplified | Working engineering hypothesis | Ordinary files and one advisory projection | EM | None | Orientation use, then a workload requiring mediation |
-| Artifact revision lineage | Candidate pressure only | Deferred to dormant Experiment B | None | Undecided | None | Experiment A usefulness, then separate authorization |
+| Artifact revision lineage | Candidate pressure only | Unselected | None | Undecided | None | Observed propagation/reconstruction failure |
 | Change/event representation | Candidate only | Deferred | Bus packets and Git commits are existing records, not a selected event model | Undecided | None | Observed propagation/reconstruction failure |
 | Git-backed realization | Candidate only | Deferred until after a plain contract is tested | Workshop source control only | EM | None | A second-realization comparison |
 | Bell standardization | Candidate only | Deferred | Exchange watcher notification for bus packets | EM transport extension | Notification only | A workload where polling/notification difference matters |
 
-## Current milestone
+## Withdrawal
 
-**Documentation Stage 1:** align source-local instructions, draft this EM-owned roadmap at its canonical location, preserve a CL advisory/crosswalk, and freeze dormant Experiment A/B briefs. This milestone is documentation only and introduces no runtime or experiment result.
+This candidate’s Documentation Stage 1 framing and proposed A→B sequence were not adopted. The orientation and roadmap-evolution briefs were withdrawn before execution and produced no evidence. No replacement roadmap, mission, or experiment is selected. `docs/notes/resource-session-working-views-lineage-v0.md` is design memory, not a successor roadmap.
 
-## Next gate
+## Historical proposed sequence
 
-Stop after Stage 1 review. The human first decides whether to adopt, revise, or reject this candidate version 0. If adopted, the next possible activity is **Experiment A — Cross-repository orientation**, but it remains dormant until the human separately authorizes its execution. Experiment B is not implied by Experiment A.
+The following was the withdrawn proposal, retained for reconstructibility rather than as a work queue:
 
-## Gated roadmap
+1. Documentation Stage 1 — orientation documents.
+2. Experiment A — cross-repository orientation.
+3. Experiment B — roadmap evolution after Experiment A review.
+4. Alternative realization.
+5. Different workload.
 
-1. **Stage 1 — Orientation documents:** reconcile authority and status; create roadmap/advisory/briefs. Authorized for documentation only.
-2. **Experiment A — Orientation:** test whether fresh source-local sessions reconstruct compatible accounts of the EM roadmap, their own repository orientation, evidence boundary, adopted-head status, current authorization versus a possible next gate, uncertainties, and authority map. Dormant.
-3. **Experiment B — Roadmap evolution:** if separately activated, test proposal, receipt, adoption, and reconstruction using only the minimum representation selected after observed control insufficiency; retaining divergence remains a candidate question. Dormant and separately authorized only after Experiment A review.
-4. **Alternative realization:** compare a second realization, potentially Git-backed, without changing the tested semantic contract. Unselected.
-5. **Different workload:** test whether the boundary recurs outside roadmap coordination before promoting a reusable abstraction. Unselected.
-
-Progression is conditional. Failure or low value at any gate can stop, simplify, or redirect the sequence.
+A future direction must be selected and authorized on its own terms; it does not resume this sequence by default.
 
 ## Working vocabulary
 
@@ -110,9 +108,9 @@ Experiment apparatus does not belong in this roadmap. Controls, execution condit
 Source-local EM references:
 
 - `AGENTS.md` — workshop behavior and authorization boundary;
-- `docs/missions/mission-0.md` and `docs/missions/mission-0-retrospective.md` — bounded continuity evidence;
+- `docs/missions/m00-first-continuity-loop.md` and `docs/missions/m00-first-continuity-loop-retrospective.md` — bounded continuity evidence;
 - `docs/notes/advisory-boundary-contract-v0.md` — bounded semantic-boundary evidence;
-- `docs/missions/experiment-a-cross-repository-orientation.md` — dormant orientation brief;
-- `docs/missions/experiment-b-roadmap-evolution.md` — dormant evolution brief.
+- `docs/missions/withdrawn/coordination-orientation-v0.md` — withdrawn before execution;
+- `docs/missions/withdrawn/coordination-roadmap-evolution-v0.md` — withdrawn before execution.
 
 External provenance: Continuity Lab owns `artifacts/20260906-machine-ecology-coordination-roadmap-advisory-v0.md` as a non-authoritative crosswalk. It is not an EM entry requirement and EM operators must not read the peer tree. If a future authorized workload requires it, CL must deliver it through an allowed packet/projection boundary.

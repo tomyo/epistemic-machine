@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Mission 0 — verify-rebirth (Gate 1 + 2)
+ * Mission M00 / Experiment E01 — verify-rebirth (Gate 1 + 2)
  *
  * Fresh-operator simulation: no history, no peer reads.
  * Reads ONLY: this experiment's .em/ + inbox/outbox packets.
@@ -12,7 +12,7 @@
  * Exit 0 = survived (hypothesis holds this run)
  * Exit 1 = broke (next primitive earned — see output)
  *
- * Usage: node experiments/mission-0-first-continuity-loop/verify-rebirth.js
+ * Usage: node experiments/m00-e01-first-continuity-loop/verify-rebirth.js
  */
 
 import fs from "node:fs";
@@ -37,7 +37,7 @@ function assert(cond, msg) {
   }
 }
 
-console.log("== Mission 0 — verify-rebirth (fresh operator, no history) ==\n");
+console.log("== Mission M00 / Experiment E01 — verify-rebirth (fresh operator, no history) ==\n");
 
 // ── Gate 1: substrate survives kill ───────────────────────────────
 console.log("--- Gate 1: substrate survives kill ---");

@@ -8,13 +8,13 @@ An Epistemic Machine is a persistent entity designed to maintain continuity acro
 
 ## Layout
 
-- `docs/roadmaps/machine-ecology-coordination-roadmap.md` — candidate EM engineering orientation at its canonical location; pending human adoption and not build authorization
-- `docs/missions/` — closed mission evidence and dormant mission briefs
+- `docs/roadmaps/machine-ecology-coordination-roadmap.md` — withdrawn coordination candidate retained as historical design context; no current roadmap coordination head
+- `docs/missions/` — closed mission evidence and withdrawn candidate briefs
 - `docs/notes/README.md` — catalogue of provisional notes and architectural-lineage records
 - `docs/notes/` — provisional notes, bounded contracts, decisions, and curated architectural lineage
 - `.pi/extensions/exchange/` — exchange-bus watcher/notification and journal extension
 - `.pi/skills/exchange-skill/` — bus transport convention (filenames, packet anatomy, send/receive, journal, visibility boundary)
-- `experiments/<mission>/` — isolated trial/test; a mission may own a scoped gitignored machine at `experiments/<mission>/.em/`
+- `experiments/mNN-eNN-<slug>/` — isolated experiment within an adopted mission; `experiments/sNN-<slug>/` — standalone specimen; either may own a scoped gitignored `.em/`
 - `protocol/` `substrates/` `seeds/` `core/` — reserved names, not current foundations and not created
 - `inbox/` — peer mailboxes (peers write packets here)
 - `outbox/` — symlinks to peer inboxes (writing one file here delivers bytes)
@@ -39,4 +39,4 @@ The filesystem may be useful as an initial substrate because it is simple and in
 
 ## Status
 
-Documentation Stage 1 is the current milestone. Machine Ecology Coordination Roadmap version 0 is an EM-owned candidate pending human review/adoption; Continuity Lab advice remains non-authoritative, and the human separately authorizes every build or experiment. Mission 0 is closed with no stable primitive promoted. Experiment A (orientation) and Experiment B (roadmap evolution) are dormant and unexecuted.
+No roadmap coordination head, mission, or experiment is currently selected. The Machine Ecology Coordination Roadmap v0 and its two coordination briefs were withdrawn before adoption or execution and remain historical design context only. Mission M00 is closed with no stable primitive promoted. Continuity Lab advice remains non-authoritative, and the human separately authorizes every build or experiment.

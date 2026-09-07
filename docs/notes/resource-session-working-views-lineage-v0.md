@@ -8,7 +8,7 @@
 
 This thread starts from bounded repository evidence, not a selected runtime architecture:
 
-- Mission 0 showed one experiment-local curated consequence surviving an operator replacement. It did not establish a reusable session, revision, or machine substrate: [`docs/missions/mission-0.md`](../missions/mission-0.md).
+- Mission M00 showed one experiment-local curated consequence surviving an operator replacement. It did not establish a reusable session, revision, or machine substrate: [`docs/missions/m00-first-continuity-loop.md`](../missions/m00-first-continuity-loop.md).
 - The advisory specimen showed one workload-local projection hiding file-bus topology while keeping arrival as availability only; it did not establish a general semantic interface: [`advisory-boundary-contract-v0.md`](advisory-boundary-contract-v0.md).
 - The exchange extension watches a project mailbox per open Pi process. Each process has its own `SEEN` set and can surface the same arrival into its own session: [`.pi/extensions/exchange/index.ts`](../../.pi/extensions/exchange/index.ts). This is an observed notification-noise pressure, not evidence that a router or session machine is required.
 
@@ -100,7 +100,7 @@ Machine level remains a relational question rather than a fixed stack. A mechani
 
 ## Relationship to the roadmap and CL
 
-The candidate coordination roadmap remains unchanged and does not adopt this lineage. A conversation may reveal a reason to revise a mission or roadmap, but any such revision requires an explicit human decision. This note is EM design memory; an authorized run may later produce observations for Continuity Lab interpretation.
+The coordination roadmap v0 was withdrawn before adoption and does not adopt this lineage. This note does not replace it with a roadmap or select a mission. A conversation may reveal a reason to revise a mission or roadmap, but any such revision requires an explicit human decision. This note is EM design memory; an authorized run may later produce observations for Continuity Lab interpretation.
 
 ## Provenance
 

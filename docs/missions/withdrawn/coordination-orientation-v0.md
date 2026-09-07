@@ -1,9 +1,13 @@
-# Experiment A — Cross-repository Orientation
+# Coordination Orientation v0 (Withdrawn)
 
-Status: dormant; specification only; not authorized for execution  
+Status: withdrawn before execution; no evidence produced
 Owner: Epistemic Machine workshop  
 Participant: Continuity Lab  
-Activation authority: explicit human roadmap adoption, then separate execution authorization after Documentation Stage 1 review
+Activation authority: none; this brief was never adopted or authorized
+
+## Withdrawal
+
+This candidate brief is retained as historical design context. Its proposed roadmap prerequisite was never adopted, no execution occurred, and it does not select a future mission or experiment. A future orientation study requires a new human-selected brief.
 
 ## Question
 
@@ -34,7 +38,7 @@ The execution brief must freeze comparable source sets and operator conditions b
 - A CL operator reads only CL-authorized sources. An EM operator reads only EM-authorized sources. Neither reads the peer tree.
 - Model/provider/runtime, prompts, source byte counts, retries, and incidents must be recorded. Non-comparable executions bound any comparison.
 
-No numeric improvement threshold is preregistered in this dormant brief. Before execution, a separately approved execution specification must define scoring and invalidation without using treatment results.
+No numeric improvement threshold was preregistered in this withdrawn brief. Before execution, a separately approved execution specification must define scoring and invalidation without using treatment results.
 
 ## Required observations
 
@@ -54,7 +58,7 @@ The evidence package and review remain outside the roadmap.
 A treatment run is minimally coherent only if both fresh operators:
 
 - give compatible accounts of the EM roadmap's north star while preserving each repository's own orientation and current question; compatibility does not require identical north stars;
-- distinguish evidence, working direction, adopted-head status, dormant experiments, current authorization, and a merely possible next gate;
+- distinguish evidence, working direction, adopted-head status, candidate experiments, current authorization, and a merely possible next gate;
 - attribute EM roadmap ownership, CL epistemic/methodology ownership, and human adoption/activation authority correctly;
 - preserve any conflict between EM direction and CL authority for human disposition rather than silently resolving it;
 - cite only source-local material.
@@ -73,9 +77,9 @@ Stop and invalidate or repair the apparatus if:
 - the roadmap is modified during a run;
 - experiment evidence is written into the roadmap.
 
-## Activation gate
+## Historical activation gate
 
-Experiment A requires an explicitly human-adopted roadmap coordination head plus a new human approval naming the frozen execution specification and allowed model/provider/runtime. Roadmap adoption is a precondition, not evidence that execution is authorized. If roadmap version 0 is revised or rejected, this brief remains dormant until reconciled. Documentation Stage 1 completion does not activate it.
+The withdrawn proposal required an explicitly human-adopted roadmap coordination head plus a new human approval naming the frozen execution specification and allowed model/provider/runtime. Neither occurred.
 
 ## Not authorized or implemented
 

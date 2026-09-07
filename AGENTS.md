@@ -5,22 +5,22 @@ This repository is the **workshop** for the Epistemic Machine: the design surfac
 ## Roles
 
 - **Workshop (this repo, git-tracked):** design surface — the exchange bus, skills, experiments, specs, seeds/blueprints. Read: `.pi/skills/exchange-skill/SKILL.md` (bus protocol) and `.pi/extensions/exchange/index.ts` (bus transport). The workshop itself is not a machine.
-- **Experiment-local machine specimen:** Mission 0 used `experiments/mission-0-first-continuity-loop/.em/` (gitignored, with its own internal `.git`) as one bounded realization. The workshop never versions that state. Do not generalize this location or Git arrangement to future machines; a later brief must select its own realization. Root has no `.em/`.
+- **Experiment-local machine specimen:** Mission M00 used `experiments/m00-e01-first-continuity-loop/.em/` (gitignored, with its own internal `.git`) as one bounded realization. The workshop never versions that state. Do not generalize this location or Git arrangement to future machines; a later brief must select its own realization. Root has no `.em/`.
 
 ## Orientation and Layout
 
 Read in this order for current work:
 
-1. `docs/roadmaps/machine-ecology-coordination-roadmap.md` — candidate EM engineering orientation at its canonical location; pending human adoption and never build authorization.
-2. The relevant file under `docs/missions/` — closed evidence or a dormant candidate brief.
-3. `docs/notes/README.md`, then relevant `docs/notes/` and experiment-local reviews — the catalogue, bounded evidence, provisional decisions, and architectural lineage.
+1. `docs/notes/README.md`, then relevant `docs/notes/` and experiment-local reviews — the catalogue, bounded evidence, provisional decisions, and architectural lineage.
+2. The relevant file under `docs/missions/` — closed evidence or a withdrawn candidate brief.
+3. `docs/roadmaps/machine-ecology-coordination-roadmap.md` only when its withdrawn coordination proposal is historically relevant; it is not current direction or build authorization.
 
 Layout:
 
-- `docs/roadmaps/` — EM-owned engineering direction and status; a candidate becomes the coordination head only through human adoption.
-- `docs/missions/` — mission specifications and status, including closed and dormant missions.
+- `docs/roadmaps/` — EM-owned engineering direction and status; a candidate becomes the coordination head only through human adoption. No coordination head is currently selected.
+- `docs/missions/` — mission specifications and status, including closed missions and withdrawn candidate briefs.
 - `docs/notes/` — parked notes and bounded decisions; not stable architecture by location.
-- `experiments/<mission>/` — isolated trial/test for one mission. Mission 0 owns the only current gitignored `.em/` specimen; future missions do not inherit that realization automatically. Do not assume experiment helpers are stable foundations.
+- `experiments/mNN-eNN-<slug>/` — isolated experiment within an adopted mission; `experiments/sNN-<slug>/` — standalone specimen. Mission M00 owns the only current gitignored `.em/` specimen; future missions do not inherit that realization automatically. Do not assume experiment helpers are stable foundations.
 - `protocol/` `substrates/` `seeds/` `core/` — reserved names only. They do not exist and have not been earned as reusable foundations.
 
 ## Exchange Bus (peers)
@@ -34,11 +34,18 @@ The `inbox/` and `outbox/<peer>/` symlinked-mailbox bus moves markdown packets b
 
 ## Development Approach
 
-**Mission 0 (closed):** One A→G vertical slice showed that the filesystem bus plus one experiment-local `.em` consequence was sufficient for that loop (Gates 1+2+3 passed). Because no gate failed, the retrospective promoted no stable primitive. Mission 0 does not authorize `protocol/`, `substrates/`, `seeds/`, or `core/`.
+**Mission M00 (closed):** One A→G vertical slice showed that the filesystem bus plus one experiment-local `.em` consequence was sufficient for that loop (Gates 1+2+3 passed). Because no gate failed, the retrospective promoted no stable primitive. Mission M00 does not authorize `protocol/`, `substrates/`, `seeds/`, or `core/`.
 
-**Current stage:** Documentation Stage 1 establishes a shared orientation boundary only. Machine Ecology Coordination Roadmap version 0 is a candidate pending human review/adoption. Experiment A and Experiment B are dormant briefs. No experiment, architecture implementation, lineage/event machinery, or `.em/` mutation is active.
+**Current stage:** No roadmap coordination head, mission, or experiment is selected. The coordination roadmap v0 and its two briefs were withdrawn before adoption or execution. Architectural lineage is design memory, not an authorization. No experiment, architecture implementation, lineage/event machinery, or `.em/` mutation is active.
 
 Every implementation or experiment requires an explicit human authorization naming its bounded brief. Roadmap adoption, receipt of a peer advisory, or completion of a prior experiment is not sufficient authorization. Build the smallest authorized specimen, preserve its failure/evidence boundary, and promote reusable machinery only after recurrence or demonstrated insufficiency warrants it.
+
+## Mission and Experiment Naming
+
+- `mNN-<slug>` names a human-adopted mission; allocate the next stable, workshop-local ID only at adoption.
+- `mNN-eNN-<slug>` names an explicitly authorized experiment within that mission; allocate `eNN` only at authorization.
+- `sNN-<slug>` names a standalone specimen not claimed by a mission.
+- IDs are stable and never reused. Status belongs in the document, not the path; Git history carries revisions. Existing historical names are migrated only by an explicit repository decision.
 
 ## Design Conversation Documentation
 

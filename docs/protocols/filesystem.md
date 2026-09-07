@@ -18,7 +18,7 @@ A parked north sketch would preserve canonical material and materialize filesyst
 
 | Thing | What it is | Where today |
 |-------|------------|-------------|
-| **Machine keep (continuity)** | What the organism curated; survives Kill → Rebirth | `experiments/<mission>/.em/` (own `.git`, gitignored, scoped) — today `mission-0/ACCEPTED-CONSEQUENCE.json @ bd01c74` |
+| **Machine keep (continuity)** | What the organism curated; survives Kill → Rebirth | `experiments/mNN-eNN-<slug>/.em/` or `experiments/sNN-<slug>/.em/` when a brief selects one (own `.git`, gitignored, scoped) — today `mission-0/ACCEPTED-CONSEQUENCE.json @ bd01c74` |
 | **Transport state** | Ephemeral delivery, not machine-owned | `inbox/<peer>/` + `outbox/<peer>/` (symlinked mailboxes, single-writer, `SKILL.md`) |
 | **Host evidence** | Per-host journal of received packets | `.sessions/exchange-journal.jsonl` (one line per received packet, from `exchange/index.ts`) |
 
@@ -46,7 +46,7 @@ canonical store (one place that keeps)
     └─→ views/archive/             status = archived query, not mv
 ```
 
-Today canonical storage and views are not separated. The top-level `inbox/outbox` are transport mailboxes, and Mission 0 used one experiment-local `.em/` keep. A general separation requires a future human-authorized brief with a workload, control, and observable insufficiency; it is not earned merely by naming a future deployment.
+Today canonical storage and views are not separated. The top-level `inbox/outbox` are transport mailboxes, and Mission M00 used one experiment-local `.em/` keep. A general separation requires a future human-authorized brief with a workload, control, and observable insufficiency; it is not earned merely by naming a future deployment.
 
 Until then, `events/`, `views/`, and `.membrane/` are reserved names only and must not be created as foundations.
 
@@ -71,4 +71,4 @@ These are unselected questions for a possible filesystem realization. They belon
 ---
 
 *Concepts:* `docs/concepts/epistemic-machine.md` (what a machine is), `docs/concepts/material-and-communication.md` (material axis, wrapping, Bell vs content).  
-*Transport contract:* `.pi/skills/exchange-skill/SKILL.md`. *Example keep:* `experiments/mission-0-first-continuity-loop/.em/mission-0/ACCEPTED-CONSEQUENCE.json`.
+*Transport contract:* `.pi/skills/exchange-skill/SKILL.md`. *Example keep:* `experiments/m00-e01-first-continuity-loop/.em/mission-0/ACCEPTED-CONSEQUENCE.json`.

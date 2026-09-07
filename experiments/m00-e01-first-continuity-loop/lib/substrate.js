@@ -1,5 +1,5 @@
 /**
- * Minimal filesystem substrate helpers for Mission 0.
+ * Minimal filesystem substrate helpers for Mission M00.
  *
  * The workshop never versions machine state. Machine state lives in
  * experiments/<mission>/.em/ — its own .git repo, scoped to that experiment.
