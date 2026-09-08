@@ -59,39 +59,50 @@ function hasMeaningfulNamedValue(value, pattern) {
   );
 }
 
-function directories(directory, found = []) {
-  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    const entryPath = path.join(directory, entry.name);
-    if (entry.isDirectory()) {
-      found.push(entryPath);
-      directories(entryPath, found);
-    }
-  }
-  return found;
+function hasNamedKey(value, pattern) {
+  return value && typeof value === 'object' && Object.entries(value).some(([key, item]) =>
+    pattern.test(key) || hasNamedKey(item, pattern)
+  );
 }
 
 function assertPrivateState() {
   assert(fs.statSync(root).isDirectory(), 'state root was not created');
-  const privateRoots = directories(root).filter((directory) =>
-    fs.readdirSync(directory).length > 0
-  );
-  assert(privateRoots.length >= 2, 'M1 and M2 do not have distinct materialized private roots');
-  for (const directory of privateRoots) {
-    assert(path.relative(root, fs.realpathSync(directory)).split(path.sep)[0] !== '..',
+  const m1PrivateRoot = path.join(root, 'residents', 'm1', 'private');
+  const m2PrivateRoot = path.join(root, 'residents', 'm2', 'private');
+  assert(fs.statSync(m1PrivateRoot).isDirectory(), 'M1 private root was not created');
+  assert(fs.statSync(m2PrivateRoot).isDirectory(), 'M2 private root was not created');
+  const m1Private = fs.realpathSync(m1PrivateRoot);
+  const m2Private = fs.realpathSync(m2PrivateRoot);
+  assert.notStrictEqual(m1Private, m2Private, 'M1 and M2 private roots resolve to the same directory');
+  for (const privateRoot of [m1Private, m2Private]) {
+    const relative = path.relative(fs.realpathSync(root), privateRoot);
+    assert(relative && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative),
       'private state escaped the supplied state root');
   }
+  assert(!fs.existsSync(path.join(m1Private, 'resource.json')),
+    'M1 private root unexpectedly owns the initial resource');
+  assert(fs.statSync(path.join(m2Private, 'resource.json')).isFile(),
+    'M2 private root does not own the initial resource');
 }
 
 function assertNoPrivateLayout(value) {
   const rendered = JSON.stringify(value);
   assert(!rendered.includes(root), 'CLI disclosed the state root');
-  assert(!hasValue(value, /(?:^|[\\/])(?:tmp|home|var|usr)(?:[\\/]|$)/),
-    'CLI disclosed a filesystem path');
+  assert(!hasValue(value, /(?:^|[\\/])(?:tmp|home|var|usr|residents|private)(?:[\\/]|$)/i),
+    'CLI disclosed a filesystem or private-layout path');
+  assert(!hasNamedKey(value, /(?:path|layout|private)/i),
+    'CLI disclosed private-layout metadata');
+}
+
+function inspect(label) {
+  const value = json(run('inspect'), label);
+  assertNoPrivateLayout(value);
+  return value;
 }
 
 try {
   const created = json(run('create'), 'create');
-  const createdInspection = json(run('inspect'), 'initial inspect');
+  const createdInspection = inspect('initial inspect');
   const identities = strings(created).concat(strings(createdInspection))
     .filter((value) => /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value));
 
@@ -105,7 +116,7 @@ try {
   rejected(run('activate', 'm3', correlation), 'invalid resident activation');
 
   const delivered = json(run('request', correlation), 'request');
-  const beforeExecution = json(run('inspect'), 'inspect after delivery');
+  const beforeExecution = inspect('inspect after delivery');
   assert(hasValue(delivered, new RegExp(`^${correlation}$`)), 'delivery did not retain its correlation');
   assert(hasValue(beforeExecution, new RegExp(`^${correlation}$`)), 'inspection did not retain delivered request metadata');
   assert(!hasMeaningfulNamedValue(delivered, /^(result|consequence)$/i),
@@ -115,20 +126,22 @@ try {
   rejected(run('activate', 'm1', correlation), 'M1 activation before M2 result');
 
   const m2Result = json(run('activate', 'm2', correlation), 'activate m2');
-  const afterM2 = json(run('inspect'), 'inspect after M2 activation');
+  const afterM2 = inspect('inspect after M2 activation');
   assert(hasValue(m2Result, new RegExp(`^${correlation}$`)), 'M2 result lost its correlation');
   assert.notDeepStrictEqual(afterM2, beforeExecution, 'M2 activation did not change retained state');
   assert(hasMeaningfulNamedValue(afterM2, /^result$/i), 'M2 activation did not retain a bounded result');
 
   const m1Result = json(run('activate', 'm1', correlation), 'activate m1');
-  const afterM1 = json(run('inspect'), 'inspect after M1 activation');
+  const afterM1 = inspect('inspect after M1 activation');
   assert(hasValue(m1Result, new RegExp(`^${correlation}$`)), 'M1 follow-up lost its correlation');
   assert(hasMeaningfulNamedValue(afterM1, /^consequence$/i), 'M1 did not retain a consequence');
   assertNoPrivateLayout(afterM1);
 
-  const freshInspection = json(run('inspect'), 'fresh inspect');
+  const freshInspection = inspect('fresh inspect');
   assert.deepStrictEqual(freshInspection, afterM1, 'consequence did not survive a fresh CLI invocation');
 
+  rejected(run('activate', 'm2', correlation), 'duplicate M2 activation');
+  rejected(run('activate', 'm1', correlation), 'duplicate M1 activation');
   rejected(run('request', 'bad correlation'), 'malformed correlation');
   rejected(run('request', correlation), 'duplicate correlation');
   rejected(run('create'), 'duplicate creation');
