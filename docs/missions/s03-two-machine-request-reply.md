@@ -4,7 +4,7 @@
 
 ## Boundary
 
-This is a proposed standalone specimen, not a mission and **not an implementation authorization**. It may be built only after a human explicitly authorizes **S03 — Two-Machine Deterministic Request/Reply**. It neither selects a workshop roadmap nor establishes an integrated EM runtime.
+This completed standalone specimen was a bounded authorized experiment, not a mission. Its completion neither selects a workshop roadmap nor establishes an integrated EM runtime.
 
 ## Question to break
 
@@ -14,7 +14,7 @@ The specimen tests the communication ↔ execution boundary in a deliberately co
 
 ## Bounded realization
 
-If authorized, implementation is confined to `experiments/s03-two-machine-request-reply/` and uses only Node.js standard-library files and a temporary test workspace.
+Implementation was confined to `experiments/s03-two-machine-request-reply/` and used only Node.js standard-library files and a temporary test workspace.
 
 - **Machine A** knows a static target alias, one exported operation (`lookup`), a request payload, and a caller-generated correlation value. It has no receiver-private path or state access.
 - **Transport realization** records request and result records under the specimen's temporary workspace. These files are a local, durable realization for the test, not a claim that all communication must be retained.
@@ -41,7 +41,7 @@ For this specimen, records are UTF-8 JSON objects; `from`, `to`, `operation`, an
 
 ## Acceptance checks
 
-An authorized specimen must provide one runnable `node experiments/s03-two-machine-request-reply/verify.js` check that demonstrates all of the following:
+The authorized specimen provided one runnable `node experiments/s03-two-machine-request-reply/verify.js` check that demonstrated all of the following:
 
 1. A emits a request using only the public interaction contract; its code does not receive a B-private path or B-private state.
 2. B emits no result merely because the request was delivered; an explicit receive/execute step is required.
@@ -63,9 +63,9 @@ Static aliases and a local transport fixture are test controls, not identity, au
 
 ## Evidence boundary and disposition
 
-Success would support only this: a small public interaction can remain intelligible without exposing the receiver's private realization, and delivery can remain distinct from execution. It would not establish machine identity, authority, reachability, durable communication requirements, resource sharing, operator-free autonomy, or any reusable transport/capability primitive.
+The recorded success supports only this: a small public interaction can remain intelligible without exposing the receiver's private realization, and delivery can remain distinct from execution. It does not establish machine identity, authority, reachability, durable communication requirements, resource sharing, operator-free autonomy, or any reusable transport/capability primitive.
 
-Failure should be retained as evidence of the smallest missing distinction. No helper leaves this experiment unless recurring use or demonstrated insufficiency earns promotion.
+A failure would have been retained as evidence of the smallest missing distinction. No helper leaves this experiment unless recurring use or demonstrated insufficiency earns promotion.
 
 ## Related design records
 
