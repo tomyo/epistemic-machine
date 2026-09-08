@@ -16,6 +16,7 @@ This note records external, coding-focused projects as **separate implementation
 | [S³Gym](https://huggingface.co/papers/2608.31100) | Benchmark for agent self-improvement | Raw episodic history, extracted summary, and cognitive-substrate training are empirically distinct experience representations with task-dependent trade-offs. |
 | [Open Knowledge Format v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) | Portable knowledge interchange | A deliberately minimal Markdown/YAML bundle can carry portable concepts and optional provenance/trust signals without imposing runtime, retrieval, or epistemology. |
 | [txiki.js](https://github.com/saghul/txiki.js) | Small JavaScript runtime | A portable implementation substrate can expose selected execution primitives without defining machine identity, authority, continuity, or ecology. |
+| [VoiceMem](https://xzf-thu.github.io/VoiceMem/) | Streaming voice-memory system | Partial-turn retrieval and a distinct post-turn ingestion decision are a concrete continuity pattern without carrying the entire prior interaction into every response. |
 
 ## Verified specimen observations
 
@@ -75,6 +76,14 @@ S³Gym evaluates self-testing, self-judging, and self-improvement across seven t
 
 **Not imported:** txiki.js, JavaScript as EM's language, a runtime membrane, a restricted build, an executable package, FFI/SQLite/network/process capabilities, or a substitute for Linux/container isolation. M01 does not select an implementation substrate.
 
+### VoiceMem — retrieval before stabilization
+
+[VoiceMem](https://xzf-thu.github.io/VoiceMem/) is a streaming voice-memory system that separates factual entity/schema material from emotion/persona material. Its streaming example retrieves relevant Top-K memory during partial audio processing, then makes one explicit `ingest` decision after voice activity detection identifies turn completion. It presents the memory system as independent of the response model.
+
+**Useful pressure:** retrieval needed for a current interaction and stabilization of a completed interaction are distinct timings and decisions. A durable continuity substrate can support selective reconstruction without placing the whole past in active context or binding itself to one cognition.
+
+**Not imported:** the two-brain split, voice/audio pipeline, graph/vector store, benchmark results, `top_k` policy, automatic ingestion, or a memory service for M01.
+
 ## Candidate synthesis — deferred epistemic sequence
 
 Taken together, the specimens motivate a candidate distinction:
@@ -102,4 +111,5 @@ A later authorized embodiment could test a small part of this sequence only when
 - Consider experience representation only when a later authorized use actually retains knowledge for future action; compare episodic detail and proposed generalization against a defined held-out task instead of assuming a summary is progress.
 - Consider an OKF export/import control only when a later authorized cross-machine workflow needs portable stabilized knowledge; require a receiving machine to consume the exported artifact without an EM-specific SDK and keep its resulting disposition separate from the artifact's advisory signals.
 - Consider a runtime substrate only when an authorized embodiment needs a portable executable or a realized capability policy; test its API-level limits independently from OS-level enforcement rather than presenting either as generic machine semantics.
+- Consider separate retrieval and stabilization timing only when a future authorized interaction remains active long enough for the distinction to matter; do not infer a general memory architecture from VoiceMem's voice-specific implementation.
 - Any future work must state whether it is observing substrate facts, retaining interpretations, proposing stabilization, or accepting a durable change.
