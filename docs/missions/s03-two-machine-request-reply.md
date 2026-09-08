@@ -1,0 +1,68 @@
+# S03 — Two-Machine Deterministic Request/Reply
+
+**Status: proposed — awaiting explicit human authorization**
+
+## Boundary
+
+This is a proposed standalone specimen, not a mission and **not an implementation authorization**. It may be built only after a human explicitly authorizes **S03 — Two-Machine Deterministic Request/Reply**. It neither selects a workshop roadmap nor establishes an integrated EM runtime.
+
+## Question to break
+
+> Can two bounded machine realizations exchange one declared request and correlated result while the receiver changes its private implementation without changing the public interaction?
+
+The specimen tests the communication ↔ execution boundary in a deliberately controlled form. A deterministic function is the first embodiment of execution here; it is not a definition of EM execution.
+
+## Bounded realization
+
+If authorized, implementation is confined to `experiments/s03-two-machine-request-reply/` and uses only Node.js standard-library files and a temporary test workspace.
+
+- **Machine A** knows a static target alias, one exported operation (`lookup`), a request payload, and a caller-generated correlation value. It has no receiver-private path or state access.
+- **Transport realization** writes immutable request and result records under the specimen's temporary workspace. These files are a local, durable realization for the test, not a claim that all communication must be retained.
+- **Machine B** explicitly accepts a delivered request, validates the one declared operation, and executes `lookup` against private state before emitting a correlated result.
+- **Private-change probe** runs the same public request against two different B-private representations with equivalent `lookup` behavior. The public result must remain the same.
+
+The fixture is deliberately explicit: delivery alone does not execute B. The verifier invokes B's receive/execute step after delivery and checks that no result exists beforehand.
+
+## Public interaction contract
+
+A request has only:
+
+```text
+from, to, operation, correlation, payload
+```
+
+A successful result has only:
+
+```text
+from, to, correlation, value
+```
+
+For this specimen, `operation` is exactly `lookup`; `payload` contains one lookup key. Invalid target, operation, or malformed request is rejected by B and produces no successful result. Record layout, temporary paths, B's state representation, and B's implementation functions are private realization.
+
+## Acceptance checks
+
+An authorized specimen must provide one runnable `node experiments/s03-two-machine-request-reply/verify.js` check that demonstrates all of the following:
+
+1. A emits a request using only the public interaction contract; its code does not receive a B-private path or B-private state.
+2. B emits no result merely because the request was delivered; an explicit receive/execute step is required.
+3. B returns a result whose `correlation` matches the request.
+4. Replacing B's private implementation with a different private representation produces the **same public result** for the same request.
+5. Invalid operation input is rejected without a successful result.
+
+## Explicit non-goals
+
+S03 does not use the root `inbox/` / `outbox/` peer bus, a watcher or daemon, an LLM or cognitive operator, `.em/` state, a session runtime, a reusable capability framework, event semantics, discovery, a directory service, authority behavior, trust negotiation, public-key machinery, a globally resolvable identity, routing, resource transfer, synchronization, or an arbitrary remote command interface.
+
+Static aliases and a local transport fixture are test controls, not identity, authority, or reachability solutions. The result records are not a generic event lifecycle or a claim of event sourcing.
+
+## Evidence boundary and disposition
+
+Success would support only this: a small public interaction can remain intelligible while the receiver's private realization changes, and delivery can remain distinct from execution. It would not establish machine identity, authority, reachability, durable communication requirements, resource sharing, operator-free autonomy, or any reusable transport/capability primitive.
+
+Failure should be retained as evidence of the smallest missing distinction. No helper leaves this experiment unless recurring use or demonstrated insufficiency earns promotion.
+
+## Related design records
+
+- [`docs/notes/em-embodiment-map-v0.md`](../notes/em-embodiment-map-v0.md) records the separate transport, communication, execution, retained-representation, and identity/provenance pressures.
+- [`docs/notes/em-boundary-hypotheses-v0.md`](../notes/em-boundary-hypotheses-v0.md) records the Machine ↔ machine and Communication ↔ execution hypotheses this specimen would exercise.
+- [`docs/missions/m00-first-continuity-loop-retrospective.md`](m00-first-continuity-loop-retrospective.md) records why prior success did not promote a stable primitive.
