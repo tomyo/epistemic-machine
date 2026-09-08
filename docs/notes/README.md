@@ -12,6 +12,7 @@ A lineage record is neither a transcript archive nor architecture by declaration
 | EM embodiment | Which current workshop mechanisms embody EM responsibilities, where are their boundaries collapsed, and what pressure could earn the next bounded change? | [`em-embodiment-map-v0.md`](em-embodiment-map-v0.md) |
 | EM boundary hypotheses | Which candidate responsibility boundaries could stay intelligible while future authorized specimens vary their realization? | [`em-boundary-hypotheses-v0.md`](em-boundary-hypotheses-v0.md) |
 | Post-S05 specimen synthesis | Do M00, S03, S04, and S05 expose a materially new relationship requiring another specimen or a promoted primitive? | [`post-s05-specimen-synthesis-v0.md`](post-s05-specimen-synthesis-v0.md) |
+| Embodiment conversation 1 | Which embodiment proposals are captured, deferred, or superseded by the current Habitat-0 direction? | [`embodiment-conversation-1-curation-v0.md`](embodiment-conversation-1-curation-v0.md) |
 
 ## Using this catalogue
 
@@ -19,4 +20,4 @@ For the rules governing a design-conversation review, evidence classification, a
 
 Individual lineage records may distinguish epistemic support from project disposition and retain lessons plus revisit conditions. A rejected mechanism is not necessarily false; it may simply be unearned for the current scope.
 
-The source of truth for current build authorization remains [`AGENTS.md`](../../AGENTS.md). No roadmap coordination head is currently selected; the withdrawn coordination proposal remains historical context in [`docs/roadmaps/machine-ecology-coordination-roadmap.md`](../roadmaps/machine-ecology-coordination-roadmap.md). Experiment evidence remains in `docs/missions/` and `experiments/`.
+The source of truth for current build authorization remains [`AGENTS.md`](../../AGENTS.md). [Embodiment Roadmap v1](../roadmaps/embodiment-roadmap-v1.md) is a candidate pending human adoption; the withdrawn coordination proposal remains historical context in [`docs/roadmaps/machine-ecology-coordination-roadmap.md`](../roadmaps/machine-ecology-coordination-roadmap.md). Experiment evidence remains in `docs/missions/` and `experiments/`.
