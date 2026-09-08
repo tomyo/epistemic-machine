@@ -13,6 +13,7 @@ This note records external, coding-focused projects as **separate implementation
 | [Cortex Suite](https://github.com/Artistsyn/cortex_suite) | Codebase structure and learned judgment | Observation, provenance/confidence, learned interpretation, retrieval, and reviewable consolidation can remain distinct. |
 | [Radiant](https://github.com/templetongroup/radiant) | Local coding-agent harness | A session can be an operational boundary containing workspace, tools, activity, and human intervention rather than merely a transcript. |
 | [jcode](https://github.com/1jehuang/jcode) | Persistent multi-agent coding harness | Server-managed collaboration makes coordination, memory, sessions, clients, and shared-resource invalidation concrete boundaries to compare rather than abstract labels. |
+| [S³Gym](https://huggingface.co/papers/2608.31100) | Benchmark for agent self-improvement | Raw episodic history, extracted summary, and cognitive-substrate training are empirically distinct experience representations with task-dependent trade-offs. |
 
 ## Verified specimen observations
 
@@ -48,6 +49,14 @@ jcode is a large, active coding harness whose README documents agent memory (sem
 
 **Not imported:** jcode as a foundation, its agent-centric center, vector/graph memory, server-managed swarm policy, autonomous spawning, MCP/SSH/browser mechanics, repository-specific invalidation, or its event/identity model. M01 does not require any of them.
 
+### S³Gym — representations of experience
+
+S³Gym evaluates self-testing, self-judging, and self-improvement across seven text-based games, comparing direct interaction history, score-conditioned summary memory, and parameter training. Its reported result is task-dependent: summaries help when strategic lessons compress cleanly, raw history can win when success depends on exact state-contingent detail, and training can improve or negatively transfer.
+
+**Useful pressure:** retained experience is not one thing. An ecology may need to distinguish an episode, an interpretation of it, a proposed reusable strategy, and a changed cognitive substrate; no canonical summary should silently replace the others. The benchmark also supplies a future measurement question: did retained experience make a held-out action better, rather than merely produce a plausible retrospective?
+
+**Not imported:** S³Gym's benchmark, games, scoring, summary format, parameter training, a `Store`/`Index`/`Oracle`/`Attention` ontology, or a self-improvement mechanism for M01.
+
 ## Candidate synthesis — deferred epistemic sequence
 
 Taken together, the specimens motivate a candidate distinction:
@@ -72,4 +81,5 @@ A later authorized embodiment could test a small part of this sequence only when
 - Consider selective retrieval/attention only when retained local knowledge demonstrably exceeds the context needed for a current task.
 - Consider an intervention/delegation boundary only when an explicit operation reaches a decision that belongs to a different actor or authority.
 - Compare M01 against jcode's server-managed coordination only if real use needs concurrent residents, child work, shared-resource invalidation, or a non-local client; preserve the distinction between an implementation's coordinator and an earned EM boundary.
+- Consider experience representation only when a later authorized use actually retains knowledge for future action; compare episodic detail and proposed generalization against a defined held-out task instead of assuming a summary is progress.
 - Any future work must state whether it is observing substrate facts, retaining interpretations, proposing stabilization, or accepting a durable change.
