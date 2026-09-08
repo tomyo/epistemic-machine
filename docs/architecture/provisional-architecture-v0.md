@@ -4,9 +4,9 @@
 
 ## Purpose
 
-The workshop has moved from exploration-first work to **Embodiment Preparation**. M00 and S03–S05 remain bounded evidence; they constrain the first embodiment without requiring every distinction to be settled first.
+The workshop has moved from exploration-first work to its **first embodiment**. M00 and S03–S05 remain bounded evidence; they constrain the authorized M01 embodiment without requiring every distinction to be settled first.
 
-This map is sufficient to guide proposed M01. It is revised when implementation or **real workflow pressure** exposes a boundary that the current map cannot explain. It does not pre-select a substrate, global identity, transport, daemon, event system, or reusable foundation.
+This map is sufficient to guide M01. It is revised when implementation or **real workflow pressure** exposes a boundary that the current map cannot explain. It does not pre-select a substrate, global identity, transport, daemon, event system, or reusable foundation.
 
 ## Current responsibility map
 
@@ -27,7 +27,7 @@ MACHINE
 
 A **machine** decides what it retains, communicates, or executes. A **habitat/ecology** provides local mechanisms through which resident machines can refer, deliver, activate, and mediate bounded resource access. The **host/substrate** realizes those mechanisms. These are responsibility distinctions, not mandated modules or final primitives.
 
-For M01, Habitat-0 is one local ecology realization inside this repository. It hosts two simpler resident machines. Resident machines do not know one another's private paths; they use the habitat's local mechanisms. The existing EM↔CL bus remains outside this realization as unchanged workshop-peer transport.
+For M01, Habitat-0 is the first concrete, local, and replaceable ecology realization inside this repository. It hosts two simpler resident machines. Resident machines do not know one another's private paths; they use the habitat's local mechanisms. The existing EM↔CL bus remains outside this realization as unchanged workshop-peer transport.
 
 ## Boundaries held explicit
 
@@ -56,6 +56,6 @@ M01 does not establish recursive hosting, independent ecologies, external transp
 ## Related records
 
 - [`embodiment-status-v0.md`](embodiment-status-v0.md) — current embodiment and deferral status.
-- [`docs/missions/m01-habitat-0-first-runnable-internal-ecology.md`](../missions/m01-habitat-0-first-runnable-internal-ecology.md) — proposed bounded embodiment, not authorized implementation.
-- [`docs/roadmaps/embodiment-roadmap-v1.md`](../roadmaps/embodiment-roadmap-v1.md) — candidate embodiment coordination surface.
+- [`docs/missions/m01-habitat-0-first-runnable-internal-ecology.md`](../missions/m01-habitat-0-first-runnable-internal-ecology.md) — authorized bounded embodiment.
+- [`docs/roadmaps/embodiment-roadmap-v1.md`](../roadmaps/embodiment-roadmap-v1.md) — adopted embodiment coordination surface.
 - [`docs/notes/post-s05-specimen-synthesis-v0.md`](../notes/post-s05-specimen-synthesis-v0.md) — completed exploration-branch disposition.

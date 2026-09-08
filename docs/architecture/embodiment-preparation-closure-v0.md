@@ -16,7 +16,7 @@ This work chose no runtime, substrate, protocol, identity model, event system, r
 
 ## Outcome
 
-M01 / Habitat-0 remains the next **proposed** bounded embodiment. The preparation phase made its boundary legible; it did not make it active, adopt the roadmap, or authorize code.
+M01 / Habitat-0 is the current **authorized** bounded embodiment. The preparation phase made its boundary legible; the subsequent human decision adopted Roadmap v1 and authorized M01 without expanding its scope.
 
 The architectural distinctions worth carrying into real use are:
 
@@ -33,15 +33,9 @@ The legacy repository supports the restraint: it mixed projections, event-like r
 
 That is a future observation target, not an M01 feature.
 
-## Next decision
+## Decision resolution
 
-The workshop is now at a human decision gate:
-
-1. **Adopt Roadmap v1** as the coordination head; and, separately, either
-2. **authorize M01** by name to build its bounded Habitat-0 realization, or
-3. leave M01 dormant with no implementation work.
-
-Adopting the roadmap alone does not authorize M01. If M01 is authorized, use—not further speculative architecture—should determine whether a newly observed issue is an ordinary defect, an architecture pressure, an isolated uncertainty, or no actionable pressure.
+The human adopted Roadmap v1 as the coordination head and separately authorized M01 by name. The workshop now builds only its bounded Habitat-0 realization. Use—not further speculative architecture—should determine whether a newly observed issue is an ordinary defect, an architecture pressure, an isolated uncertainty, or no actionable pressure.
 
 ## Related records
 

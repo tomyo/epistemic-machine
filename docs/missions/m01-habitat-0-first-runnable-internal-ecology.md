@@ -1,14 +1,14 @@
 # M01 — Habitat-0: First Runnable Internal Ecology
 
-**Status: proposed — not adopted and not authorized for implementation**
+**Status: adopted and authorized for implementation**
 
 ## Purpose
 
 M01 is a **bounded embodiment**, not a discriminator experiment, S06, or commitment to final runtime architecture. Its purpose is to put the current provisional machine/ecology map into real local use so ordinary defects and architectural pressure can be distinguished.
 
-## Proposed scope
+## Scope
 
-Habitat-0 would live inside this workshop repository and provide one private local ecology. Through a Habitat-0 operation—not a global command—it creates two simpler resident machines, M1 and M2. Each receives a generated local identity and isolated retained state/resources.
+Habitat-0 lives inside this workshop repository and provides one private local ecology. It is the **first concrete realization of the ecology boundary**: its mechanisms are intentionally local and replaceable, and are not proposed as the final ecology substrate. Through a Habitat-0 operation—not a global command—it creates two simpler resident machines, M1 and M2. Each receives a generated local identity and isolated retained state/resources.
 
 The one workflow must engage the current machine responsibilities:
 
@@ -39,15 +39,15 @@ M1 and M2 are resident machines, not child-process stand-ins. They remain non-re
 - Resource access is bounded representation/operation, not shared private filesystem access.
 - No external transport, global identity, authority model, generic capability framework, event model, reusable seed, recursive hosting, Git/CAS, or shared foundation is in scope.
 
-## Acceptance intent for a later authorization
+## Acceptance criteria
 
-A later implementation brief must make runnable checks demonstrate that: Habitat-0 can create M1 and M2; their private state remains isolated; one resource-oriented request/result is correlated; delivery is distinct from M2 execution; M1's retained follow-up survives a fresh CLI invocation; and the inspection surface does not disclose M2-private layout.
+Runnable checks must demonstrate that: Habitat-0 can create M1 and M2; their private state remains isolated; one resource-oriented request/result is correlated; delivery is distinct from M2 execution; M1's retained follow-up survives a fresh CLI invocation; and the inspection surface does not disclose M2-private layout.
 
 A failure should be recorded as implementation defect or architecture pressure according to the [provisional architecture revision rule](../architecture/provisional-architecture-v0.md#revision-rule). It does not automatically earn a new primitive.
 
-## Non-authorization
+## Authorization boundary
 
-Preparing this mission does not adopt it. Implementation requires **separate explicit human authorization** naming M01 and its selected realization. No Habitat-0 files, code, source directories, or mutable machine state are created by this document.
+The human has adopted Roadmap v1 and authorized implementation of M01 using this mission's bounded realization and the current provisional architecture. That authorization does not extend to external transport, global identity/discovery, authority, reusable seeds, recursive hosting, a daemon, generic capabilities, or a shared foundation.
 
 ## Related records
 

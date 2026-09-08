@@ -2,11 +2,11 @@
 
 **Status:** post-preparation status record — no runtime, seed, machine instance, or implementation is authorized or present
 
-Embodiment Preparation is closed. This record remains the scope boundary for the proposed M01 / Habitat-0 embodiment while the workshop is at its human decision gate.
+Embodiment Preparation is closed. Roadmap v1 is adopted and M01 / Habitat-0 is authorized; this record remains its scope boundary until real use revises it.
 
 ## Current decision
 
-**Habitat-0** is the proposed first local habitat: one provisional ecology realization kept inside this workshop repository. It is **not a seed**. A reusable seed would be a repeatable initialization contract extracted only if later use requires it.
+**Habitat-0** is the first local habitat: one provisional ecology realization kept inside this workshop repository. It is the first concrete realization of the ecology boundary; its mechanisms are intentionally local and replaceable, not a proposed final ecology substrate. It is **not a seed**. A reusable seed would be a repeatable initialization contract extracted only if later use requires it.
 
 Habitat-0 is not a global machine manager. `create machine` is a Habitat-0 operation performed within that habitat; it does not imply a host-global CLI command, registry, or discovery mechanism.
 
@@ -14,7 +14,7 @@ Habitat-0 is not a global machine manager. `create machine` is a Habitat-0 opera
 
 ```text
 repository
-  └── Habitat-0 (proposed local habitat; no files created yet)
+  └── Habitat-0 (authorized local habitat; no files created yet)
         ├── resident M1 (private state/resources)
         └── resident M2 (private state/resources)
 ```

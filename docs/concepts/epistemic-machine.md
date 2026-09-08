@@ -1,6 +1,6 @@
 # Epistemic Machine — Concepts & Principles
 
-**Status:** provisional concept record — source-local workshop proposal · not CL-adopted · not final ontology or implementation specification. Current embodiment guidance is in [`docs/architecture/`](../architecture/README.md); proposed M01 does not make these terms required primitives.
+**Status:** provisional concept record — source-local workshop proposal · not CL-adopted · not final ontology or implementation specification. Current embodiment guidance is in [`docs/architecture/`](../architecture/README.md); authorized M01 does not make these terms required primitives.
 
 All terms below are candidate vocabulary and working hypotheses, not proven invariants or implementation requirements.
 
@@ -63,7 +63,7 @@ Independently, **operator / cognition / capability** can occur at different plac
 * `material-and-communication.md` → what kinds of things can cross boundaries and how they are represented.
 * `docs/architecture/` → current provisional embodiment guide and status.
 * `protocols/filesystem.md` → historical/provisional filesystem realization notes.
-* M01 / Habitat-0 is proposed, not authorized. It does not establish `events/`, `views/`, seeds, or final runtime architecture.
+* M01 / Habitat-0 is authorized as a bounded embodiment. It does not establish `events/`, `views/`, seeds, or final runtime architecture.
 
 ## 4. Working principles (not proven invariants)
 

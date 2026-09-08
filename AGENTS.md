@@ -6,14 +6,14 @@ This repository is the **workshop** for the Epistemic Machine: the design surfac
 
 - **Workshop (this repo, git-tracked):** design surface — the exchange bus, skills, historical experiments, architecture records, and future authorized embodiment source. Read: `.pi/skills/exchange-skill/SKILL.md` (bus protocol) and `.pi/extensions/exchange/index.ts` (bus transport). The root bus is workshop-peer transport, not a machine communication API.
 - **Historical experiment-local specimen:** Mission M00 used `experiments/m00-e01-first-continuity-loop/.em/` (gitignored, with its own internal `.git`) as one bounded realization. Do not generalize this location or Git arrangement.
-- **Proposed Habitat-0:** [`docs/missions/m01-habitat-0-first-runnable-internal-ecology.md`](docs/missions/m01-habitat-0-first-runnable-internal-ecology.md) describes a possible repository-local embodiment. It is not authorized and creates no runtime state yet.
+- **Authorized Habitat-0:** [`docs/missions/m01-habitat-0-first-runnable-internal-ecology.md`](docs/missions/m01-habitat-0-first-runnable-internal-ecology.md) defines the first repository-local ecology embodiment. It is authorized but no runtime state exists until its implementation creates it.
 
 ## Orientation and Layout
 
 Read in this order for current work:
 
 1. `docs/architecture/README.md` — current provisional embodiment map and status.
-2. `docs/roadmaps/embodiment-roadmap-v1.md` — candidate coordination direction; it is not build authorization.
+2. `docs/roadmaps/embodiment-roadmap-v1.md` — adopted coordination direction; M01 has separate implementation authorization.
 3. The relevant file under `docs/missions/`, then `docs/notes/README.md` and relevant historical evidence/lineage.
 4. `docs/roadmaps/machine-ecology-coordination-roadmap.md` only when its withdrawn coordination proposal is historically relevant.
 
@@ -39,9 +39,9 @@ The `inbox/` and `outbox/<peer>/` symlinked-mailbox bus moves markdown packets b
 
 **Mission M00 (closed):** One A→G vertical slice showed that the filesystem bus plus one experiment-local `.em` consequence was sufficient for that loop (Gates 1+2+3 passed). Because no gate failed, the retrospective promoted no stable primitive. Mission M00 does not authorize `protocol/`, `substrates/`, `seeds/`, or `core/`.
 
-## Decision Gate After Embodiment Preparation
+## First Embodiment
 
-**Current phase:** Embodiment Preparation is closed. The workshop is at a human decision gate guided by [`docs/architecture/`](docs/architecture/README.md) and the candidate [`docs/roadmaps/embodiment-roadmap-v1.md`](docs/roadmaps/embodiment-roadmap-v1.md). M01 / Habitat-0 remains proposed, not adopted or active. Documentation may be revised as ordinary workshop work; it is not implementation.
+**Current phase:** Roadmap v1 is adopted and M01 / Habitat-0 is authorized. Build only the bounded M01 realization guided by [`docs/architecture/`](docs/architecture/README.md) and [`docs/missions/m01-habitat-0-first-runnable-internal-ecology.md`](docs/missions/m01-habitat-0-first-runnable-internal-ecology.md). Documentation may be revised as ordinary workshop work; it is not implementation.
 
 Every implementation or experiment requires **separate explicit human authorization** naming its bounded brief. Roadmap adoption, receipt of a peer advisory, completion of a prior experiment, or preparation of a mission brief is not sufficient authorization. An authorized embodiment must be the smallest useful realization, preserve its evidence boundary, and revise architecture only when use supplies real pressure. Historical M00/S03/S04/S05 evidence remains frozen.
 

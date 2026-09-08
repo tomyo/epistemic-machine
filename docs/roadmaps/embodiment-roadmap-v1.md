@@ -1,13 +1,13 @@
 # Embodiment Roadmap v1
 
-**Status: candidate — pending human review and adoption**
+**Status: adopted coordination head**
 **Owner:** Epistemic Machine workshop
 
 ## Purpose and authority boundary
 
-This candidate roadmap coordinates **Embodiment Preparation**: build a small provisional machine only after a bounded embodiment is separately authorized, then revise the architecture from real use. It is **not an implementation authorization**, a final ontology, a runtime specification, or a delivery queue.
+This roadmap coordinates the **first embodiment of the current provisional architecture and its revision through real use**. It is not a final ontology, a runtime specification, or a delivery queue. Authorization of a bounded embodiment remains separate and explicit.
 
-Human adoption would make this the workshop's coordination head. It would still not authorize M01, code, a runtime instance, or changes to the EM↔CL bus.
+Human adoption has made this the workshop's coordination head. M01 has separate explicit authorization; that authorization still does not extend to changes to the EM↔CL bus or a general runtime instance.
 
 ## Operating loop
 
@@ -27,9 +27,9 @@ Experiments remain available for an isolated uncertainty. They are no longer the
 
 ## Current coordination focus
 
-The proposed next bounded embodiment is [M01 — Habitat-0](../missions/m01-habitat-0-first-runnable-internal-ecology.md): one habitat-local ecology with two simpler resident machines and one state/communication/execution workflow. It is proposed, not adopted or authorized.
+The current authorized bounded embodiment is [M01 — Habitat-0](../missions/m01-habitat-0-first-runnable-internal-ecology.md): one habitat-local ecology with two simpler resident machines and one state/communication/execution workflow.
 
-Before implementation, the architecture surface must remain legible:
+The architecture surface guiding implementation is:
 
 - [`docs/architecture/provisional-architecture-v0.md`](../architecture/provisional-architecture-v0.md) states the current machine/ecology/host map and revision rule.
 - [`docs/architecture/embodiment-status-v0.md`](../architecture/embodiment-status-v0.md) records current scope and deferrals.

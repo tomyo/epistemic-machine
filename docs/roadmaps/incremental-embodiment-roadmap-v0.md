@@ -3,7 +3,7 @@
 **Status: superseded exploration-first candidate — retained as historical evidence**
 **Owner:** Epistemic Machine workshop
 
-> The workshop now uses the candidate [Embodiment Roadmap v1](embodiment-roadmap-v1.md) for prospective coordination. This record preserves the S03–S05 exploration branch and is not current direction or authorization.
+> At this roadmap's closure, the workshop moved to Embodiment Roadmap v1 for prospective coordination. This record preserves the S03–S05 exploration branch and is not current direction or authorization.
 
 ## Purpose and authority boundary
 
