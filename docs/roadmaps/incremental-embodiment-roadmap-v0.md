@@ -43,7 +43,7 @@ S03 and S04 reveal a repeated *specimen shape*, not an earned shared helper. The
 
 ## Conditional discriminator map
 
-The working-views candidate is the only present candidate suggested by current evidence. The contingent possibilities are not committed successors: neither is selected, neither has a priority, and neither starts automatically if the working-views candidate completes.
+The working-views candidate is the only currently eligible candidate suggested directly by the present evidence. The contingent possibilities are not committed successors: neither is selected, neither has a priority, and neither starts automatically if the working-views candidate completes.
 
 ### Candidate — Parallel Working Views and Explicit Selection
 
