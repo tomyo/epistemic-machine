@@ -5,7 +5,7 @@
 
 ## Purpose
 
-This note records external, coding-focused projects as **separate implementation specimens**. They are useful because they expose operational sessions, observation/judgment separation, reflective persistence, and multi-agent coordination without requiring EM to copy their substrate, data model, or privileged agent center.
+This note records external projects and papers as **separate implementation/research specimens**. They are useful because they expose operational sessions, observation/judgment separation, reflective persistence, agent-native retrieval, and multi-agent coordination without requiring EM to copy their substrate, data model, or privileged agent center.
 
 | Specimen | Direct concern | EM-useful pressure |
 |---|---|---|
@@ -17,6 +17,9 @@ This note records external, coding-focused projects as **separate implementation
 | [Open Knowledge Format v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) | Portable knowledge interchange | A deliberately minimal Markdown/YAML bundle can carry portable concepts and optional provenance/trust signals without imposing runtime, retrieval, or epistemology. |
 | [txiki.js](https://github.com/saghul/txiki.js) | Small JavaScript runtime | A portable implementation substrate can expose selected execution primitives without defining machine identity, authority, continuity, or ecology. |
 | [VoiceMem](https://xzf-thu.github.io/VoiceMem/) | Streaming voice-memory system | Partial-turn retrieval and a distinct post-turn ingestion decision are a concrete continuity pattern without carrying the entire prior interaction into every response. |
+| [LLM-Wiki](https://arxiv.org/abs/2605.25480) | Agent-native retrieval substrate | A linked, provenance-bearing wiki plus explicit navigation operations is a concrete alternative to one-shot chunk retrieval. |
+| [WikiLoop](https://arxiv.org/abs/2607.26604) | Feedback-coupled wiki construction | A structural edit can be evaluated by its downstream use, including unrelated-workload regressions. |
+| [MELD](https://arxiv.org/abs/2608.16357) | Distributed agent-memory reconciliation | Incoming claims can receive an auditable disposition while contradictions remain available for later adjudication. |
 
 ## Verified specimen observations
 
@@ -84,6 +87,14 @@ S³Gym evaluates self-testing, self-judging, and self-improvement across seven t
 
 **Not imported:** the two-brain split, voice/audio pipeline, graph/vector store, benchmark results, `top_k` policy, automatic ingestion, or a memory service for M01.
 
+### LLM-Wiki, WikiLoop, and MELD — evolving substrates and reconciliation
+
+[LLM-Wiki](https://arxiv.org/abs/2605.25480) compiles source documents into linked wiki pages with provenance and exposes search, read, and link-following operations; its Error Book carries persistent structural and semantic correction. [WikiLoop](https://arxiv.org/abs/2607.26604) evaluates a Builder's structured page/link/provenance edit by the before/after downstream performance of a frozen Navigator, with a guard penalty for unrelated-query regressions. [MELD](https://arxiv.org/abs/2608.16357) gives each incoming distributed-memory claim one of five dispositions—insert, merge, relate, conflict, or reject—through an authenticated Patch; it retains contradictions and uses a per-claim status CRDT for reconvergence.
+
+**Useful pressure:** these are concrete prior art for three separable questions: navigable persistent structure, judging a structural change by later use rather than appearance, and preserving conflict through an auditable inter-machine reconciliation step. They narrow the unearned EM claim: none establishes that a filesystem structure is itself a runtime-independent, recursively composable machine.
+
+**Not imported:** their wiki/claim schemas, graph/vector or CRDT machinery, learned Builder/Navigator policy, self-modification loop, global federation, merge classifier, truth/adjudication policy, or an M01 knowledge/reconciliation feature. [The Git-backed `llm-wiki` engine](https://github.com/geronimo-iia/llm-wiki) is a filesystem-adjacent implementation specimen, not evidence that its Markdown wiki is an EM.
+
 ## Candidate synthesis — deferred epistemic sequence
 
 Taken together, the specimens motivate a candidate distinction:
@@ -112,4 +123,6 @@ A later authorized embodiment could test a small part of this sequence only when
 - Consider an OKF export/import control only when a later authorized cross-machine workflow needs portable stabilized knowledge; require a receiving machine to consume the exported artifact without an EM-specific SDK and keep its resulting disposition separate from the artifact's advisory signals.
 - Consider a runtime substrate only when an authorized embodiment needs a portable executable or a realized capability policy; test its API-level limits independently from OS-level enforcement rather than presenting either as generic machine semantics.
 - Consider separate retrieval and stabilization timing only when a future authorized interaction remains active long enough for the distinction to matter; do not infer a general memory architecture from VoiceMem's voice-specific implementation.
+- Consider a before/after consequence check for a proposed retained-structure change only when a later authorized machine has a defined workload and a meaningful non-target guard case; do not generalize WikiLoop's training loop into EM metabolism.
+- Consider distributed claim reconciliation only when sovereign machines actually need to exchange overlapping claims after independent work; preserve the distinction between transport delivery, a receiving machine's disposition, and a shared convergence policy.
 - Any future work must state whether it is observing substrate facts, retaining interpretations, proposing stabilization, or accepting a durable change.
