@@ -5,13 +5,14 @@
 
 ## Purpose
 
-This note records three external, coding-focused projects as **separate implementation specimens**. They are useful because they expose operational sessions, observation/judgment separation, and reflective persistence without requiring EM to copy their substrate, data model, or privileged agent center.
+This note records external, coding-focused projects as **separate implementation specimens**. They are useful because they expose operational sessions, observation/judgment separation, reflective persistence, and multi-agent coordination without requiring EM to copy their substrate, data model, or privileged agent center.
 
 | Specimen | Direct concern | EM-useful pressure |
 |---|---|---|
 | [Hindsight](https://github.com/EfficientStreet/hindsight) | End-of-session process reflection | Experience should be filtered into revisable, durable behavioral change rather than journaled wholesale. |
 | [Cortex Suite](https://github.com/Artistsyn/cortex_suite) | Codebase structure and learned judgment | Observation, provenance/confidence, learned interpretation, retrieval, and reviewable consolidation can remain distinct. |
 | [Radiant](https://github.com/templetongroup/radiant) | Local coding-agent harness | A session can be an operational boundary containing workspace, tools, activity, and human intervention rather than merely a transcript. |
+| [jcode](https://github.com/1jehuang/jcode) | Persistent multi-agent coding harness | Server-managed collaboration makes coordination, memory, sessions, clients, and shared-resource invalidation concrete boundaries to compare rather than abstract labels. |
 
 ## Verified specimen observations
 
@@ -39,6 +40,14 @@ Radiant is a local macOS coding harness. Its README describes provider-neutral s
 
 **Not imported:** a coding agent as EM's central organism, macOS/Electron, provider abstraction, a UI, generic event storage, or a session runtime for M01.
 
+### jcode — agent-harness coordination
+
+jcode is a large, active coding harness whose README documents agent memory (semantic retrieval, extraction, consolidation, and explicit memory tools), server-managed multi-agent swarms in one repository, direct/broadcast messaging, autonomous child-agent spawning, and notifications when another agent changes a file an agent has read. It also presents sessions, clients, SDK access, remote execution, browser tooling, and provider integrations as explicit harness concerns.
+
+**Useful pressure:** it makes several prospective EM distinctions inspectable in one implementation: server/runtime versus session versus client; repository as a shared resource; a tool as an agent capability; and coordination as a server policy. Its swarm behavior is especially useful negative evidence against casually calling any multi-agent harness an ecology: its server is deliberately privileged and manages membership, messaging, completion, and shared-repository change notification. That is a valid implementation choice, not yet EM's generic delegation or resource model.
+
+**Not imported:** jcode as a foundation, its agent-centric center, vector/graph memory, server-managed swarm policy, autonomous spawning, MCP/SSH/browser mechanics, repository-specific invalidation, or its event/identity model. M01 does not require any of them.
+
 ## Candidate synthesis — deferred epistemic sequence
 
 Taken together, the specimens motivate a candidate distinction:
@@ -62,4 +71,5 @@ A later authorized embodiment could test a small part of this sequence only when
 - Consider a reflection/stabilization boundary only when use produces a concrete retained lesson or correction that M01's ordinary records cannot represent without conflating event, interpretation, and consequence.
 - Consider selective retrieval/attention only when retained local knowledge demonstrably exceeds the context needed for a current task.
 - Consider an intervention/delegation boundary only when an explicit operation reaches a decision that belongs to a different actor or authority.
+- Compare M01 against jcode's server-managed coordination only if real use needs concurrent residents, child work, shared-resource invalidation, or a non-local client; preserve the distinction between an implementation's coordinator and an earned EM boundary.
 - Any future work must state whether it is observing substrate facts, retaining interpretations, proposing stabilization, or accepting a durable change.
