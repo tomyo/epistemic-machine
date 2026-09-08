@@ -1,6 +1,6 @@
 # Epistemic Machine — Concepts & Principles
 
-**Status:** provisional — source-local workshop proposal · refs Mission M00 `b6b79eb` (Gates 1+2+3 ✓) — not CL-adopted · not evidence for Seed/Store/canonical/views/internal ecology/NOSTR/transport · implementations remain provisional (see `docs/concepts/material-and-communication.md`, `docs/protocols/filesystem.md`)
+**Status:** provisional concept record — source-local workshop proposal · not CL-adopted · not final ontology or implementation specification. Current embodiment guidance is in [`docs/architecture/`](../architecture/README.md); proposed M01 does not make these terms required primitives.
 
 All terms below are candidate vocabulary and working hypotheses, not proven invariants or implementation requirements.
 
@@ -61,8 +61,9 @@ Independently, **operator / cognition / capability** can occur at different plac
 
 * `epistemic-machine.md` (here) → candidate account of what may characterize an EM.
 * `material-and-communication.md` → what kinds of things can cross boundaries and how they are represented.
-* `protocols/filesystem.md` → how we currently try to realize this.
-* No seed experiment is selected. The coordination roadmap v0 and its proposed experiments were withdrawn before adoption or execution; no successor path is selected. This does not authorize `events/`, `views/`, seeds, or runtime work.
+* `docs/architecture/` → current provisional embodiment guide and status.
+* `protocols/filesystem.md` → historical/provisional filesystem realization notes.
+* M01 / Habitat-0 is proposed, not authorized. It does not establish `events/`, `views/`, seeds, or final runtime architecture.
 
 ## 4. Working principles (not proven invariants)
 
@@ -70,7 +71,7 @@ Independently, **operator / cognition / capability** can occur at different plac
 2. **Substrate hosts machine.** `substrate → hosts machine → membrane → relates to ecology` — not `machine owns substrate`. The machine does not need to model its substrate.
 3. **Membrane mediates, not implements.** The machine depends on a membrane contract, not a habitat implementation.
 4. **Computation can happen anywhere in the ecology.** Cognition, delegation, attention, and epistemic depth are dimensions of activity, not architectural layers between machine and membrane. An external specialist can perform deep cognition on behalf of a machine.
-5. **Build parts, don't theorize the machine top-down.** Let each failure earn the next primitive (Mission M00 rule).
+5. **Embody provisionally, then revise from use.** Build only the authorized current scope; let real pressure distinguish ordinary defects, architectural revision, and a genuinely needed experiment.
 
 ---
 

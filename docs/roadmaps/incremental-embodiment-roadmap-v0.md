@@ -1,15 +1,15 @@
 # Incremental Embodiment Roadmap v0
 
-**Status: candidate — pending human review and adoption**  
+**Status: superseded exploration-first candidate — retained as historical evidence**
 **Owner:** Epistemic Machine workshop
+
+> The workshop now uses the candidate [Embodiment Roadmap v1](embodiment-roadmap-v1.md) for prospective coordination. This record preserves the S03–S05 exploration branch and is not current direction or authorization.
 
 ## Purpose and authority boundary
 
-This is a candidate planning surface for reviewing the next smallest discriminator after completed M00, S03, S04, and S05. It is **not an implementation authorization**, an adopted coordination head, ontology, normative architecture, or runtime design. It is not a delivery queue.
+This was a candidate planning surface for reviewing the next smallest discriminator after completed M00, S03, S04, and S05. It is preserved as historical evidence of the exploration-first branch. It is **not** an implementation authorization, an adopted coordination head, ontology, normative architecture, runtime design, or delivery queue.
 
-Publication, review, adoption, and implementation authorization are separate acts. If a human adopts this document, it becomes the workshop's coordination head for review; every experiment still needs a later explicit human authorization naming its bounded brief. **No stage starts from this document alone.**
-
-The workshop remains a design surface, not an integrated EM runtime. No runtime architecture is selected.
+The prospective methods and possibilities below describe the state of this superseded candidate when it was written. They do not invite adoption, update, or execution. Current coordination is only in [Embodiment Roadmap v1](embodiment-roadmap-v1.md).
 
 ## Operating method
 
@@ -58,11 +58,9 @@ S03–S05 reveal recurring pressures, not an earned shared helper. They are reta
 
 The exploration exit criterion is now exercised through [`docs/notes/post-s05-specimen-synthesis-v0.md`](../notes/post-s05-specimen-synthesis-v0.md). No S06 is selected: no completed specimen exposed a new missing relationship, and another implementation-only variation would reproduce established boundaries. A future candidate requires materially new observed relationship or real machine-ecology workflow pressure; a candidate-boundary specification, if ever useful, remains a separately authorized experiment.
 
-#### Ideal next moves
+#### Historical post-S05 disposition
 
-1. **Explicit human adoption decision:** adopt this candidate roadmap as the workshop coordination head, or leave it pending; either outcome authorizes no build.
-2. **Real workflow use:** use the current workshop and bounded evidence without adding a runtime or another specimen solely to create pressure; retain only observed friction that survives ordinary bug triage.
-3. **Later evidence review:** classify that friction against the post-S05 synthesis before proposing any future candidate. A proposal remains separate from authorization.
+At the time of this candidate, its proposed next moves were: a human adoption decision, real workflow use without another specimen solely to create pressure, then later evidence review. That disposition is superseded by the Embodiment Preparation loop in [Embodiment Roadmap v1](embodiment-roadmap-v1.md).
 
 ### Completed discriminator — Parallel Working Views and Explicit Selection
 
@@ -108,14 +106,14 @@ A new implementation must be smaller than its pressure. Repeating S03–S05 unde
 
 ## Review and revision protocol
 
-After each completed authorized specimen, review against this roadmap in four sections:
+This historical candidate specified reviewing each completed authorized specimen in four sections:
 
 1. **Supported:** the exact observed boundary, not a generalized architecture claim.
 2. **Not supported:** capabilities/semantics deliberately absent from the specimen.
 3. **Pressure:** the smallest remaining ambiguity or failure, if any.
 4. **Disposition:** defer, revise the roadmap, recommend one candidate for separate human authorization, or promote nothing.
 
-A review may update this candidate roadmap. It cannot itself activate a later stage, promote a foundation, or authorize a build.
+This was a historical review rule, not permission to update this superseded roadmap. It never authorized a later stage, foundation, or build.
 
 ## Related records
 

@@ -1,25 +1,28 @@
 # Epistemic Machine — Agent Instructions
 
-This repository is the **workshop** for the Epistemic Machine: the design surface where the concept is developed, built, and shared with peer projects (notably Continuity Lab). It is NOT the machine's runtime.
+This repository is the **workshop** for the Epistemic Machine: the design surface where the concept is developed, embodied, and shared with peer projects (notably Continuity Lab). It may host an explicitly authorized provisional embodiment such as Habitat-0; it is not thereby a universal machine runtime or final architecture.
 
 ## Roles
 
-- **Workshop (this repo, git-tracked):** design surface — the exchange bus, skills, experiments, specs, seeds/blueprints. Read: `.pi/skills/exchange-skill/SKILL.md` (bus protocol) and `.pi/extensions/exchange/index.ts` (bus transport). The workshop itself is not a machine.
-- **Experiment-local machine specimen:** Mission M00 used `experiments/m00-e01-first-continuity-loop/.em/` (gitignored, with its own internal `.git`) as one bounded realization. The workshop never versions that state. Do not generalize this location or Git arrangement to future machines; a later brief must select its own realization. Root has no `.em/`.
+- **Workshop (this repo, git-tracked):** design surface — the exchange bus, skills, historical experiments, architecture records, and future authorized embodiment source. Read: `.pi/skills/exchange-skill/SKILL.md` (bus protocol) and `.pi/extensions/exchange/index.ts` (bus transport). The root bus is workshop-peer transport, not a machine communication API.
+- **Historical experiment-local specimen:** Mission M00 used `experiments/m00-e01-first-continuity-loop/.em/` (gitignored, with its own internal `.git`) as one bounded realization. Do not generalize this location or Git arrangement.
+- **Proposed Habitat-0:** [`docs/missions/m01-habitat-0-first-runnable-internal-ecology.md`](docs/missions/m01-habitat-0-first-runnable-internal-ecology.md) describes a possible repository-local embodiment. It is not authorized and creates no runtime state yet.
 
 ## Orientation and Layout
 
 Read in this order for current work:
 
-1. `docs/notes/README.md`, then relevant `docs/notes/` and experiment-local reviews — the catalogue, bounded evidence, provisional decisions, and architectural lineage.
-2. The relevant file under `docs/missions/` — closed evidence or a withdrawn candidate brief.
-3. `docs/roadmaps/machine-ecology-coordination-roadmap.md` only when its withdrawn coordination proposal is historically relevant; it is not current direction or build authorization.
+1. `docs/architecture/README.md` — current provisional embodiment map and status.
+2. `docs/roadmaps/embodiment-roadmap-v1.md` — candidate coordination direction; it is not build authorization.
+3. The relevant file under `docs/missions/`, then `docs/notes/README.md` and relevant historical evidence/lineage.
+4. `docs/roadmaps/machine-ecology-coordination-roadmap.md` only when its withdrawn coordination proposal is historically relevant.
 
 Layout:
 
-- `docs/roadmaps/` — EM-owned engineering direction and status; a candidate becomes the coordination head only through human adoption. No coordination head is currently selected.
-- `docs/missions/` — mission specifications and status, including closed missions and withdrawn candidate briefs.
-- `docs/notes/` — parked notes and bounded decisions; not stable architecture by location.
+- `docs/architecture/` — current provisional implementation guide and embodiment status; revise from real pressure, not by declaration.
+- `docs/roadmaps/` — EM-owned engineering direction and status; a candidate becomes the coordination head only through human adoption.
+- `docs/missions/` — mission specifications and status, including closed evidence and proposed bounded embodiments.
+- `docs/notes/` — historical design lineage, bounded decisions, and evidence synthesis; not stable architecture by location.
 - `experiments/mNN-eNN-<slug>/` — isolated experiment within an adopted mission; `experiments/sNN-<slug>/` — standalone specimen. Mission M00 owns the only current gitignored `.em/` specimen; future missions do not inherit that realization automatically. Do not assume experiment helpers are stable foundations.
 - `protocol/` `substrates/` `seeds/` `core/` — reserved names only. They do not exist and have not been earned as reusable foundations.
 
@@ -36,14 +39,16 @@ The `inbox/` and `outbox/<peer>/` symlinked-mailbox bus moves markdown packets b
 
 **Mission M00 (closed):** One A→G vertical slice showed that the filesystem bus plus one experiment-local `.em` consequence was sufficient for that loop (Gates 1+2+3 passed). Because no gate failed, the retrospective promoted no stable primitive. Mission M00 does not authorize `protocol/`, `substrates/`, `seeds/`, or `core/`.
 
-**Current stage:** No roadmap coordination head, mission, or experiment is selected. The coordination roadmap v0 and its two briefs were withdrawn before adoption or execution. Architectural lineage is design memory, not an authorization. No experiment, architecture implementation, lineage/event machinery, or `.em/` mutation is active.
+## Embodiment Preparation
 
-Every implementation or experiment requires an explicit human authorization naming its bounded brief. Roadmap adoption, receipt of a peer advisory, or completion of a prior experiment is not sufficient authorization. Build the smallest authorized specimen, preserve its failure/evidence boundary, and promote reusable machinery only after recurrence or demonstrated insufficiency warrants it.
+**Current phase:** The workshop is preparing a provisional embodiment guided by [`docs/architecture/`](docs/architecture/README.md) and the candidate [`docs/roadmaps/embodiment-roadmap-v1.md`](docs/roadmaps/embodiment-roadmap-v1.md). M01 / Habitat-0 is proposed, not adopted or active. Documentation may be revised as ordinary workshop work; it is not implementation.
+
+Every implementation or experiment requires **separate explicit human authorization** naming its bounded brief. Roadmap adoption, receipt of a peer advisory, completion of a prior experiment, or preparation of a mission brief is not sufficient authorization. An authorized embodiment must be the smallest useful realization, preserve its evidence boundary, and revise architecture only when use supplies real pressure. Historical M00/S03/S04/S05 evidence remains frozen.
 
 ## Mission and Experiment Naming
 
-- `mNN-<slug>` names a human-adopted mission; allocate the next stable, workshop-local ID only at adoption.
-- `mNN-eNN-<slug>` names an explicitly authorized experiment within that mission; allocate `eNN` only at authorization.
+- `mNN-<slug>` names a proposed or adopted mission; allocate the next stable workshop-local ID only when a human explicitly directs that its brief be prepared. `Status` records proposed versus adopted.
+- `mNN-eNN-<slug>` names an explicitly authorized experiment within an adopted mission; allocate `eNN` only at authorization.
 - `sNN-<slug>` names a standalone specimen not claimed by a mission.
 - IDs are stable and never reused. Status belongs in the document, not the path; Git history carries revisions. Existing historical names are migrated only by an explicit repository decision.
 
@@ -66,4 +71,5 @@ Do not rewrite workshop architecture casually. The historical `save raw → em o
 ## General Project Rules
 
 - Small atomic commits; commit messages include reasoning.
-- This is the workshop — prefer clarifying the design surface over accumulating runtime scaffolding.
+- Keep the architecture surface current when real implementation/use changes its responsibility map; do not turn ordinary bugs into architecture.
+- This is the workshop — build only explicitly authorized embodiment scope, not speculative runtime scaffolding.

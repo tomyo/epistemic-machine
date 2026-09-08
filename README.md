@@ -8,9 +8,10 @@ An Epistemic Machine is a persistent entity designed to maintain continuity acro
 
 ## Layout
 
-- `docs/roadmaps/machine-ecology-coordination-roadmap.md` — withdrawn coordination candidate retained as historical design context; no current roadmap coordination head
-- `docs/missions/` — closed mission evidence and withdrawn candidate briefs
-- `docs/notes/README.md` — catalogue of provisional notes and architectural-lineage records
+- `docs/architecture/README.md` — current provisional architecture and embodiment-status surface
+- `docs/roadmaps/embodiment-roadmap-v1.md` — candidate embodiment coordination direction; not implementation authorization
+- `docs/missions/` — closed evidence and proposed bounded embodiment briefs, including proposed M01 / Habitat-0
+- `docs/notes/README.md` — catalogue of historical provisional notes and architectural-lineage records
 - `docs/notes/` — provisional notes, bounded contracts, decisions, and curated architectural lineage
 - `.pi/extensions/exchange/` — exchange-bus watcher/notification and journal extension
 - `.pi/skills/exchange-skill/` — bus transport convention (filenames, packet anatomy, send/receive, journal, visibility boundary)
@@ -39,4 +40,4 @@ The filesystem may be useful as an initial substrate because it is simple and in
 
 ## Status
 
-No roadmap coordination head, mission, or experiment is currently selected. The Machine Ecology Coordination Roadmap v0 and its two coordination briefs were withdrawn before adoption or execution and remain historical design context only. Mission M00 is closed with no stable primitive promoted. Continuity Lab advice remains non-authoritative, and the human separately authorizes every build or experiment.
+The workshop is in **Embodiment Preparation**. The architecture surface and Embodiment Roadmap v1 are candidates pending human adoption; M01 / Habitat-0 is proposed but not authorized. No runtime, seed, Habitat-0 state, or Habitat-0 source implementation has been created. Mission M00 and S03–S05 remain bounded historical evidence. Continuity Lab advice remains non-authoritative, and the human separately authorizes every build or experiment.
