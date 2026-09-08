@@ -15,6 +15,7 @@ An Epistemic Machine is a persistent entity designed to maintain continuity acro
 - `docs/notes/` — provisional notes, bounded contracts, decisions, and curated architectural lineage
 - `.pi/extensions/exchange/` — exchange-bus watcher/notification and journal extension
 - `.pi/skills/exchange-skill/` — bus transport convention (filenames, packet anatomy, send/receive, journal, visibility boundary)
+- `src/habitat-0/` — M01's bounded local ecology implementation
 - `experiments/mNN-eNN-<slug>/` — isolated experiment within an adopted mission; `experiments/sNN-<slug>/` — standalone specimen; either may own a scoped gitignored `.em/`
 - `protocol/` `substrates/` `seeds/` `core/` — reserved names, not current foundations and not created
 - `inbox/` — peer mailboxes (peers write packets here)
@@ -40,4 +41,6 @@ The filesystem may be useful as an initial substrate because it is simple and in
 
 ## Status
 
-The workshop is in its **first embodiment**. Embodiment Roadmap v1 is adopted and M01 / Habitat-0 is authorized as the bounded first local ecology realization. No runtime, seed, Habitat-0 state, or Habitat-0 source implementation has been created yet. Mission M00 and S03–S05 remain bounded historical evidence. Continuity Lab advice remains non-authoritative, and authority for later builds or experiments remains separate.
+The workshop is in its **first embodiment**. Embodiment Roadmap v1 is adopted and M01 / Habitat-0 is the implemented bounded first local ecology realization in `src/habitat-0/`; its generated local state lives only in ignored `/.habitat-0/`. Run its acceptance check with `node test/m01-habitat-0.js`.
+
+Habitat-0 is local and replaceable, independent of the EM↔CL bus, and not a reusable or shared foundation. Mission M00 and S03–S05 remain bounded historical evidence. Continuity Lab advice remains non-authoritative, and authority for later builds or experiments remains separate.

@@ -1,6 +1,6 @@
 # Embodiment Status v0
 
-**Status:** post-preparation status record — no runtime, seed, machine instance, or implementation is authorized or present
+**Status:** post-preparation status record — M01 / Habitat-0 is authorized and its bounded local implementation is present; no seed or reusable foundation is established
 
 Embodiment Preparation is closed. Roadmap v1 is adopted and M01 / Habitat-0 is authorized; this record remains its scope boundary until real use revises it.
 
@@ -14,7 +14,7 @@ Habitat-0 is not a global machine manager. `create machine` is a Habitat-0 opera
 
 ```text
 repository
-  └── Habitat-0 (authorized local habitat; no files created yet)
+  └── Habitat-0 (implemented local habitat in `src/habitat-0/`)
         ├── resident M1 (private state/resources)
         └── resident M2 (private state/resources)
 ```
@@ -31,10 +31,10 @@ Resident machines are deliberately **non-recursive** in M01: they do not host an
 
 ## What remains absent
 
-- **No daemon** or always-running process is required. Activation is explicit through the future local CLI.
+- **No daemon** or always-running process is required. Activation is explicit through the local CLI.
 - The EM↔CL bus is unchanged. It remains workshop-peer transport and is not M01's internal delivery mechanism.
 - No external transport, discovery, global identity, authority model, general capability framework, attention/subscription system, or event system is selected.
-- No `seeds/`, `src/`, or `machines/` implementation surface is created by this preparation work.
+- `src/habitat-0/` is the bounded M01 implementation surface; no `seeds/` or `machines/` foundation is established.
 
 ## Revisit conditions
 

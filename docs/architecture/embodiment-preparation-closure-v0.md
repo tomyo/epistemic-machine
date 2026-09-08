@@ -1,6 +1,6 @@
 # Embodiment Preparation — Closure v0
 
-**Status:** closed preparation phase — no embodiment is authorized or active
+**Status:** closed preparation phase — historical preparation record; M01 / Habitat-0 is now authorized and implemented within its bounded scope
 
 ## Scope completed
 

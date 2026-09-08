@@ -2,6 +2,9 @@
 .em/
 **/.em/
 
+# Habitat-0 local runtime state
+/.habitat-0/
+
 # Bus runtime plumbing (mailboxes are ephemeral, re-created by setup)
 inbox/
 outbox/
