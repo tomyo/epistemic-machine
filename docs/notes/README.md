@@ -13,6 +13,7 @@ A lineage record is neither a transcript archive nor architecture by declaration
 | EM boundary hypotheses | Which candidate responsibility boundaries could stay intelligible while future authorized specimens vary their realization? | [`em-boundary-hypotheses-v0.md`](em-boundary-hypotheses-v0.md) |
 | Post-S05 specimen synthesis | Do M00, S03, S04, and S05 expose a materially new relationship requiring another specimen or a promoted primitive? | [`post-s05-specimen-synthesis-v0.md`](post-s05-specimen-synthesis-v0.md) |
 | Embodiment conversation 1 | Which embodiment proposals are captured, deferred, or superseded by the current Habitat-0 direction? | [`embodiment-conversation-1-curation-v0.md`](embodiment-conversation-1-curation-v0.md) |
+| External agent/epistemic specimens | Which separations among session operation, substrate observation, learned judgment, and reflective stabilization are worth carrying forward as questions? | [`prior-art-agent-epistemic-capabilities-v0.md`](prior-art-agent-epistemic-capabilities-v0.md) |
 
 ## Using this catalogue
 
