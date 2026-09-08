@@ -1,6 +1,6 @@
 # S03 — Two-Machine Deterministic Request/Reply
 
-**Status: proposed — awaiting explicit human authorization**
+**Status: completed — authorized bounded specimen with recorded evidence**
 
 ## Boundary
 
@@ -37,7 +37,7 @@ A successful result has only:
 from, to, correlation, value
 ```
 
-For this specimen, `from` and `to` are static fixture aliases; `operation` is exactly `lookup`; `payload` contains one lookup key. Invalid target, operation, or malformed request is rejected by B and produces no successful result. Record layout, temporary paths, B's state representation, and B's implementation functions are private realization.
+For this specimen, records are UTF-8 JSON objects; `from`, `to`, `operation`, and `correlation` are non-empty strings; `from` and `to` are static fixture aliases; `operation` is exactly `lookup`; `payload` is exactly `{ "key": string }`; and `value` is a string. Invalid target, operation, or malformed request is rejected by B and produces no successful result. Record layout, temporary paths, B's state representation, and B's implementation functions are private realization.
 
 ## Acceptance checks
 
@@ -47,7 +47,13 @@ An authorized specimen must provide one runnable `node experiments/s03-two-machi
 2. B emits no result merely because the request was delivered; an explicit receive/execute step is required.
 3. B returns a result whose `correlation` matches the request.
 4. Replacing B's private implementation with a different private representation produces the **same public result** for the same request.
-5. Invalid operation input is rejected without a successful result.
+5. Invalid target, invalid operation, and malformed request input are each rejected without a successful result.
+
+## Measured result
+
+`node experiments/s03-two-machine-request-reply/verify.js` exits 0. In isolated temporary workspaces it observed no result after A delivered the request, then observed B's explicitly invoked `receiveAndExecute` produce the correlated result. An object-backed and a list-backed private B `lookup` implementation returned the same complete public result for the same complete request. Wrong target, wrong operation, and malformed payload were rejected without a successful result.
+
+This measured result supports only the stated boundary: the public interaction need not expose B's private realization, and delivery need not be execution. It **does not establish machine identity**, authority, reachability, durable communication requirements, resource sharing, or a reusable primitive.
 
 ## Explicit non-goals
 
