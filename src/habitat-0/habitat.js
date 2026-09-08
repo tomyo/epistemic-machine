@@ -43,12 +43,19 @@ function rootPath(stateRoot) {
 
 function paths(stateRoot) {
   const root = rootPath(stateRoot);
+  const residents = path.join(root, "residents");
+  const m1 = path.join(residents, "m1");
+  const m2 = path.join(residents, "m2");
   const delivery = path.join(root, "delivery");
   return {
     root,
     habitat: path.join(root, "habitat.json"),
-    m1Private: path.join(root, "residents", "m1", "private"),
-    m2Private: path.join(root, "residents", "m2", "private"),
+    residents,
+    m1,
+    m1Private: path.join(m1, "private"),
+    m2,
+    m2Private: path.join(m2, "private"),
+    delivery,
     requests: path.join(delivery, "requests"),
     results: path.join(delivery, "results"),
   };
@@ -69,41 +76,17 @@ function followUpPath(layout, correlation) {
   return path.join(layout.m1Private, `follow-up-${correlation}.json`);
 }
 
-function writeRecord(file, record) {
-  const temporary = path.join(path.dirname(file), `.${path.basename(file)}-${crypto.randomUUID()}.tmp`);
-  let published = false;
-  try {
-    fs.writeFileSync(temporary, `${JSON.stringify(record)}\n`, { encoding: "utf8", flag: "wx" });
-    fs.linkSync(temporary, file);
-    published = true;
-    fs.unlinkSync(temporary);
-  } catch (error) {
-    if (published) return;
-    try {
-      fs.unlinkSync(temporary);
-    } catch {
-      // Best-effort cleanup of an unpublished temporary file.
-    }
-    if (error?.code === "EEXIST") throw new HabitatError("record already exists");
-    throw error;
-  }
+function isWithin(root, target) {
+  const relative = path.relative(root, target);
+  return relative === "" || (!relative.startsWith(`..${path.sep}`) && relative !== ".." && !path.isAbsolute(relative));
 }
 
-function readRecord(file, description) {
-  try {
-    const stat = fs.lstatSync(file);
-    if (!stat.isFile() || stat.size > MAX_RECORD_BYTES) throw new HabitatError(`malformed ${description}`);
-    return JSON.parse(fs.readFileSync(file, "utf8"));
-  } catch (error) {
-    if (error instanceof HabitatError) throw error;
-    if (error?.code === "ENOENT") throw new HabitatError(`${description} is not available`);
-    throw new HabitatError(`malformed ${description}`);
-  }
-}
-
-function requireDirectory(directory) {
+function requireDirectory(directory, root) {
   try {
     if (!fs.lstatSync(directory).isDirectory()) throw new HabitatError("malformed habitat");
+    const canonical = fs.realpathSync(directory);
+    if (root && !isWithin(root, canonical)) throw new HabitatError("malformed habitat");
+    return canonical;
   } catch (error) {
     if (error instanceof HabitatError) throw error;
     throw new HabitatError("malformed habitat");
@@ -111,8 +94,63 @@ function requireDirectory(directory) {
 }
 
 function requireLayout(layout) {
-  [layout.root, layout.m1Private, layout.m2Private, layout.requests, layout.results]
-    .forEach(requireDirectory);
+  const root = requireDirectory(layout.root);
+  [layout.residents, layout.m1, layout.m1Private, layout.m2, layout.m2Private,
+    layout.delivery, layout.requests, layout.results].forEach((directory) => requireDirectory(directory, root));
+  return paths(root);
+}
+
+function canonicalFile(layout, file) {
+  try {
+    const canonical = path.join(fs.realpathSync(path.dirname(file)), path.basename(file));
+    if (!isWithin(layout.root, canonical)) throw new HabitatError("malformed habitat");
+    return canonical;
+  } catch (error) {
+    if (error instanceof HabitatError) throw error;
+    throw new HabitatError("malformed habitat");
+  }
+}
+
+function writeRecord(layout, file, record) {
+  layout = requireLayout(layout);
+  file = canonicalFile(layout, file);
+  const temporary = path.join(path.dirname(file), `.${path.basename(file)}-${crypto.randomUUID()}.tmp`);
+  let published = false;
+  try {
+    requireLayout(layout);
+    fs.writeFileSync(temporary, `${JSON.stringify(record)}\n`, { encoding: "utf8", flag: "wx" });
+    requireLayout(layout);
+    fs.linkSync(temporary, file);
+    published = true;
+    requireLayout(layout);
+    fs.unlinkSync(temporary);
+  } catch (error) {
+    if (published) return;
+    try {
+      requireLayout(layout);
+      fs.unlinkSync(temporary);
+    } catch {
+      // Best-effort cleanup of an unpublished temporary file.
+    }
+    if (error?.code === "EEXIST") throw new HabitatError("record already exists");
+    if (error instanceof HabitatError) throw error;
+    throw error;
+  }
+}
+
+function readRecord(layout, file, description) {
+  try {
+    layout = requireLayout(layout);
+    file = canonicalFile(layout, file);
+    const stat = fs.lstatSync(file);
+    if (!stat.isFile() || stat.size > MAX_RECORD_BYTES) throw new HabitatError(`malformed ${description}`);
+    requireLayout(layout);
+    return JSON.parse(fs.readFileSync(file, "utf8"));
+  } catch (error) {
+    if (error instanceof HabitatError) throw error;
+    if (error?.code === "ENOENT") throw new HabitatError(`${description} is not available`);
+    throw new HabitatError(`malformed ${description}`);
+  }
 }
 
 function resident(alias) {
@@ -125,7 +163,7 @@ function validResident(value, alias) {
 }
 
 function readHabitat(layout) {
-  const habitat = readRecord(layout.habitat, "habitat");
+  const habitat = readRecord(layout, layout.habitat, "habitat");
   if (!isExactObject(habitat, ["residents"])
     || !isExactObject(habitat.residents, ["m1", "m2"])
     || !validResident(habitat.residents.m1, "m1")
@@ -141,7 +179,7 @@ function resourceReference() {
 }
 
 function readResource(layout) {
-  const resource = readRecord(path.join(layout.m2Private, "resource.json"), "private resource");
+  const resource = readRecord(layout, path.join(layout.m2Private, "resource.json"), "private resource");
   if (!isExactObject(resource, ["name", "revision", "mediaType", "content"])
     || resource.name !== RESOURCE.name
     || resource.revision !== RESOURCE.revision
@@ -220,8 +258,10 @@ function validFollowUp(record, habitat) {
     && record.consequence.text === consequenceFor(record.result).text;
 }
 
-function recordCorrelations(directory, prefix) {
+function recordCorrelations(layout, directory, prefix) {
   try {
+    layout = requireLayout(layout);
+    directory = requireDirectory(directory, layout.root);
     return fs.readdirSync(directory, { withFileTypes: true })
       .filter((entry) => entry.isFile())
       .map((entry) => {
@@ -237,7 +277,7 @@ function recordCorrelations(directory, prefix) {
 }
 
 function createHabitat(stateRoot) {
-  const layout = paths(stateRoot);
+  let layout = paths(stateRoot);
   try {
     const root = fs.lstatSync(layout.root);
     if (!root.isDirectory() || fs.readdirSync(layout.root).length !== 0) {
@@ -250,14 +290,14 @@ function createHabitat(stateRoot) {
   }
 
   try {
-    fs.mkdirSync(layout.m1Private, { recursive: true });
-    fs.mkdirSync(layout.m2Private, { recursive: true });
-    fs.mkdirSync(layout.requests, { recursive: true });
-    fs.mkdirSync(layout.results, { recursive: true });
+    layout = paths(requireDirectory(layout.root));
+    [layout.residents, layout.m1, layout.m1Private, layout.m2, layout.m2Private,
+      layout.delivery, layout.requests, layout.results].forEach((directory) => fs.mkdirSync(directory));
+    layout = requireLayout(layout);
 
     const habitat = { residents: { m1: resident("m1"), m2: resident("m2") } };
-    writeRecord(layout.habitat, habitat);
-    writeRecord(path.join(layout.m2Private, "resource.json"), RESOURCE);
+    writeRecord(layout, layout.habitat, habitat);
+    writeRecord(layout, path.join(layout.m2Private, "resource.json"), RESOURCE);
     return {
       residents: habitat.residents,
       resource: { ...resourceReference(), mediaType: RESOURCE.mediaType },
@@ -271,9 +311,9 @@ function createHabitat(stateRoot) {
 }
 
 function requestResource(stateRoot, correlation) {
-  const layout = paths(stateRoot);
+  let layout = paths(stateRoot);
   if (!validCorrelation(correlation)) throw new HabitatError("invalid correlation");
-  requireLayout(layout);
+  layout = requireLayout(layout);
   const habitat = readHabitat(layout);
   readResource(layout);
 
@@ -284,12 +324,12 @@ function requestResource(stateRoot, correlation) {
     correlation,
     resource: resourceReference(),
   };
-  writeRecord(requestPath(layout, correlation), request);
+  writeRecord(layout, requestPath(layout, correlation), request);
   return request;
 }
 
 function activateM2(layout, habitat, correlation) {
-  const request = readRecord(requestPath(layout, correlation), "request");
+  const request = readRecord(layout, requestPath(layout, correlation), "request");
   if (!validRequest(request, habitat) || request.correlation !== correlation) {
     throw new HabitatError("malformed request");
   }
@@ -302,27 +342,27 @@ function activateM2(layout, habitat, correlation) {
     mediaType: resource.mediaType,
     content: resource.content,
   };
-  writeRecord(resultPath(layout, correlation), result);
+  writeRecord(layout, resultPath(layout, correlation), result);
   return result;
 }
 
 function activateM1(layout, habitat, correlation) {
-  const request = readRecord(requestPath(layout, correlation), "request");
-  const result = readRecord(resultPath(layout, correlation), "result");
+  const request = readRecord(layout, requestPath(layout, correlation), "request");
+  const result = readRecord(layout, resultPath(layout, correlation), "result");
   if (!validRequest(request, habitat) || request.correlation !== correlation
     || !validResult(result, habitat) || result.correlation !== correlation
     || !requestMatchesResult(request, result)) {
     throw new HabitatError("malformed result");
   }
   const followUp = { result, consequence: consequenceFor(result) };
-  writeRecord(followUpPath(layout, correlation), followUp);
+  writeRecord(layout, followUpPath(layout, correlation), followUp);
   return followUp;
 }
 
 function activateResident(stateRoot, residentAlias, correlation) {
-  const layout = paths(stateRoot);
+  let layout = paths(stateRoot);
   if (!validCorrelation(correlation)) throw new HabitatError("invalid correlation");
-  requireLayout(layout);
+  layout = requireLayout(layout);
   const habitat = readHabitat(layout);
   if (residentAlias === "m2") return activateM2(layout, habitat, correlation);
   if (residentAlias === "m1") return activateM1(layout, habitat, correlation);
@@ -330,19 +370,19 @@ function activateResident(stateRoot, residentAlias, correlation) {
 }
 
 function inspectHabitat(stateRoot) {
-  const layout = paths(stateRoot);
-  requireLayout(layout);
+  let layout = paths(stateRoot);
+  layout = requireLayout(layout);
   const habitat = readHabitat(layout);
-  const requests = recordCorrelations(layout.requests, "request").map((correlation) => {
-    const request = readRecord(requestPath(layout, correlation), "request");
+  const requests = recordCorrelations(layout, layout.requests, "request").map((correlation) => {
+    const request = readRecord(layout, requestPath(layout, correlation), "request");
     if (!validRequest(request, habitat) || request.correlation !== correlation) {
       throw new HabitatError("malformed request");
     }
     return request;
   });
   const requestsByCorrelation = new Map(requests.map((request) => [request.correlation, request]));
-  const results = recordCorrelations(layout.results, "result").map((correlation) => {
-    const result = readRecord(resultPath(layout, correlation), "result");
+  const results = recordCorrelations(layout, layout.results, "result").map((correlation) => {
+    const result = readRecord(layout, resultPath(layout, correlation), "result");
     if (!validResult(result, habitat) || result.correlation !== correlation
       || !requestMatchesResult(requestsByCorrelation.get(correlation) || {}, result)) {
       throw new HabitatError("malformed result");
@@ -350,8 +390,8 @@ function inspectHabitat(stateRoot) {
     return result;
   });
   const resultsByCorrelation = new Map(results.map((result) => [result.correlation, result]));
-  const consequences = recordCorrelations(layout.m1Private, "follow-up").map((correlation) => {
-    const followUp = readRecord(followUpPath(layout, correlation), "follow-up");
+  const consequences = recordCorrelations(layout, layout.m1Private, "follow-up").map((correlation) => {
+    const followUp = readRecord(layout, followUpPath(layout, correlation), "follow-up");
     if (!validFollowUp(followUp, habitat) || followUp.result.correlation !== correlation
       || !resultsByCorrelation.has(correlation)
       || !sameResult(followUp.result, resultsByCorrelation.get(correlation))) {
