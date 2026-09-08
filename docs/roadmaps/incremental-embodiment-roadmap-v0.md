@@ -31,6 +31,16 @@ Before any candidate is offered for human authorization, its brief must state:
 - **Retain if** and **Revise if** outcomes; and
 - that eligibility is not authorization.
 
+## Exploration exit criterion
+
+Continue bounded specimens only while a proposed candidate tests a materially new relationship exposed by prior evidence. Transition from this specimen phase to a separate synthesis review when any of the following holds:
+
+- additional candidates primarily reproduce already observed boundaries;
+- multiple independent specimens converge on a candidate boundary under distinct pressures; or
+- the remaining uncertainty is demonstrably implementation-level rather than a missing relationship.
+
+The synthesis review may identify a candidate boundary/interface specification only when concrete recurrence or demonstrated insufficiency supports it. It does not authorize a shared foundation, a build, or a runtime architecture. Its disposition is to defer, recommend one new bounded discriminator, or recommend a separately authorized boundary/interface experiment against a real machine-ecology workflow.
+
 ## Current evidence baseline
 
 | Record | Bounded support | Does not establish |
