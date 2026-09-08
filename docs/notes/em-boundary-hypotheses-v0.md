@@ -44,11 +44,31 @@ Each hypothesis separates:
 
 | Aspect | Current hypothesis |
 |---|---|
-| Candidate invariant | Two machines may exchange a meaningful request or material without sharing private internal architecture. |
-| Boundary | One machine's internal realization and another's semantic interaction with it. |
+| Candidate invariant | Two machines may exchange a declared request or material without sharing private internal architecture. |
+| Boundary | One machine's internal realization and another's structured interaction with it. |
 | Candidate contract | Addressable counterpart, declared interaction/material, and an interpretable result or retained record; authority and delivery semantics remain open. |
 | Open implementation | Filesystem transport, pipes, HTTP, browser messaging, a remote service, discovery mechanism, serialization, correlation, trust, and delivery semantics. |
 | Evidence gap | The root bus transports packets between workshop peers, and S02 proves one local semantic projection. Neither side is an established EM machine instance. |
+
+### Communication ↔ durable state
+
+| Aspect | Current hypothesis |
+|---|---|
+| Candidate invariant | The system distinguishes transient interaction from whatever state must survive it; neither communication nor execution is intrinsically ephemeral or durable. |
+| Boundary | Structured interaction and its optional retained representation. |
+| Candidate contract | An occurrence can be correlated with a retained record when reconstruction, deferred handling, or another discontinuity requires it. |
+| Open implementation | Files, queues, append-only logs, databases, replicated records, expiry rules, and retention criteria. |
+| Evidence gap | Root bus packets are durable transport records, and M00 retained a consequence; no specimen has shown when machine-to-machine communication must be retained or when it should disappear. |
+
+### Communication ↔ execution
+
+| Aspect | Current hypothesis |
+|---|---|
+| Candidate invariant | A machine can have the capacity to observe, decide, and/or act without every received interaction automatically initiating that capacity. |
+| Boundary | Structured interaction and machine execution. |
+| Candidate contract | A receiving realization can explicitly accept an input for execution and expose any result separately from delivery and from private execution details. |
+| Open implementation | Deterministic function, human action, LLM, schedule, resource observation, internal state change, browser worker, process, or another machine. |
+| Evidence gap | The exchange extension triggers a host LLM turn without interpreting packets; M00 tested operator replacement. Neither establishes a machine execution boundary. |
 
 ### Semantic surface ↔ private realization
 
@@ -59,6 +79,16 @@ Each hypothesis separates:
 | Candidate contract | A named material, operation, or place with behavior comprehensible without private-path knowledge. |
 | Open implementation | Filesystem paths, commands, capability objects, API endpoints, browser elements, and backing transport or storage. |
 | Evidence gap | S02 gives bounded evidence for literal `advisory/in` and `advisory/out` only; it does not establish a universal vocabulary or capability model. |
+
+### Identity ↔ authority ↔ reachability
+
+| Aspect | Current hypothesis |
+|---|---|
+| Candidate invariant | Identity, authority, and reachability answer different questions and need not share a representation. |
+| Boundary | Who/what a participant is; what it may do; and where/how it is currently reachable. |
+| Candidate contract | An interaction may refer to an identity, present authority evidence or local policy context, and use a route or endpoint without treating any one as the other. |
+| Open implementation | Static local aliases, public keys, DIDs, local policy, capability grants, directories, relays, discovery records, and routing mechanisms. |
+| Evidence gap | Existing packets provide only source-local provenance. No machine identity, authority, discovery, or reachability behavior has been established. |
 
 ### Boundary ↔ allocation
 
@@ -72,9 +102,9 @@ Each hypothesis separates:
 
 ## Explicit deferrals
 
-This note does not select a global/public ecology, registry, package model, browser custom-element model, machine identifier or key scheme, universal capability API, event lifecycle, trust model, discovery mechanism, or automatic harness interpretation of free text. Those are possible implementation spaces or later questions, not consequences of these hypotheses.
+This note does not select a global/public ecology, registry, package model, browser custom-element model, machine identifier or key scheme, universal capability API, generic event taxonomy, trust model, discovery mechanism, automatic harness interpretation of free text, VFS, content-addressed storage, CRDT, Git, libp2p, or UCAN. Those are possible implementation spaces or later questions, not consequences of these hypotheses.
 
-The existing caution remains: a transport occurrence is not automatically a semantic EM event, attention, interpretation, adoption, or durable consequence.
+The existing cautions remain: a transport occurrence is not automatically structured communication; communication delivery or acceptance is not automatically execution; and neither communication nor execution is automatically attention, interpretation, adoption, or durable consequence.
 
 ## Use in a later authorized brief
 
@@ -83,10 +113,11 @@ A later authorized brief may choose one hypothesis and state:
 1. the bounded mechanism being changed or exercised;
 2. the candidate contract it is testing;
 3. the implementation allocation it intentionally varies or holds fixed; and
-4. the observation that would retain, revise, or reject the hypothesis.
+4. whether the relevant interaction or outcome is transient or requires retained representation; and
+5. the observation that would retain, revise, or reject the hypothesis.
 
 This is a review aid, not a mission template or authorization path. The [embodiment map](em-embodiment-map-v0.md) remains the record of current pressures; mission evidence and authorization remain governed by [`AGENTS.md`](../../AGENTS.md).
 
 ## Provenance
 
-This note is a curated synthesis of a human-provided architecture conversation about blueprints, local instances, multiple operator substrates, and ecological communication, interpreted against current source-local evidence. Its hypotheses remain subject to use, evidence, and later review.
+This note is a curated synthesis of human-provided architecture conversations about blueprints, local instances, multiple operator substrates, durable and transient interaction, execution, and ecological communication, interpreted against current source-local evidence. Its hypotheses remain subject to use, evidence, and later review.
