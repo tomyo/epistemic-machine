@@ -9,8 +9,8 @@ An Epistemic Machine is a persistent entity designed to maintain continuity acro
 ## Layout
 
 - `docs/architecture/README.md` — current provisional architecture and embodiment-status surface
-- `docs/roadmaps/embodiment-roadmap-v1.md` — candidate embodiment coordination direction; not implementation authorization
-- `docs/missions/` — closed evidence and proposed bounded embodiment briefs, including proposed M01 / Habitat-0
+- `docs/roadmaps/embodiment-roadmap-v1.md` — adopted embodiment coordination direction
+- `docs/missions/` — closed evidence and bounded embodiment briefs, including authorized M01 / Habitat-0
 - `docs/notes/README.md` — catalogue of historical provisional notes and architectural-lineage records
 - `docs/notes/` — provisional notes, bounded contracts, decisions, and curated architectural lineage
 - `.pi/extensions/exchange/` — exchange-bus watcher/notification and journal extension
@@ -40,4 +40,4 @@ The filesystem may be useful as an initial substrate because it is simple and in
 
 ## Status
 
-The workshop is in **Embodiment Preparation**. The architecture surface and Embodiment Roadmap v1 are candidates pending human adoption; M01 / Habitat-0 is proposed but not authorized. No runtime, seed, Habitat-0 state, or Habitat-0 source implementation has been created. Mission M00 and S03–S05 remain bounded historical evidence. Continuity Lab advice remains non-authoritative, and the human separately authorizes every build or experiment.
+The workshop is in its **first embodiment**. Embodiment Roadmap v1 is adopted and M01 / Habitat-0 is authorized as the bounded first local ecology realization. No runtime, seed, Habitat-0 state, or Habitat-0 source implementation has been created yet. Mission M00 and S03–S05 remain bounded historical evidence. Continuity Lab advice remains non-authoritative, and authority for later builds or experiments remains separate.
