@@ -55,7 +55,7 @@ The view labels, record paths, `R0`/`R1a`/`R1b` names, and decision states are f
 
 ## Evidence boundary and disposition
 
-The recorded success supports only a reconstructible local base/candidate/decision relationship. A failure would have been retained as evidence of the smallest missing distinction. No helper leaves this experiment unless independent later specimens demonstrate recurrence or insufficiency.
+The recorded success supports that a local base/candidate/decision relationship can be reconstructed from retained records across a fresh process, including declared parentage and explicit sibling decisions. A failure would have been retained as evidence of the smallest missing distinction. No helper leaves this experiment unless independent later specimens demonstrate recurrence or insufficiency.
 
 ## Related design records
 

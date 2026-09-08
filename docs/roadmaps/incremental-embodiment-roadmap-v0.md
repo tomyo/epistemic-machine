@@ -5,7 +5,7 @@
 
 ## Purpose and authority boundary
 
-This is a candidate planning surface for reviewing the next smallest discriminator after completed S03 and S04. It is **not an implementation authorization**, an adopted coordination head, ontology, normative architecture, or runtime design. It is not a delivery queue.
+This is a candidate planning surface for reviewing the next smallest discriminator after completed M00, S03, S04, and S05. It is **not an implementation authorization**, an adopted coordination head, ontology, normative architecture, or runtime design. It is not a delivery queue.
 
 Publication, review, adoption, and implementation authorization are separate acts. If a human adopts this document, it becomes the workshop's coordination head for review; every experiment still needs a later explicit human authorization naming its bounded brief. **No stage starts from this document alone.**
 
@@ -48,14 +48,17 @@ The synthesis review may identify a candidate boundary/interface specification o
 | [M00](../missions/m00-first-continuity-loop.md) | One experiment-local accepted consequence was reconstructed after an operator replacement. | A reusable continuity substrate, session model, or root `.em/`. |
 | [S03](../missions/s03-two-machine-request-reply.md) | A public request/result remains stable while B changes private `lookup` realization; delivery is separate from explicit execution. | Identity, authority, reachability, durable communication, resource sharing, or a reusable request framework. |
 | [S04](../missions/s04-bounded-resource-reference-projection.md) | A fixture-local resource/revision reference yields the same bounded public projection across two B-private layouts; delivery is separate from explicit projection. | Logical/global resource identity, revision history, ownership, provenance, durability, resource sharing, or a reusable resource foundation. |
+| [S05](../missions/s05-parallel-working-views-selection.md) | Plain retained records reconstructed one base, isolated sibling candidates, declared parent/context, and explicit decisions across a fresh process without overwrite or automatic integration. | General continuity, resource/revision identity or history, session runtime/identity, Git/worktrees, merge/reconciliation, or a reusable working-view primitive. |
 
-S03 and S04 reveal a repeated *specimen shape*, not an earned shared helper. They are retained as separate evidence.
+S03–S05 reveal recurring pressures, not an earned shared helper. They are retained as separate evidence.
 
 ## Conditional discriminator map
 
-The working-views candidate is the only currently eligible candidate suggested directly by the present evidence. The contingent possibilities are not committed successors: neither is selected, neither has a priority, and neither starts automatically if the working-views candidate completes.
+### Post-S05 disposition
 
-### Candidate — Parallel Working Views and Explicit Selection
+The exploration exit criterion is now exercised through [`docs/notes/post-s05-specimen-synthesis-v0.md`](../notes/post-s05-specimen-synthesis-v0.md). No S06 is selected: no completed specimen exposed a new missing relationship, and another implementation-only variation would reproduce established boundaries. A future candidate requires materially new observed relationship or real machine-ecology workflow pressure; a candidate-boundary specification, if ever useful, remains a separately authorized experiment.
+
+### Completed discriminator — Parallel Working Views and Explicit Selection
 
 **Entry condition:** S04 leaves the resource/revision distinction untested over change: its `v1` label is a fixture selector, not evidence that multiple material states and their relationship are reconstructible.
 
@@ -63,15 +66,13 @@ The working-views candidate is the only currently eligible candidate suggested d
 
 **Smallest realization:** Temporary directories and explicit JSON/Markdown records only. One base text, two independently changed candidates, declared base references, a fresh reconstruction step, and one source-local selection record. Selection means only recording one sibling as selected, rejected, or unselected; it does not merge, reconcile, delete, integrate, assign authority, or create event semantics. No Git requirement, session runtime, daemon, watcher, machine-to-machine transport, merge algorithm, global IDs, or shared helper.
 
-**Retain if:** Plain retained records reconstruct `R0`, both candidates, and explicit selection without ambiguity, silent overwrite, or automatic integration; retain resource/revision/working-view as useful distinct working terms while keeping their realization local.
+**Result:** Plain retained records reconstructed `R0`, both candidates, and explicit selection without ambiguity, silent overwrite, or automatic integration. Resource/revision/working-view remain useful distinct working terms while their realization remains local; the result did not earn a primitive.
 
-**Revise if:** Plain records cannot state or reconstruct the sibling/selection relationship unambiguously; record that exact missing distinction before considering a bounded follow-up.
-
-**Eligibility is not authorization:** This candidate becomes a build only after a human authorizes a separate bounded brief. Its presence here allocates neither an experiment identifier nor a directory.
+**Disposition:** S05 is complete. It did not expose a missing relationship that selects a follow-up; the post-S05 synthesis records the resulting pause rather than a successor.
 
 ### Contingent possibility A — Retained-record realization substitution
 
-**Entry condition:** The working-views candidate establishes a coherent retained-record contract **and** a later concrete workload demonstrates that its plain realization is insufficient or that a second realization is actually needed.
+**Entry condition:** S05 established a coherent retained-record control **and** a later concrete workload demonstrates that its plain realization is insufficient or that a second realization is actually needed.
 
 **Bounded question:** Does the declared working-view/candidate/selection contract remain reconstructible while one private realization changes?
 
@@ -83,7 +84,7 @@ The working-views candidate is the only currently eligible candidate suggested d
 
 ### Contingent possibility B — Retained work-context attention
 
-**Entry condition:** The working-views candidate demonstrates a meaningful retained work-context record, and project-wide arrival wakeups remain measurably disruptive after that minimal record control.
+**Entry condition:** A future bounded control establishes a meaningful retained work-context record, and project-wide arrival wakeups remain measurably disruptive after that minimal record control. S05's fixture-local view labels do not satisfy this condition.
 
 **Bounded question:** Can relevance to one retained work context be expressed without turning arrival into assignment, execution, acknowledgement, routing, or cognition?
 
@@ -97,7 +98,7 @@ The working-views candidate is the only currently eligible candidate suggested d
 
 This roadmap does not schedule or select VFS, CAS/Merkle structures, IPFS, CRDTs, Git as EM substrate, libp2p, UCAN/DIDs, global discovery, generic events, event sourcing, queues, a daemon, a generic capability system, a resolver, a resource graph, synchronization, or `protocol/`, `substrates/`, `seeds/`, or `core` foundations.
 
-A new implementation must be smaller than its pressure. Repeating S03/S04 under another label is not evidence; a candidate must test a relationship their fixed public contracts could not express.
+A new implementation must be smaller than its pressure. Repeating S03–S05 under another label is not evidence; a candidate must test a relationship their fixed records/contracts could not express.
 
 ## Review and revision protocol
 

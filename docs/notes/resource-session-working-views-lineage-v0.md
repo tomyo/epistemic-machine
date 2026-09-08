@@ -58,7 +58,7 @@ A session is currently a candidate **durable record**, not automatically a machi
 | Idea / distinction | Epistemic support | Project disposition | Lesson / rationale | Revisit when |
 |---|---|---|---|---|
 | Resource ≠ revision ≠ working view ≠ mediator | Working hypothesis | Retained | Separating logical thing, exact bytes, active representation, and operational endpoint prevents one identifier from carrying incompatible meanings. | A bounded specimen shows a distinction unnecessary or incomplete. |
-| Two working views may leave sibling candidates from one base | Candidate discriminator | Test next candidate | Parallel work is the first concrete pressure for retained divergence without overwrite. | A human selects a bounded specimen after reviewing this thread. |
+| Two working views may leave sibling candidates from one base | Bounded S05 evidence | Retained as a local distinction; no primitive promoted | S05 reconstructed base, sibling candidates, declared parent/context, and local decisions from plain retained records without overwrite. | A concrete workflow makes that retained-record realization insufficient or exposes a materially new relationship. |
 | Session can outlive an operator episode as a durable record | Working hypothesis | Retained | Waiting work and retained candidates can remain meaningful after the active process exits. | Reconstruction shows that plain retained records are insufficient. |
 | Every session is a machine | Unknown | Deferred | Do not add identity, membrane, lifecycle, and authority before a session needs an independent boundary. | A session must independently expose, govern, or continue meaningful state. |
 | Project watcher causes unrelated session wakeups | Observed | Retained pressure | **Project mailbox ≠ session relevance.** The current watcher does not model durable work contexts. | Durable session distinction is first demonstrated; then assess targeted attention. |
@@ -78,19 +78,11 @@ Can independent sessions begin from the same material and retain non-destructive
 
 Can a durable work context be distinguished from unrelated open processes when new material appears? This is an availability/attention question. The current watcher gives it real operational pressure, but it must not be conflated with parallel revision handling.
 
-## Near-term discriminator
+## Completed discriminator
 
-The likely next specimen is **Parallel Working Views v0**, but this note does not create or authorize it. A plain-files control would use only explicit records and temporary working directories:
+[S05 — Parallel Working Views and Explicit Selection](../missions/s05-parallel-working-views-selection.md) supplied the plain-files control: one `R0`, two independently retained sibling candidates, declared parent/context, and one local decision record. A fresh process reconstructed that bounded relationship; exclusive creation rejected overwrite; malformed context and ambiguous sibling selection were rejected.
 
-```text
-R0
-├─ session A: working view → R1a; state = waiting
-└─ session B: working view → R1b; state = done
-
-fresh operator → reconstruct → inspect → explicitly select, reject, or reconcile
-```
-
-The discriminator is whether a fresh operator can recover the base, both exact candidates, their declared parents/session context, and any explicitly selected state without silent overwrite or automatic integration. If ordinary files do that cleanly, no specialized mediator, Git, router, or event representation is earned.
+The result did not earn a session, mediator, Git, router, event representation, working-view primitive, or successor specimen. The [post-S05 synthesis](post-s05-specimen-synthesis-v0.md) records the pause: another experiment needs a materially new relationship or concrete workflow pressure, not another local realization of this control.
 
 ## Explicit non-decisions
 

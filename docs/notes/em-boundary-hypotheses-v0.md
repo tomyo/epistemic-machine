@@ -48,7 +48,7 @@ Each hypothesis separates:
 | Boundary | One machine's internal realization and another's structured interaction with it. |
 | Candidate contract | Addressable counterpart, declared interaction/material, and an interpretable result or retained record; authority and delivery semantics remain open. |
 | Open implementation | Filesystem transport, pipes, HTTP, browser messaging, a remote service, discovery mechanism, serialization, correlation, trust, and delivery semantics. |
-| Evidence gap | The root bus transports packets between workshop peers, and S02 proves one local semantic projection. Neither side is an established EM machine instance. |
+| Evidence gap | S03 and S04 gave bounded fixture-local request/projection interactions across two labeled realizations, while the root bus transports workshop-peer packets and S02 proves one local semantic projection. None establishes EM machine identity, authority, reachability, or a general interaction model. |
 
 ### Communication ↔ durable state
 
@@ -68,7 +68,7 @@ Each hypothesis separates:
 | Boundary | Structured interaction and machine execution. |
 | Candidate contract | A receiving realization can explicitly accept an input for execution and expose any result separately from delivery and from private execution details. |
 | Open implementation | Deterministic function, human action, LLM, schedule, resource observation, internal state change, browser worker, process, or another machine. |
-| Evidence gap | The exchange extension triggers a host LLM turn without interpreting packets; M00 tested operator replacement. Neither establishes a machine execution boundary. |
+| Evidence gap | The exchange extension triggers a host LLM turn without interpreting packets; M00 tested operator replacement; S03/S04 separately required explicit deterministic B-side execution/projection after delivery. None establishes a general machine execution boundary. |
 
 ### Semantic surface ↔ private realization
 
@@ -78,7 +78,7 @@ Each hypothesis separates:
 | Boundary | Local semantic meaning and private realization. |
 | Candidate contract | A named material, operation, or place with behavior comprehensible without private-path knowledge. |
 | Open implementation | Filesystem paths, commands, capability objects, API endpoints, browser elements, and backing transport or storage. |
-| Evidence gap | S02 gives bounded evidence for literal `advisory/in` and `advisory/out` only; it does not establish a universal vocabulary or capability model. |
+| Evidence gap | S02 gives bounded evidence for literal `advisory/in` and `advisory/out`; S03/S04 give fixed operation/result contracts. None establishes a universal vocabulary or capability model. |
 
 ### Identity ↔ authority ↔ reachability
 
@@ -98,7 +98,7 @@ Each hypothesis separates:
 | Boundary | Stable responsibility distinction and a particular implementation allocation. |
 | Candidate contract | The specimen states which responsibility crosses the boundary and what observable result would count as preserving it. |
 | Open implementation | Process, directory, component, service, local or remote execution, persistence mechanism, and operator substrate. |
-| Evidence gap | This is a methodological hypothesis. No pair of authorized specimens has yet varied one implementation while holding a boundary contract intelligible. |
+| Evidence gap | S03 and S04 each varied a receiver-private realization while holding one narrow public contract fixed. No pair of authorized specimens has yet tested a shared candidate boundary across independently chosen allocations. |
 
 ## Explicit deferrals
 
