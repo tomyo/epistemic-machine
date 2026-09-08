@@ -39,9 +39,9 @@ The `inbox/` and `outbox/<peer>/` symlinked-mailbox bus moves markdown packets b
 
 **Mission M00 (closed):** One A→G vertical slice showed that the filesystem bus plus one experiment-local `.em` consequence was sufficient for that loop (Gates 1+2+3 passed). Because no gate failed, the retrospective promoted no stable primitive. Mission M00 does not authorize `protocol/`, `substrates/`, `seeds/`, or `core/`.
 
-## Embodiment Preparation
+## Decision Gate After Embodiment Preparation
 
-**Current phase:** The workshop is preparing a provisional embodiment guided by [`docs/architecture/`](docs/architecture/README.md) and the candidate [`docs/roadmaps/embodiment-roadmap-v1.md`](docs/roadmaps/embodiment-roadmap-v1.md). M01 / Habitat-0 is proposed, not adopted or active. Documentation may be revised as ordinary workshop work; it is not implementation.
+**Current phase:** Embodiment Preparation is closed. The workshop is at a human decision gate guided by [`docs/architecture/`](docs/architecture/README.md) and the candidate [`docs/roadmaps/embodiment-roadmap-v1.md`](docs/roadmaps/embodiment-roadmap-v1.md). M01 / Habitat-0 remains proposed, not adopted or active. Documentation may be revised as ordinary workshop work; it is not implementation.
 
 Every implementation or experiment requires **separate explicit human authorization** naming its bounded brief. Roadmap adoption, receipt of a peer advisory, completion of a prior experiment, or preparation of a mission brief is not sufficient authorization. An authorized embodiment must be the smallest useful realization, preserve its evidence boundary, and revise architecture only when use supplies real pressure. Historical M00/S03/S04/S05 evidence remains frozen.
 

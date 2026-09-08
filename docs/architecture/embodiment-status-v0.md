@@ -1,6 +1,8 @@
 # Embodiment Status v0
 
-**Status:** preparation record — no runtime, seed, machine instance, or implementation is authorized or present
+**Status:** post-preparation status record — no runtime, seed, machine instance, or implementation is authorized or present
+
+Embodiment Preparation is closed. This record remains the scope boundary for the proposed M01 / Habitat-0 embodiment while the workshop is at its human decision gate.
 
 ## Current decision
 
