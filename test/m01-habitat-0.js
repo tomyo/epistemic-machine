@@ -11,8 +11,8 @@ const root = fs.mkdtempSync(path.join(os.tmpdir(), 'm01-habitat-0-'));
 const cli = path.resolve(__dirname, '../src/habitat-0/cli.js');
 const correlation = 'm01-acceptance-1';
 
-function run(...args) {
-  const result = spawnSync(process.execPath, [cli, '--state', root, ...args], {
+function runAt(stateRoot, ...args) {
+  const result = spawnSync(process.execPath, [cli, '--state', stateRoot, ...args], {
     encoding: 'utf8'
   });
   return {
@@ -20,6 +20,10 @@ function run(...args) {
     stdout: result.stdout || '',
     stderr: result.stderr || ''
   };
+}
+
+function run(...args) {
+  return runAt(root, ...args);
 }
 
 function json(result, label) {
@@ -100,13 +104,43 @@ function inspect(label) {
   return value;
 }
 
+function assertRetainedEvidenceSymlinksRejected() {
+  const probeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'm01-retained-evidence-'));
+  const probeCorrelation = 'm01-retained-evidence';
+  try {
+    json(runAt(probeRoot, 'create'), 'probe create');
+    json(runAt(probeRoot, 'request', probeCorrelation), 'probe request');
+    json(runAt(probeRoot, 'activate', 'm2', probeCorrelation), 'probe activate m2');
+    json(runAt(probeRoot, 'activate', 'm1', probeCorrelation), 'probe activate m1');
+
+    const records = [
+      ['request', path.join(probeRoot, 'delivery', 'requests', `request-${probeCorrelation}.json`)],
+      ['result', path.join(probeRoot, 'delivery', 'results', `result-${probeCorrelation}.json`)],
+      ['follow-up', path.join(probeRoot, 'residents', 'm1', 'private', `follow-up-${probeCorrelation}.json`)]
+    ];
+    for (const [description, record] of records) {
+      const target = `${record}.target`;
+      fs.renameSync(record, target);
+      fs.symlinkSync(target, record);
+      rejected(runAt(probeRoot, 'inspect'), `inspect with symlinked ${description}`);
+      fs.unlinkSync(record);
+      fs.renameSync(target, record);
+    }
+  } finally {
+    fs.rmSync(probeRoot, { recursive: true, force: true });
+  }
+}
+
 try {
   const created = json(run('create'), 'create');
   const createdInspection = inspect('initial inspect');
-  const identities = strings(created).concat(strings(createdInspection))
-    .filter((value) => /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value));
 
-  assert(new Set(identities).size >= 2, 'creation did not expose two distinct local identities');
+  assert.strictEqual(typeof created.residents?.m1?.identity, 'string',
+    'creation did not expose M1 local identity');
+  assert.strictEqual(typeof created.residents?.m2?.identity, 'string',
+    'creation did not expose M2 local identity');
+  assert.notStrictEqual(created.residents.m1.identity, created.residents.m2.identity,
+    'creation did not expose two distinct local identities');
   assert(hasValue(createdInspection, /^m1$/i) && hasValue(createdInspection, /^m2$/i),
     'inspection did not report both resident aliases');
   assertPrivateState();
@@ -139,6 +173,7 @@ try {
 
   const freshInspection = inspect('fresh inspect');
   assert.deepStrictEqual(freshInspection, afterM1, 'consequence did not survive a fresh CLI invocation');
+  assertRetainedEvidenceSymlinksRejected();
 
   rejected(run('activate', 'm2', correlation), 'duplicate M2 activation');
   rejected(run('activate', 'm1', correlation), 'duplicate M1 activation');
