@@ -17,7 +17,7 @@ The specimen tests the communication ↔ execution boundary in a deliberately co
 If authorized, implementation is confined to `experiments/s03-two-machine-request-reply/` and uses only Node.js standard-library files and a temporary test workspace.
 
 - **Machine A** knows a static target alias, one exported operation (`lookup`), a request payload, and a caller-generated correlation value. It has no receiver-private path or state access.
-- **Transport realization** writes immutable request and result records under the specimen's temporary workspace. These files are a local, durable realization for the test, not a claim that all communication must be retained.
+- **Transport realization** records request and result records under the specimen's temporary workspace. These files are a local, durable realization for the test, not a claim that all communication must be retained.
 - **Machine B** explicitly accepts a delivered request, validates the one declared operation, and executes `lookup` against private state before emitting a correlated result.
 - **Private-change probe** runs the same public request against two different B-private representations with equivalent `lookup` behavior. The public result must remain the same.
 
@@ -37,7 +37,7 @@ A successful result has only:
 from, to, correlation, value
 ```
 
-For this specimen, `operation` is exactly `lookup`; `payload` contains one lookup key. Invalid target, operation, or malformed request is rejected by B and produces no successful result. Record layout, temporary paths, B's state representation, and B's implementation functions are private realization.
+For this specimen, `from` and `to` are static fixture aliases; `operation` is exactly `lookup`; `payload` contains one lookup key. Invalid target, operation, or malformed request is rejected by B and produces no successful result. Record layout, temporary paths, B's state representation, and B's implementation functions are private realization.
 
 ## Acceptance checks
 
@@ -51,13 +51,13 @@ An authorized specimen must provide one runnable `node experiments/s03-two-machi
 
 ## Explicit non-goals
 
-S03 does not use the root `inbox/` / `outbox/` peer bus, a watcher or daemon, an LLM or cognitive operator, `.em/` state, a session runtime, a reusable capability framework, event semantics, discovery, a directory service, authority behavior, trust negotiation, public-key machinery, a globally resolvable identity, routing, resource transfer, synchronization, or an arbitrary remote command interface.
+S03 uses a separate local fixture rather than the root `inbox/` / `outbox/` peer bus. It includes no watcher or daemon, LLM or cognitive operator, `.em/` state, session runtime, reusable capability framework, event semantics, discovery, directory service, authority behavior, trust negotiation, public-key machinery, globally resolvable identity, routing, resource transfer, synchronization, or arbitrary remote command interface.
 
 Static aliases and a local transport fixture are test controls, not identity, authority, or reachability solutions. The result records are not a generic event lifecycle or a claim of event sourcing.
 
 ## Evidence boundary and disposition
 
-Success would support only this: a small public interaction can remain intelligible while the receiver's private realization changes, and delivery can remain distinct from execution. It would not establish machine identity, authority, reachability, durable communication requirements, resource sharing, operator-free autonomy, or any reusable transport/capability primitive.
+Success would support only this: a small public interaction can remain intelligible without exposing the receiver's private realization, and delivery can remain distinct from execution. It would not establish machine identity, authority, reachability, durable communication requirements, resource sharing, operator-free autonomy, or any reusable transport/capability primitive.
 
 Failure should be retained as evidence of the smallest missing distinction. No helper leaves this experiment unless recurring use or demonstrated insufficiency earns promotion.
 
