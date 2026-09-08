@@ -263,10 +263,11 @@ function recordCorrelations(layout, directory, prefix) {
     layout = requireLayout(layout);
     directory = requireDirectory(directory, layout.root);
     return fs.readdirSync(directory, { withFileTypes: true })
-      .filter((entry) => entry.isFile())
       .map((entry) => {
         const match = new RegExp(`^${prefix}-([A-Za-z0-9_-]{1,80})\\.json$`).exec(entry.name);
-        return match?.[1];
+        if (!match) return undefined;
+        if (!entry.isFile()) throw new HabitatError("malformed retained state");
+        return match[1];
       })
       .filter(Boolean)
       .sort();
