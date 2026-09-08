@@ -14,6 +14,7 @@ This note records external, coding-focused projects as **separate implementation
 | [Radiant](https://github.com/templetongroup/radiant) | Local coding-agent harness | A session can be an operational boundary containing workspace, tools, activity, and human intervention rather than merely a transcript. |
 | [jcode](https://github.com/1jehuang/jcode) | Persistent multi-agent coding harness | Server-managed collaboration makes coordination, memory, sessions, clients, and shared-resource invalidation concrete boundaries to compare rather than abstract labels. |
 | [S³Gym](https://huggingface.co/papers/2608.31100) | Benchmark for agent self-improvement | Raw episodic history, extracted summary, and cognitive-substrate training are empirically distinct experience representations with task-dependent trade-offs. |
+| [Open Knowledge Format v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) | Portable knowledge interchange | A deliberately minimal Markdown/YAML bundle can carry portable concepts and optional provenance/trust signals without imposing runtime, retrieval, or epistemology. |
 
 ## Verified specimen observations
 
@@ -57,6 +58,14 @@ S³Gym evaluates self-testing, self-judging, and self-improvement across seven t
 
 **Not imported:** S³Gym's benchmark, games, scoring, summary format, parameter training, a `Store`/`Index`/`Oracle`/`Attention` ontology, or a self-improvement mechanism for M01.
 
+### Open Knowledge Format — portable knowledge artifacts
+
+[Open Knowledge Format (OKF) v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) defines an intentionally minimal knowledge bundle: a directory of Markdown concepts with YAML frontmatter, ordinary links, and only `type` required. Its optional fields carry sources/provenance, generation and independent verification records, lifecycle/freshness, and an `Attested Computation` contract. OKF explicitly does not prescribe a runtime, retrieval system, fixed taxonomy, or execution packaging; its attestation checks a particular receipt at runtime rather than making a bundle fact eternally true.
+
+**Useful pressure:** portable text artifacts can communicate a knowledge claim together with inspectable signals about origin, review, status, and sanctioned computation. This is a candidate interchange/materialization boundary—potentially a published knowledge membrane—not EM's knowledge model. In particular, OKF's advisory verification tiers should not be mistaken for EM belief, authority, access control, or a complete relation among observations and interpretations.
+
+**Not imported:** OKF as EM's native format, an `okf/` or `knowledge/` directory, its frontmatter vocabulary, its concept taxonomy, a verification policy, an attestation executor, or an M01 export/import feature. Current workshop Markdown records are not declared to be an OKF bundle.
+
 ## Candidate synthesis — deferred epistemic sequence
 
 Taken together, the specimens motivate a candidate distinction:
@@ -82,4 +91,5 @@ A later authorized embodiment could test a small part of this sequence only when
 - Consider an intervention/delegation boundary only when an explicit operation reaches a decision that belongs to a different actor or authority.
 - Compare M01 against jcode's server-managed coordination only if real use needs concurrent residents, child work, shared-resource invalidation, or a non-local client; preserve the distinction between an implementation's coordinator and an earned EM boundary.
 - Consider experience representation only when a later authorized use actually retains knowledge for future action; compare episodic detail and proposed generalization against a defined held-out task instead of assuming a summary is progress.
+- Consider an OKF export/import control only when a later authorized cross-machine workflow needs portable stabilized knowledge; require a receiving machine to consume the exported artifact without an EM-specific SDK and keep its resulting disposition separate from the artifact's advisory signals.
 - Any future work must state whether it is observing substrate facts, retaining interpretations, proposing stabilization, or accepting a durable change.
