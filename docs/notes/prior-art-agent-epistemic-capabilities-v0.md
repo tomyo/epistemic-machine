@@ -15,6 +15,7 @@ This note records external, coding-focused projects as **separate implementation
 | [jcode](https://github.com/1jehuang/jcode) | Persistent multi-agent coding harness | Server-managed collaboration makes coordination, memory, sessions, clients, and shared-resource invalidation concrete boundaries to compare rather than abstract labels. |
 | [S³Gym](https://huggingface.co/papers/2608.31100) | Benchmark for agent self-improvement | Raw episodic history, extracted summary, and cognitive-substrate training are empirically distinct experience representations with task-dependent trade-offs. |
 | [Open Knowledge Format v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) | Portable knowledge interchange | A deliberately minimal Markdown/YAML bundle can carry portable concepts and optional provenance/trust signals without imposing runtime, retrieval, or epistemology. |
+| [txiki.js](https://github.com/saghul/txiki.js) | Small JavaScript runtime | A portable implementation substrate can expose selected execution primitives without defining machine identity, authority, continuity, or ecology. |
 
 ## Verified specimen observations
 
@@ -66,6 +67,14 @@ S³Gym evaluates self-testing, self-judging, and self-improvement across seven t
 
 **Not imported:** OKF as EM's native format, an `okf/` or `knowledge/` directory, its frontmatter vocabulary, its concept taxonomy, a verification policy, an attestation executor, or an M01 export/import feature. Current workshop Markdown records are not declared to be an OKF bundle.
 
+### txiki.js — implementation substrate versus membrane
+
+[txiki.js](https://github.com/saghul/txiki.js) is a small JavaScript runtime built on QuickJS-ng and libuv. It exposes Web APIs, networking, filesystem and child-process I/O, SQLite/FFI, workers, and standalone executable compilation. Its native/runtime boundary is an implementation detail that could support a later machine implementation without making that runtime the machine.
+
+**Useful pressure:** distinguish a machine's declared capability membrane from the mechanism that realizes it. Runtime API selection can limit what an organism is handed; OS isolation remains the separately necessary enforcement layer for a real deny-network, filesystem, or process-execution guarantee. A standalone executable may package one implementation, but neither establishes machine identity nor carries its epistemic continuity by itself.
+
+**Not imported:** txiki.js, JavaScript as EM's language, a runtime membrane, a restricted build, an executable package, FFI/SQLite/network/process capabilities, or a substitute for Linux/container isolation. M01 does not select an implementation substrate.
+
 ## Candidate synthesis — deferred epistemic sequence
 
 Taken together, the specimens motivate a candidate distinction:
@@ -92,4 +101,5 @@ A later authorized embodiment could test a small part of this sequence only when
 - Compare M01 against jcode's server-managed coordination only if real use needs concurrent residents, child work, shared-resource invalidation, or a non-local client; preserve the distinction between an implementation's coordinator and an earned EM boundary.
 - Consider experience representation only when a later authorized use actually retains knowledge for future action; compare episodic detail and proposed generalization against a defined held-out task instead of assuming a summary is progress.
 - Consider an OKF export/import control only when a later authorized cross-machine workflow needs portable stabilized knowledge; require a receiving machine to consume the exported artifact without an EM-specific SDK and keep its resulting disposition separate from the artifact's advisory signals.
+- Consider a runtime substrate only when an authorized embodiment needs a portable executable or a realized capability policy; test its API-level limits independently from OS-level enforcement rather than presenting either as generic machine semantics.
 - Any future work must state whether it is observing substrate facts, retaining interpretations, proposing stabilization, or accepting a durable change.
