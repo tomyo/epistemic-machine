@@ -58,6 +58,12 @@ S03–S05 reveal recurring pressures, not an earned shared helper. They are reta
 
 The exploration exit criterion is now exercised through [`docs/notes/post-s05-specimen-synthesis-v0.md`](../notes/post-s05-specimen-synthesis-v0.md). No S06 is selected: no completed specimen exposed a new missing relationship, and another implementation-only variation would reproduce established boundaries. A future candidate requires materially new observed relationship or real machine-ecology workflow pressure; a candidate-boundary specification, if ever useful, remains a separately authorized experiment.
 
+#### Ideal next moves
+
+1. **Explicit human adoption decision:** adopt this candidate roadmap as the workshop coordination head, or leave it pending; either outcome authorizes no build.
+2. **Real workflow use:** use the current workshop and bounded evidence without adding a runtime or another specimen solely to create pressure; retain only observed friction that survives ordinary bug triage.
+3. **Later evidence review:** classify that friction against the post-S05 synthesis before proposing any future candidate. A proposal remains separate from authorization.
+
 ### Completed discriminator — Parallel Working Views and Explicit Selection
 
 **Entry condition:** S04 leaves the resource/revision distinction untested over change: its `v1` label is a fixture selector, not evidence that multiple material states and their relationship are reconstructible.

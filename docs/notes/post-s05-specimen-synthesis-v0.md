@@ -6,7 +6,19 @@
 
 This review exercises the exploration exit criterion in the [candidate incremental embodiment roadmap](../roadmaps/incremental-embodiment-roadmap-v0.md). It audits the completed evidence records—not a retrospective design conversation—to decide whether another specimen now tests a materially new relationship.
 
-**Disposition:** no such relationship is presently exposed. **No S06 is selected. No helper is promoted.** The current specimen branch pauses for synthesis rather than accumulating another variation. A future specimen needs a **materially new observed relationship** or **real machine-ecology workflow pressure**. A candidate-boundary specification, if warranted, is a separately authorized experiment rather than a consequence of this review.
+**Disposition:** no such relationship is presently exposed. **No S06 is selected. No helper is promoted.** The specimen branch remains paused rather than accumulating another variation. A future specimen needs a **materially new observed relationship** or **real machine-ecology workflow pressure**. A candidate-boundary specification, if warranted, is a separately authorized experiment rather than a consequence of this review.
+
+## Lightweight observation discipline
+
+Use the current workshop and completed specimen evidence without adding an observer service, log format, or runtime. Record only real-workflow friction that cannot first be explained as an ordinary implementation bug. A useful note says what occurred, the current realization involved, and the practical effect; then classify it after review:
+
+- **New boundary pressure** — a relationship not exercised by M00 or S03–S05 is required.
+- **Existing boundary insufficient** — a demonstrated distinction remains useful but its bounded realization cannot meet the observed need.
+- **Ordinary implementation deficiency** — a correct existing boundary has a local bug, lifecycle flaw, or missing straightforward behavior.
+- **Operator/workflow issue** — the friction is about practice, coordination, or cognition rather than a machine boundary.
+- **No actionable pressure** — the observation does not warrant a design response yet.
+
+An observation is evidence for review; it does not automatically create a specimen, authorize a build, or promote an abstraction.
 
 ## Evidence audit
 
