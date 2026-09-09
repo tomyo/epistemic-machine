@@ -90,6 +90,53 @@ Advice is offered to a receiving decision process and may be interpreted, accept
 
 Boundedness improves validation; it does not make a cognitive result epistemically neutral. A summary can distort, extraction can omit, and classification can impose an unsuitable category. The required epistemic treatment depends on how the result will subsequently be used, not merely on whether its output matches a declared shape.
 
+Delegation may allocate a bounded work responsibility under a relationship. It does not by itself transfer authority, the receiving machine's disposition responsibility, decision responsibility, or ownership of durable consequence. Any bounded execution discretion must be explicitly specified. The delegation should make an eventual result or error attributable to that bounded responsibility.
+
+## Delegation, continuation, and attention
+
+This continuation of the conversation distinguishes three prospective relationships:
+
+| Concept | Question |
+|---|---|
+| Delegation | Who is responsible for producing this bounded result? |
+| Continuation | What remains to be considered or done when that result or error arrives? |
+| Attention | What currently warrants active orientation? |
+
+Delegation may leave a reconstructible, persistent continuation while no operator process remains active. More than one delegated responsibility may remain outstanding, and attention may shift among them or toward an interruption; shifting attention does not cancel any delegation. Attention therefore does not allocate provider capacity, dispatch work, imply cancellation, or keep a machine alive; it identifies which persisted possibilities or responsibilities may currently warrant activation.
+
+The programming-function and OS-blocking analogies make one possible temporal separation legible:
+
+```text
+active work → delegate or request → waiting
+                                  ↓
+                         result or error arrives
+                                  ↓
+                    continuation may be relevant
+                                  ↓
+                    explicit activation decision
+                                  ↓
+                         reconstructed work
+```
+
+These are possible reconstructed states, not automatic transitions caused by delivery or attention. The analogies do not establish a call stack, process table, scheduler, or continuation runtime. Existing evidence supports retained work records that a later operator can reconstruct, not a universal claim that every dormant machine is a suspended process. **Dormancy** remains a developmental interpretation: a responsibility may persist while its current work context has no runnable action. An explicit activation decision may instantiate execution when work is judged relevant; cognition is used only where the active work requires it. Neither allocation is yet an implemented policy.
+
+## Cognition as a mediated relationship
+
+An ecology might mediate access to an attributed cognitive contributor without making cognition an intrinsic brain of every machine:
+
+```text
+machine or operator → bounded cognition demand → mediated contributor
+                   ← attributed result ──────────┘
+```
+
+This is a candidate resource relationship, not a claim that cognition providers are interchangeable resources. A local model, remote model, human, tool, or another machine can differ in quality, latency, cost, availability, privacy, context needs, provenance, and failure behavior. Capability to contribute cognition does not confer authority to decide. Authority remains relational and scope-specific rather than a scalar provider property.
+
+Attention and resource mediation answer different questions. Attention concerns relevance to a persisted work context; mediation concerns whether and how an eligible contributor or other resource is selected and made available. Provider availability may constrain when a request can progress, but does not imply priority, permission, attention, delivery, execution, acceptance, or an obligation to complete it. Any resulting ecological tempo remains an observation to test, not a scheduling objective.
+
+A file-like request/result realization is one possible way to preserve the epistemic and temporal boundary. When reconstruction requires it, retained material could correlate a request, context references, attributed provider, result, receiving disposition, and continuation. This would let a provider remain operationally stateless and let a later operator inspect what was requested and how the result was used.
+
+The analogy does not mean that cognition is literally a file or that “everything is a file.” Communication and durable state remain distinct: a transient occurrence may refer to durable material, while a retained request/result may represent communication without becoming a live channel. No directory layout, universal cognition schema, typed endpoint set, VFS, provider resolver, or provider registry is selected.
+
 ## Responsibility without premature allocation
 
 The effective actor in a concrete episode may be a composite of:
@@ -134,6 +181,12 @@ Repetition or apparent success does not itself authorize proceduralization. A cr
 | An operator relationship may carry persistent responsibility and be embodied by a machine. | Developmental hypothesis | Retained | A persistent operator must reconstruct and continue how another machine's responsibility is controlled. |
 | Delegated cognition is attributed input by default; receipt, acceptance, and decision remain distinct. | Developmental candidate invariant | Retained prominently | A real cognitive contribution affects a decision and the receiving boundary must reconstruct its disposition. |
 | Advice and bounded cognitive work have different interaction semantics. | Developmental hypothesis | Retained | A workflow must distinguish contribution to judgment from delivery of a contract-shaped result. |
+| Delegation, continuation, and attention answer different questions. | Developmental hypothesis | Retained | A delegated responsibility may remain outstanding while attention shifts; later use must show what continuation material is necessary. |
+| A suspended work context may remain reconstructible after its operator process ends. | Extension of durable-session lineage | Retained as a question | A real workflow must resume bounded work after an inactive interval without reconstructing a live call stack. |
+| Attention identifies possible relevance for activation rather than allocating resources. | Developmental refinement | Retained | A workflow has both pending responsibility and constrained providers and must keep relevance separate from dispatch. |
+| An ecology may mediate access to attributed cognitive contributors. | Developmental hypothesis | Retained | A machine needs cognition without binding its responsibility to one provider realization. |
+| Provider conditions may constrain progress without implying attention or authority. | Developmental hypothesis | Retained | Real contributors differ materially in availability, provenance, privacy, quality, latency, cost, and scope. |
+| Correlated cognitive request/result material may support reconstruction. | Developmental refinement | Retained; schema deferred | A later operator cannot reconstruct what was asked, returned, accepted, or resumed from ordinary result material. |
 | Provenance lineage can separate observation, advice, interpretation, decision, action, and outcome. | Developmental hypothesis | Retained | Failure diagnosis or learning cannot be reconstructed from an undifferentiated transcript or result. |
 | A composite organism is the architectural actor. | Conversation intuition | Unresolved | A specimen shows that existing machine, operator, and responsibility boundaries cannot intelligibly assign action or consequence. |
 | Consequential cognitive transitions are useful reflection points. | Developmental hypothesis | Deferred | Real use retains an advice-to-decision episode whose outcome can be reviewed. |
@@ -142,7 +195,7 @@ Repetition or apparent success does not itself authorize proceduralization. A cr
 
 ## Explicit non-decisions
 
-This lineage does not select or authorize intrinsic role classes, a role registry, generic delegation, operator identity, an authority system, capability vocabulary, event taxonomy, provenance schema, responsibility graph, reputation model, tutor agent, autonomous reflection, cognition-to-procedure compiler, or Server Fleet implementation.
+This lineage does not select or authorize intrinsic role classes, a role registry, generic delegation, operator identity, an authority system, capability vocabulary, event taxonomy, provenance schema, responsibility graph, reputation model, tutor agent, autonomous reflection, cognition-to-procedure compiler, continuation runtime, scheduler, cognition daemon, provider/resource registry, provider resolver, universal cognition-record schema, typed cognition endpoints, VFS, or Server Fleet implementation.
 
 Ship, pilot, captain, and crew remain explanatory metaphors rather than architecture vocabulary. “Organism” remains an unresolved way of describing composite action, not a new layer or component.
 
@@ -162,4 +215,4 @@ The test should determine which distinctions survive use before promoting any sh
 
 ## Provenance
 
-This note is a curated representation of a human-provided design conversation and its subsequent review. The review explicitly strengthened persistent operator responsibility, elevated attributed cognition as the central candidate invariant, retained advice versus bounded cognitive work, and left composite-organism allocation unresolved. The material was approved for catalogue inclusion while remaining outside current architecture, roadmap, and implementation authority.
+This note is a curated representation of a human-provided design conversation, its subsequent review, and a continuation concerning delegation, attention, suspended work, and mediated cognition. The review explicitly strengthened persistent operator responsibility, elevated attributed cognition as the central candidate invariant, retained advice versus bounded cognitive work, and left composite-organism allocation unresolved. The continuation further separated delegation, continuation, attention, activation, cognition, persistence, and provider mediation while retaining its function-call, OS, and file-like descriptions only as explanatory analogies. The material was approved for catalogue inclusion while remaining outside current architecture, roadmap, and implementation authority.
