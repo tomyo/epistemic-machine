@@ -15,6 +15,7 @@ A lineage record is neither a transcript archive nor architecture by declaration
 | Embodiment conversation 1 | Which embodiment proposals are captured, deferred, or superseded by the current Habitat-0 direction? | [`embodiment-conversation-1-curation-v0.md`](embodiment-conversation-1-curation-v0.md) |
 | Distributed revisions and reachability | Which future pressures distinguish resource revision, grouped consequence, durable material, communication, identity, authority, and reachability? | [`distributed-revisions-and-reachability-curation-v0.md`](distributed-revisions-and-reachability-curation-v0.md) |
 | External agent/epistemic specimens | Which separations among session operation, substrate observation, learned judgment, feedback-coupled structure, and reflective stabilization are worth carrying forward as questions? | [`prior-art-agent-epistemic-capabilities-v0.md`](prior-art-agent-epistemic-capabilities-v0.md) |
+| Roles, cognition, and responsibility | Can relational operator, worker, and cognitor roles preserve attributed cognition, decision responsibility, and reflective lineage without becoming intrinsic machine classes? | [`roles-cognition-and-responsibility-lineage-v0.md`](roles-cognition-and-responsibility-lineage-v0.md) |
 
 ## Using this catalogue
 
