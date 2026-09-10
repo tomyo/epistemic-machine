@@ -16,6 +16,7 @@ A lineage record is neither a transcript archive nor architecture by declaration
 | Distributed revisions and reachability | Which future pressures distinguish resource revision, grouped consequence, durable material, communication, identity, authority, and reachability? | [`distributed-revisions-and-reachability-curation-v0.md`](distributed-revisions-and-reachability-curation-v0.md) |
 | External agent/epistemic specimens | Which separations among session operation, substrate observation, learned judgment, feedback-coupled structure, and reflective stabilization are worth carrying forward as questions? | [`prior-art-agent-epistemic-capabilities-v0.md`](prior-art-agent-epistemic-capabilities-v0.md) |
 | Roles, cognition, and responsibility | Can relational operator, worker, and cognitor roles preserve attributed cognition, decision responsibility, and reflective lineage without becoming intrinsic machine classes? | [`roles-cognition-and-responsibility-lineage-v0.md`](roles-cognition-and-responsibility-lineage-v0.md) |
+| Situated activation and relational memory | Can an ongoing responsibility be activated with staleable ecological context and responsibility-relative retained knowledge without collapsing perception, relevance, authority, or memory into truth? | [`situated-activation-and-relational-memory-lineage-v0.md`](situated-activation-and-relational-memory-lineage-v0.md) |
 
 ## Using this catalogue
 
